@@ -64,9 +64,7 @@
     <sep/>
     <tool lib="1" name="NOT Gate"/>
     <tool lib="1" name="AND Gate"/>
-    <tool lib="1" name="OR Gate">
-      <a name="facing" val="north"/>
-    </tool>
+    <tool lib="1" name="OR Gate"/>
     <tool lib="1" name="XOR Gate"/>
     <tool lib="1" name="NAND Gate"/>
     <tool lib="1" name="NOR Gate"/>
@@ -1342,6 +1340,12 @@
     <wire from="(610,820)" to="(610,900)"/>
     <wire from="(610,900)" to="(610,980)"/>
   </circuit>
+  <circuit name="souvenir3">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="souvenir3"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+  </circuit>
   <circuit name="test">
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="test"/>
@@ -1512,13 +1516,13 @@
       <a name="select" val="3"/>
       <a name="width" val="4"/>
     </comp>
-    <comp lib="8" loc="(384,400)" name="Text">
+    <comp lib="8" loc="(380,400)" name="Text">
       <a name="text" val="Ajoutant - 00"/>
     </comp>
-    <comp lib="8" loc="(389,415)" name="Text">
+    <comp lib="8" loc="(385,415)" name="Text">
       <a name="text" val="Subtracteur - 01"/>
     </comp>
-    <comp lib="8" loc="(391,432)" name="Text">
+    <comp lib="8" loc="(390,430)" name="Text">
       <a name="text" val="OR Logique - 02"/>
     </comp>
     <comp lib="8" loc="(665,310)" name="Text">
@@ -1593,5 +1597,63 @@
     <a name="circuit" val="PC"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(450,620)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="FINI"/>
+    </comp>
+    <comp lib="0" loc="(450,660)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="COMMENCER"/>
+    </comp>
+    <comp lib="0" loc="(510,490)" name="Power"/>
+    <comp lib="0" loc="(510,590)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="INCREM"/>
+    </comp>
+    <comp lib="1" loc="(500,640)" name="OR Gate"/>
+    <comp lib="4" loc="(440,510)" name="D Flip-Flop">
+      <a name="appearance" val="logisim_evolution"/>
+    </comp>
+    <comp lib="4" loc="(520,510)" name="J-K Flip-Flop">
+      <a name="appearance" val="logisim_evolution"/>
+    </comp>
+    <comp lib="4" loc="(530,630)" name="T Flip-Flop">
+      <a name="appearance" val="logisim_evolution"/>
+    </comp>
+    <comp lib="4" loc="(600,510)" name="J-K Flip-Flop">
+      <a name="appearance" val="logisim_evolution"/>
+    </comp>
+    <comp lib="4" loc="(680,510)" name="J-K Flip-Flop">
+      <a name="appearance" val="logisim_evolution"/>
+    </comp>
+    <comp lib="4" loc="(760,510)" name="J-K Flip-Flop">
+      <a name="appearance" val="logisim_evolution"/>
+    </comp>
+    <wire from="(420,480)" to="(420,520)"/>
+    <wire from="(420,520)" to="(430,520)"/>
+    <wire from="(490,520)" to="(500,520)"/>
+    <wire from="(500,520)" to="(500,540)"/>
+    <wire from="(500,540)" to="(510,540)"/>
+    <wire from="(510,490)" to="(510,520)"/>
+    <wire from="(510,490)" to="(590,490)"/>
+    <wire from="(510,560)" to="(510,590)"/>
+    <wire from="(570,520)" to="(580,520)"/>
+    <wire from="(580,520)" to="(580,560)"/>
+    <wire from="(580,560)" to="(590,560)"/>
+    <wire from="(590,490)" to="(590,520)"/>
+    <wire from="(590,490)" to="(670,490)"/>
+    <wire from="(590,520)" to="(590,540)"/>
+    <wire from="(650,520)" to="(660,520)"/>
+    <wire from="(660,520)" to="(660,560)"/>
+    <wire from="(660,560)" to="(670,560)"/>
+    <wire from="(670,490)" to="(670,520)"/>
+    <wire from="(670,490)" to="(750,490)"/>
+    <wire from="(670,520)" to="(670,540)"/>
+    <wire from="(730,520)" to="(740,520)"/>
+    <wire from="(740,520)" to="(740,560)"/>
+    <wire from="(740,560)" to="(750,560)"/>
+    <wire from="(750,490)" to="(750,520)"/>
+    <wire from="(750,520)" to="(750,540)"/>
+    <wire from="(810,470)" to="(810,520)"/>
   </circuit>
 </project>

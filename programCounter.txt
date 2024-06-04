@@ -1,0 +1,25 @@
+programme counter
+
+4-bits -> 256 instructions qui sont possibles 
+
+l'architecture de mémoire:
+
+
+
+un registre programCounter avec 0000 possible values
+    commencer un commat, jusqu'à un FINI du status registre
+
+
+4 bit counter??
+
+
+
+instructions:
+
+    add r1, r2
+    000     0000      0000      
+    op code operand 1 operand 2
+
+    
+
+
