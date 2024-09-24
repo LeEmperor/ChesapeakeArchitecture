@@ -1,0 +1,80 @@
+todo list:
+
+
+
+1. write logic simulator
+    - functioality for pure combinational logic
+    - functionality for memory based items
+
+    - progression classification
+    - component forming
+    - reading input/output files/testcases
+
+    - be able to run with locally written programs defined using specific functions
+
+
+2. dig through Xerces for .circ file importing
+    - write .circ file importer
+    - figure out how compile flags work so that it (the exe) can be run on the .circ file
+
+    - integrate this into the logic simulator
+    - timing diagram garbage
+
+
+
+
+
+    
+feature list:
+    general todo:
+        terminer le controller
+        
+
+
+    controller features:
+        (main peices)
+        ALU
+        instruction processing
+        inter-controller registre verifier
+        memory controller
+        program counter
+            -> stack pointer
+        
+        (spare inclusions) 
+        queue mémoire/système
+        heap mémoire
+    
+    extra features:
+        (basic systèmes)
+        derived instruction handler
+        scheduler (w/ priorité systèmes)
+        interrupt handler
+        event handler
+        signed logique systèmes
+
+        (hard features)
+        cache système 
+        mémoire importanc eclassifier -> le plus d'importance = la vitesse qu'on a besoin du mémoire respetif
+        thread handler
+        jump branch predicteur
+        scheduler (w/ priorité systèmes)
+        floating point habilités
+
+        context manager??
+        basique RTOS
+        full OS
+
+    interfaceable stuff (les peripheres):
+        gpio système
+        data transmission protocols
+        timer système manager
+        timer upscaler/descaler
+        EBI
+        DMA
+        ADC
+        DAC
+
+        
+
+
+

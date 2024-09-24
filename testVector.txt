@@ -1,0 +1,9 @@
+A[1] B[1] C[1]
+0 0 0
+
+# comment line
+# source alias
+# 'java -jar /Program Files/logisim-evolution/logisim-evolution.exe'
+
+# 'java -jar .\LE.jar -w '
+

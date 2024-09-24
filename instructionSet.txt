@@ -1,0 +1,131 @@
+
+
+
+templating:
+    Reg_Reg Instruction:
+        [15:12] = INSTR_ID
+        [11:10] = *REG_X
+        [9:8] = *REG_Y
+        [7:6] = *REG_Z
+        [5:0] = RESERVÉ
+
+    
+    Reg_Addr Instruction:
+        [15:12] = INSTR_ID
+        [11:10] = *REG_X
+        [9:8] = RESERVÉ
+        [7:0] = *Mémoire
+
+    Reg_Immediate Instruction:
+        [15:12] = INSTR_ID
+        [11:10] = *REG_X
+        d'être terminé 
+
+        
+    note: * refers to the address of an object/concept
+    note: & fait reference de ce qu'est à l'adresse qui est definé pour le variable:
+        
+    
+
+
+Reg_Reg Instructions:
+    Mémoire Manipulation: (0100)
+        STORE - à mémoire de REG_X
+            abbrev: ST
+            description: mettre le truc dans $REG_X à l'adresse 
+            syntax: ST $REG_X, *Mémoire
+            flags: NONE
+
+        STORE_INDIRECT
+            abbrev: 
+            description: 
+            syntax: 
+            flags: 
+
+        LOAD    
+            abbrev: 
+            description: 
+            syntax: 
+            flags: - de mémoire à REG_X
+
+        LOAD_IMMEDIATE - d'immediate à REG_X
+            abbrev: 
+            description: syntax: 
+            flags: 
+
+    Operateurs: (1000)
+        ADD - ajouter X + Y
+            abbrev: ADD
+            description: écrire 
+            syntax: 
+            flags: 
+
+        INCREMENT
+            abbrev: 
+            description: 
+            syntax: 
+            flags: 
+
+        DECREMENT
+            abbrev: 
+            description: 
+            syntax: 
+            flags: 
+
+        NOT 
+            abbrev: NOT
+            description: 
+            syntax: NOT $REG_X
+            flags: NONE
+
+        OR
+            abbrev: 
+            description: 
+            syntax: 
+            flags: NONE
+
+        OR_IMMEDIATE
+            abbrev: 
+            description: 
+            syntax: 
+            flags: NONE
+
+        AND
+            abbrev: AND
+            description: logique AND $REG_X avec un immediate
+            syntax: AND $REG_X, $REG_Y, $REG_OUT
+
+        AND_IMMEDAITE
+            abbrev: ANDI
+            description: logique AND $REG_X avec un immediate
+            syntax: ANDI $REG_X, immediate, $REG_OUT
+            flags: INEQUALITÉS 
+
+        COMPARE
+            abbrev: CP
+            description: comparer $REG_X avec $REG_Y
+            syntax: CP $REG_X, $REG_Y
+            flags: 
+
+        COMPARE_IMMEDIATE
+            abbrev: CPI
+            description: comparer $REG_X avec un immediate
+            syntax: CPI $REG_X, immediate
+
+        COMPARE_BIT:
+            abbrev: CPB
+            description: comparer bit Z entre $REG_X et $REG_Y
+            syntax: CPB $REG_X, $REG_Y, bit Z (0 indexé)
+            flags: EQ, NEQ
+
+        COMPARE_BIT_IMMEDAITE:
+            abbrev: CPBI
+            description: comparer bit Z entre $REG_X avec l'immediate
+            syntax: CPBI $REG_X, immediate, bit Z
+            flags: EQ, NEQ
+
+                
+
+    
+    
+    
