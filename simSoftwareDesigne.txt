@@ -1,8 +1,0 @@
-software outligne:
-    - pour les timing diagramme simulations
-    -ear
-
-
-    - importe les programmes de LOGISIM
-
-
