@@ -1,12 +1,12 @@
 // Bohdan Purtell
 `timescale 1 ns / 1 ps
 
-module controller(
+module controller_v1 (
     input logic clk, rst, 
     input logic in1,
     output logic [1:0] out1,
     output logic [7:0] next_state_error_vector,
-    output logic [7:0] moore_map_error_vector,
+    output logic [7:0] moore_map_error_vector
 );
 
     (* fsm_encoding = "one-hot" *)
@@ -16,7 +16,7 @@ module controller(
         FETCH       = 5'd2,
         DECODE      = 5'd3, 
         EXECUTE     = 5'd4,
-        WRITEBACK   = 5'd5,
+        WRITEBACK   = 5'd5
     } state;
 
     state current_state;
