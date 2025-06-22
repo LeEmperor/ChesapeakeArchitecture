@@ -1,11 +1,22 @@
-# do ../build_scripts/sim_script.do
-# vsim -t 1ps -L work -voptargs=""+acc"" testbench_ALU_v1" 
-# Start time: 02:12:05 on Jun 22,2025
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
-# ** Error: (vopt-11) Could not find work.testbench_ALU_v1".
-# Optimization failed
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
-# Error loading design
-# End time: 02:12:06 on Jun 22,2025, Elapsed time: 0:00:01
-# Errors: 1, Warnings: 1
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2024.3 win64 Sep 10 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# vsim.wlf opened as dataset "vsim"
+# do ../build_scripts/view_script.do
+# vsim.wlf opened as dataset "vsim1"
+# add wave *
+#  wave zoom full
+# {0 ps} {57750 ps}
+#  view objects
+# .main_pane.objects.interior.cs.body.tree

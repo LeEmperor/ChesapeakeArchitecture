@@ -1,0 +1,1 @@
+D:/questa_install/questa_fse/win64/VisualizerRls/bin/viscom.exe -nolock -quiet -jmem_size 393216 work.testbench_ALU_v1 -quiet -auto_acc_if_foreign -work work -L work +acc -allow_unnamed -o _opt3 -id 1-24ee9a5f9e98-6857a39e-250-4a10 +__betafsm

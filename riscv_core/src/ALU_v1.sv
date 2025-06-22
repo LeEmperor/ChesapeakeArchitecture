@@ -6,7 +6,7 @@
 // Revision: 0, as of June 5th, 2025
 // Verified Functional as of June 5th, 2025
     
-module alu_v1(
+module ALU_v1 (
     input [31:0] a,
     input [31:0] b,
     input [3:0] op_code,

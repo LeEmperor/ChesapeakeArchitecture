@@ -9,5 +9,6 @@ alias vsim="$linux_QUESTA_DIR/questa_fse/win64/vsim.exe"
 # build aliases
 alias comp="vsim -c -do \"do ../build_scripts/main_compile.do\""
 alias run_sim="vsim -c -do \"do ../build_scripts/sim_script.do\""
+alias view_results="vsim -view vsim.wlf -do \"do ../build_scripts/view_script.do\""
 
 
