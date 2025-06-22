@@ -1,13 +1,13 @@
 # executables
-alias vlib="/mnt/c/altera/24.1std/questa_fse/win64/vlib.exe"
-alias vcom="/mnt/c/altera/24.1std/questa_fse/win64/vcom.exe"
-alias vsim="/mnt/c/altera/24.1std/questa_fse/win64/vsim.exe"
-alias vlog="/mnt/c/altera/24.1std/questa_fse/win64/vlog.exe"
-alias vmap="/mnt/c/altera/24.1std/questa_fse/win64/vmap.exe"
+linux_QUESTA_DIR="/mnt/d/questa_install"
+alias vlib="$linux_QUESTA_DIR/questa_fse/win64/vlib.exe"
+alias vcom="$linux_QUESTA_DIR/questa_fse/win64/vcom.exe"
+alias vlog="$linux_QUESTA_DIR/questa_fse/win64/vlog.exe"
+alias vmap="$linux_QUESTA_DIR/questa_fse/win64/vmap.exe"
+alias vsim="$linux_QUESTA_DIR/questa_fse/win64/vsim.exe"
 
 # build aliases
-windows_PROJECT_ROOT="C:/FPGA_stuff/ChesapeakeArchitecture"
-alias design_comp="vsim -c -do \"do $windows_PROJECT_ROOT/riscv_core/questa_proj/design_compile.do\""
-
+alias comp="vsim -c -do \"do ../build_scripts/main_compile.do\""
+alias run_sim="vsim -c -do \"do ../build_scripts/sim_script.do\""
 
 

@@ -1,0 +1,11 @@
+# do ../build_scripts/sim_script.do
+# vsim -t 1ps -L work -voptargs=""+acc"" testbench_ALU_v1" 
+# Start time: 02:12:05 on Jun 22,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# ** Error: (vopt-11) Could not find work.testbench_ALU_v1".
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# End time: 02:12:06 on Jun 22,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 1

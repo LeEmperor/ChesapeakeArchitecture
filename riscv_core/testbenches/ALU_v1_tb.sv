@@ -6,7 +6,7 @@
 // Revision: 0, as of June 5th, 2025
 // Verified Functional as of June 5th, 2025
 
-module testbench_alu_v1;
+module testbench_ALU_v1;
     // Inputs to DUT
     logic  [31:0] t_a, t_b;
     logic   [3:0] t_op_code;
@@ -18,7 +18,7 @@ module testbench_alu_v1;
     wire   [7:0] t_error_vector;
 
     // Instantiate the ALU under test
-    alu_v1 dut (
+    ALU_v1 dut (
         .a            (t_a),
         .b            (t_b),
         .op_code      (t_op_code),
