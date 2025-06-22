@@ -17,8 +17,15 @@ module toplevel_v1 (
     controller_v1 controller1 (
         .clk(clk),
         .rst(rst),
-        .in1(),
-        .out1(),
+
+        .funct7(),
+        .opcode(),
+        .alu_src_a(),
+        .alu_src_b(),
+
+        .current_state_vector(),
+        .next_state_vector(),
+
         .next_state_error_vector(),
         .moore_map_error_vector()
     );

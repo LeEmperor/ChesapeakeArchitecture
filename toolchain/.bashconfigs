@@ -1,8 +1,21 @@
 FPGA() {
     echo "WELCOME TO FPGA DESIGN SUITE!"
 
-    alias design_comp="vsim -c -do \"vlog -reportprogress 300 -sv -work work \"+incdir+C:/FPGA_stuff/test_project_1/src\" C:/FPGA_stuff/test_project_1/src/code_ALU_v1.sv; quit\""
+    local linux_PROJECT_ROOT="/mnt/c/FPGA_stuff/ChesapeakeArchitecture"
+    local windows_PROJECT_ROOT="C:/FPGA_stuff/ChesapeakeArchitecture"
+
+    local linux_SRC_DIRECTORY="/mnt/c/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src"
+    local windows_SRC_DIRECTORY="C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src"
+
+    local linux_TEST_DIRECTORY="/mnt/c/FPGA_stuff/ChesapeakeArchitecture/riscv_core/testbenches"
+    local windows_TEST_DIRECTORY="C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/testbenches"
+
+    # alias design_comp="vsim -c -do \"vlog -reportprogress 300 -sv -work work \"+incdir+C:/FPGA_stuff/test_project_1/src\" C:/FPGA_stuff/test_project_1/src/code_ALU_v1.sv; quit\""
         # compile design files
+
+    # alias design_comp="vsim -c -do \"vlog -reportprogress 300 -sv -work work \"+incdir+$windows_SRC_DIRECTORY\" C:/FPGA_stuff/test_project_1/src/code_ALU_v1.sv; quit\""
+
+    alias design_comp="vism -c -do \"do $windows_PROJECT_ROOT/questa_proj/design_compile.do\"
 
     alias tb_comp="vsim -c -do \"vlog -reportprogress 300 -sv -work work \"+incdir+C:/FPGA_stuff/test_project_1/testbenches\" C:/FPGA_stuff/test_project_1/testbenches/testbench_ALU_v1.sv; quit\""
         # compile testbenches
@@ -22,7 +35,7 @@ FPGA() {
     alias f="c && s && vr" # compile, simulate, view
         # compile design, testbenches, simulate, and view results
 
-    # alias design_comp="vsim -c -do \"vlog -reportprogress 300 -sv -work work \"+incdir+C:/FPGA_stuff/test_project_1/src\"; do C:/FPGA_stuff/test_project_1/questa_proj4/compile_script.do; quit\""
+    # # alias design_comp="vsim -c -do \"vlog -reportprogress 300 -sv -work work \"+incdir+C:/FPGA_stuff/test_project_1/src\"; do C:/FPGA_stuff/test_project_1/questa_proj4/compile_script.do; quit\""
 
     # fast full view
     # open batch questa
