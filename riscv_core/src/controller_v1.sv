@@ -6,6 +6,7 @@ module controller_v1 (
     input logic clk, rst, 
 
     input logic [5:0] funct7,
+    input logic [14:12] funct3,
     input logic [6:0] opcode,
     output logic [1:0] alu_src_a,
     output logic [1:0] alu_src_b,
@@ -13,6 +14,9 @@ module controller_v1 (
     output logic [1:0] current_state_vector,
     output logic [1:0] next_state_vector,
     output logic [7:0] next_state_error_vector,
+        // d2 = failed decode stage on funct7 field
+        // d3 = failed decode stage on funct3 field
+        // d4 = failed decode stage on opcode field
     output logic [7:0] moore_map_error_vector
 );
 
@@ -55,17 +59,64 @@ module controller_v1 (
             end
 
             IDLE : begin
-                // next_state = (in1) ? compute : idle;
                 next_state <= FETCH;
             end
 
             FETCH : begin
-                // next_state = (in1) ? compute : done; 
                 next_state <= DECODE;
             end
 
             DECODE : begin
-                // next_state = (in1) ? done : idle;
+                case (opcode) // class code
+
+                    // special types
+                    7'b01101_11 : begin // lui (load upper immediate)
+
+                    end
+
+                    7'b00101_11 : begin // auipc (add upper immediate to pc)
+
+                    end
+
+                    7'b11011_11 : begin // jal 
+
+                    end
+
+                    7'b11001_11 : begin // jalr
+
+                    end
+
+                    7'b00011_11 : begin // fence-types
+
+                    end
+
+                    7'b11100_11 : begin // ecall/ebreak
+
+                    end
+
+
+                    // class types
+                    7'b00100_11 : begin // i-types
+
+                    end
+
+                    7'b01100_11 : begin // r-types
+
+                    end
+
+                    7'b11000_11 : begin // b-types
+
+                    end
+
+                    7'b00000_11 : begin // load-types
+
+                    end
+
+                    default : begin
+                        next_state_error_vector <= 8'd4;
+                    end
+                endcase
+
                 next_state <= EXECUTE;
             end
 

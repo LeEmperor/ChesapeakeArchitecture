@@ -128,4 +128,11 @@ Reg_Reg Instructions:
 
     
     
-    
+
+
+instruction decoding
+    on peut faire le décision de funct3, et l'opcode
+
+
+
+

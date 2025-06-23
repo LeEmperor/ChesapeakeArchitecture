@@ -180,7 +180,7 @@ module testbench_ALU_v1;
         end
 
         $display("All %0d ALU tests completed.", NUM_TESTS);
-        $finish;
+        // $finish;
     end
 endmodule
 
