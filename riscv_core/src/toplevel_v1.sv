@@ -30,6 +30,22 @@ module toplevel_v1 (
         .moore_map_error_vector()
     );
 
+    register_file_v1 register_file1 (
+        .clk(clk),
+        .rst(rst),
+
+        .reg_addr1(),
+        .reg_addr2(),
+        .wr_data1(),
+        .wr_data2(),
+        .rdwr_config(),
+        .link_reg(),
+
+        .outdata1(),
+        .outdata2(),
+        .reg_file_error_vector()
+    );
+
 
 endmodule
 

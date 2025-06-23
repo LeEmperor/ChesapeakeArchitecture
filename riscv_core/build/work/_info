@@ -5,6 +5,76 @@ Z0 !s12c _opt3
 Z1 !s99 nomlopt
 R0
 R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
 !s11f vlog 2024.3 2024.09, Sep 10 2024
 13
 !s112 1.1
@@ -14,10 +84,10 @@ R1
 cModel Technology
 Z2 dC:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/build
 T_opt3
-!s110 1750625024
-VdlJ::]EPe;IEcU=AAg2YS3
-04 16 4 work testbench_ALU_v1 fast 0
-=1-24ee9a5f9e98-68586afe-360-6074
+!s110 1750693980
+VkVZV2lR1TXZ`FdIIK8F^Z1
+04 25 4 work testbench_registerFile_v1 fast 0
+=1-24ee9a5f9e98-6859785b-312-7594
 R1
 !s12f OEM100
 !s12b OEM100
@@ -29,7 +99,7 @@ n@_opt3
 OL;O;2024.3;79
 R2
 vALU_v1
-Z4 2../src/mux2_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/toplevel_v1.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv
+Z4 2../src/mux2_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/toplevel_v1.sv|../src/register_v1.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv
 !s10a 1750574041
 Z5 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
 !s110 1750573978
@@ -56,16 +126,16 @@ Z13 o-sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R3
 n@a@l@u_v1
 valu_v1
-R4
-Z14 !s10a 1750557540
+Z14 2../src/mux2_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/toplevel_v1.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv
+Z15 !s10a 1750557540
 R5
-Z15 !s110 1750572424
+Z16 !s110 1750572424
 !i10b 1
 !s100 IX:0`iQ3EfGbhkSkcUj1G0
 I=e3o[j_L?nkb;kRkKaGA42
 S1
 R2
-Z16 w1750557540
+Z17 w1750557540
 R6
 R7
 !i122 0
@@ -75,7 +145,7 @@ R10
 r1
 !s85 0
 31
-Z17 !s108 1750572424.000000
+Z18 !s108 1750572424.000000
 R11
 R12
 !i113 0
@@ -83,24 +153,25 @@ R13
 R3
 vcontroller_v1
 R4
+!s10a 1750672236
 R5
-!s110 1750655647
+!s110 1750660662
 !i10b 1
-!s100 UWW^SL115ZTYeBE[LD`3G2
-Ij=F;HVHIf]4DPgjlmz@]R3
+!s100 GmXMi5;fdf[R50YOeCd=E0
+Ih89f535oVm8O^XAQ73I6U3
 S1
 R2
-w1750655635
+w1750660660
 8../src/controller_v1.sv
 F../src/controller_v1.sv
-!i122 4
-L0 4 170
+!i122 6
+L0 4 192
 R9
 R10
 r1
 !s85 0
 31
-!s108 1750655646.000000
+!s108 1750660662.000000
 R11
 R12
 !i113 0
@@ -108,15 +179,15 @@ R13
 R3
 vmux2
 R4
-R14
-R5
 R15
+R5
+R16
 !i10b 1
 !s100 KM[nAgORV6ZR<I09V:j9Q1
 IIc4X4=LSz33e6B>JTj3YS3
 S1
 R2
-R16
+R17
 8../src/mux2_v1.sv
 F../src/mux2_v1.sv
 !i122 0
@@ -126,7 +197,7 @@ R10
 r1
 !s85 0
 31
-R17
+R18
 R11
 R12
 !i113 0
@@ -134,51 +205,77 @@ R13
 R3
 vregister_file_v1
 R4
-R14
+!s10a 1750690303
 R5
-R15
+!s110 1750690338
 !i10b 1
-!s100 V7QLU=neQ3:gOB:JaaYOE3
-IZ[MDH2>TnX8dU66z8lQTR3
+!s100 ;dUT1ShMG239FH=f@8Dm41
+IDGeJRdNd9<XMHon6dd6402
 S1
 R2
-R16
+w1750690303
 8../src/registerFile_v1.sv
 F../src/registerFile_v1.sv
-!i122 0
-L0 5 55
+!i122 37
+L0 6 53
 R9
 R10
 r1
 !s85 0
 31
-R17
-R11
-R12
+!s108 1750690338.000000
+Z19 !s107 ../testbenches/registerFile_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../src/register_v1.sv|../src/toplevel_v1.sv|../src/registerFile_v1.sv|../src/controller_v1.sv|../src/ALU_v1.sv|../src/mux2_v1.sv|
+!s90 -reportprogress|300|-sv|-incr|../src/mux2_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/toplevel_v1.sv|../src/register_v1.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|
+!i113 0
+R13
+R3
+vregister_v1
+R4
+!s10a 1750672245
+R5
+!s110 1750661770
+!i10b 1
+!s100 PB0mPe51OZL10CdEYfXke3
+IDa]:eghZL;TR@2mciTMg]2
+S1
+R2
+w1750661768
+8../src/register_v1.sv
+F../src/register_v1.sv
+!i122 8
+L0 4 30
+R9
+R10
+r1
+!s85 0
+31
+!s108 1750661770.000000
+R19
+Z20 !s90 -sv|-incr|../src/mux2_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/toplevel_v1.sv|../src/register_v1.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|
 !i113 0
 R13
 R3
 vtestbench_alu_v1
-R4
 R14
-R5
 R15
+R5
+R16
 !i10b 1
 !s100 3?f]I6R3h1RRfOz0WfE?k0
 Ia=S4kcWLNDMPM?:nlE?dj1
 S1
 R2
-R16
-Z18 8../testbenches/ALU_v1_tb.sv
-Z19 F../testbenches/ALU_v1_tb.sv
+R17
+Z21 8../testbenches/ALU_v1_tb.sv
+Z22 F../testbenches/ALU_v1_tb.sv
 !i122 0
-Z20 L0 9 177
+Z23 L0 9 177
 R9
 R10
 r1
 !s85 0
 31
-R17
+R18
 R11
 R12
 !i113 0
@@ -195,10 +292,10 @@ I81c`009oEF1R0c3<ehY991
 S1
 R2
 w1750625004
-R18
-R19
+R21
+R22
 !i122 3
-R20
+R23
 R9
 R10
 r1
@@ -213,15 +310,15 @@ R3
 ntestbench_@a@l@u_v1
 vtestbench_mux2
 R4
-R14
-R5
 R15
+R5
+R16
 !i10b 1
 !s100 9fH@U]SV3N3S^5AgUQZZj0
 IZ5JoOEWm`bHJV3:@GCL@71
 S1
 R2
-R16
+R17
 8../testbenches/mux2_v1_tb.sv
 F../testbenches/mux2_v1_tb.sv
 !i122 0
@@ -231,7 +328,7 @@ R10
 r1
 !s85 0
 31
-R17
+R18
 R11
 R12
 !i113 0
@@ -239,54 +336,54 @@ R13
 R3
 vtestbench_registerFile_v1
 R4
-R14
+!s10a 1750693920
 R5
-R15
+!s110 1750693940
 !i10b 1
-!s100 7E4;gPmYdl2i0aUKMR85R0
-IH>klz0:3UC<a4j?ozUlhK0
+!s100 MkkoPc^T]PkNWG<F<ja?]3
+I=KFE_nZnK7Uj_C_Qj`N0Y2
 S1
 R2
-R16
+w1750693920
 8../testbenches/registerFile_v1_tb.sv
 F../testbenches/registerFile_v1_tb.sv
-!i122 0
-L0 6 94
+!i122 44
+L0 7 149
 R9
 R10
 r1
 !s85 0
 31
-R17
-R11
-R12
+!s108 1750693940.000000
+R19
+R20
 !i113 0
 R13
 R3
 ntestbench_register@file_v1
 vtoplevel_v1
 R4
-R14
+!s10a 1750672234
 R5
-R15
+!s110 1750670016
 !i10b 1
-!s100 ]LOG@W>Fl2iQWgI3@aHB?0
-IeVNCC2i=CeOGSbmJ0fDl;2
+!s100 Aj0[R9[gzbL1D^Wb>P9ce3
+I20S>Q:AeUL=;0lKk:anH53
 S1
 R2
-R16
+w1750667282
 8../src/toplevel_v1.sv
 F../src/toplevel_v1.sv
-!i122 0
-L0 3 32
+!i122 15
+L0 3 48
 R9
 R10
 r1
 !s85 0
 31
-R17
-R11
-R12
+!s108 1750670016.000000
+R19
+R20
 !i113 0
 R13
 R3

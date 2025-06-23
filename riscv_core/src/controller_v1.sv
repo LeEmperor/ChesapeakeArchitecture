@@ -5,18 +5,29 @@ module controller_v1 (
     // clk and reset
     input logic clk, rst, 
 
+    // input signals
     input logic [5:0] funct7,
     input logic [14:12] funct3,
     input logic [6:0] opcode,
+
+    // select control  signals
     output logic [1:0] alu_src_a,
     output logic [1:0] alu_src_b,
+    output logic [1:0] ir_source,
 
+    // write enable control signals
+    output logic ir_write,
+    output logic reg_a_write,
+    output logic reg_b_write,
+
+    // diagnostic vectors
     output logic [1:0] current_state_vector,
     output logic [1:0] next_state_vector,
     output logic [7:0] next_state_error_vector,
-        // d2 = failed decode stage on funct7 field
-        // d3 = failed decode stage on funct3 field
-        // d4 = failed decode stage on opcode field
+        // d1
+        // d2
+        // d3
+        // d4
     output logic [7:0] moore_map_error_vector
 );
 
@@ -138,9 +149,19 @@ module controller_v1 (
     always_comb
     begin
         // defaults
-        alu_src_a <= 2'b00;
-        alu_src_b <= 2'b00;
-        moore_map_error_vector <= 8'd0;
+
+        // selects
+        alu_src_a = 2'b00;
+        alu_src_b = 2'b00;
+        ir_source = 2'b00;
+
+        // write enables
+        ir_write = 1'b0;
+        reg_a_write = 1'b0;
+        reg_b_write = 1'b0;
+
+        // diagnostiqes
+        moore_map_error_vector = 8'd0;
 
         case (current_state)
             INIT : begin 
@@ -152,15 +173,16 @@ module controller_v1 (
             end
 
             FETCH : begin
-
+                ir_source = 2'b00;
+                ir_write = 1'b0;
             end
 
             DECODE : begin
-                alu_src_a <= 2'b10;
+                alu_src_a = 2'b10;
             end
 
             EXECUTE : begin
-                alu_src_b <= 2'b01;
+                alu_src_b = 2'b01;
             end
 
             WRITEBACK : begin

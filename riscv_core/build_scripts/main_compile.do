@@ -14,10 +14,12 @@ vlog -sv -incr \
     ../src/controller_v1.sv \
     ../src/registerFile_v1.sv \
     ../src/toplevel_v1.sv \
+    ../src/register_v1.sv \
     \
     ../testbenches/ALU_v1_tb.sv \
     ../testbenches/mux2_v1_tb.sv \
-    ../testbenches/registerFile_v1_tb.sv \
+    ../testbenches/registerFile_v1_tb.sv 
+    # // ../testbenches/register_v1_tb.sv \
 
 quit ; 
 
