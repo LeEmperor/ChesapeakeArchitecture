@@ -14,11 +14,14 @@ module controller_v1 (
     output logic [1:0] alu_src_a,
     output logic [1:0] alu_src_b,
     output logic [1:0] ir_source,
+    output logic [1:0] pc_source,
 
     // write enable control signals
     output logic ir_write,
     output logic reg_a_write,
     output logic reg_b_write,
+    output logic pc_write,
+    output logic mem_write,
 
     // diagnostic vectors
     output logic [1:0] current_state_vector,

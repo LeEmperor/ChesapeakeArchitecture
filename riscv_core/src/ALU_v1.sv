@@ -15,7 +15,7 @@ module ALU_v1 (
     output logic zero_flag,
     output logic sign_flag,
 
-    output logic [7:0] error_vector
+    output logic [7:0] alu_error_vector
     // 00 - default
     // ff - undefined op_code
 );
@@ -45,7 +45,7 @@ module ALU_v1 (
         result = 32'h0;
         zero_flag = 1'b0;
         sign_flag = 1'b0;
-        error_vector = 32'h0;
+        alu_error_vector = 32'h0;
 
         case(op_code)
             4'b0000 : // 0 add
@@ -70,7 +70,7 @@ module ALU_v1 (
                 result = (a < b) ? 32'd1 : 32'd0;
             4'b1111 :
                 result = 32'hf7f7f7f7;
-            default : error_vector = 8'hff;
+            default : alu_error_vector = 8'hff;
         endcase;
 
         // register writes

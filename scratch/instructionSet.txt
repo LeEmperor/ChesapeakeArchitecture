@@ -135,4 +135,27 @@ instruction decoding
 
 
 
+ALU sources
+    A:
+        rs1
+
+    B:
+        rs2
+        ir 31_20
+        ir 31_25
+        ir 11_7
+        ir 31_12
+
+ALU result writes
+    ALU controller:
+        
+    
+
+
+GPIO controller
+    connect X number of input / output pins
+    provide addressable device mappings to these things
+
+
+
 

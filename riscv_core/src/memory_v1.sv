@@ -1,0 +1,78 @@
+// Bohdan Purtell
+// University of Florida
+// Memory Unit Toplevel
+`timescale 1 ns / 1 ps
+
+module memory_v1 (
+    input logic clk,
+    input logic rst,
+
+    input logic [31:0] addr,
+    input logic [31:0] data_in,
+    output logic [31:0] data_out,
+    input logic write_enable, 
+
+    input logic [15:0] switch_array,
+    input logic button0,
+    input logic button1,
+    input logic button2,
+    input logic button3,
+
+    output logic [6:0] seg0,
+    output logic [6:0] seg1,
+    output logic [6:0] seg2,
+    output logic [6:0] seg3,
+    output logic [6:0] seg4,
+    output logic [6:0] seg5,
+    output logic [6:0] seg6,
+    output logic [6:0] seg7,
+    output logic [7:0] memory_error_vector
+);
+    // RAM module
+    // ram_module dut(
+    //
+    // );
+
+    assign memory_error_vector = 8'd5;
+    integer i;
+
+    logic [31:0] ram_addr;
+
+    always_ff @(posedge clk, posedge rst)
+    begin
+        if (rst) begin
+            for(i = 0; i < 32; i++) begin
+
+            end
+        end else begin
+            if (write_enable == 1'b1) begin // write op
+                case (addr)
+                    32'hffff0000 : seg0 <= data_in[31:25];
+                    32'hfffe0000 : seg1 <= data_in[31:25];
+                    32'hfffd0000 : seg2 <= data_in[31:25];
+                    32'hfffc0000 : seg3 <= data_in[31:25];
+                    32'hfffb0000 : seg4 <= data_in[31:25];
+                    32'hfffa0000 : seg5 <= data_in[31:25];
+                    32'hfff90000 : seg6 <= data_in[31:25];
+                    32'hfff80000 : seg7 <= data_in[31:25];
+                    default : ram_addr <= addr;
+                endcase
+
+            end else begin // read op
+                case(addr)
+                    32'heeee0000 : begin
+                        data_out[15:0] = switch_array;
+                        data_out[31:15] = '0;
+                    end
+
+                    default : memory_error_vector = 8'd254;
+                endcase
+            end
+        end
+
+
+
+    end
+
+endmodule
+
