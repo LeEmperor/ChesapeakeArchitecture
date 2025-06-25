@@ -14,18 +14,18 @@
 # //
 # do ../build_scripts/full_script.do
 # Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
-# Start time: 20:47:29 on Jun 24,2025
-# vlog -reportprogress 300 -sv -incr ../src/muxes_v1.sv ../src/ALU_v1.sv ../src/controller_v1.sv ../src/registerFile_v1.sv ../src/toplevel_v1.sv ../src/register_v1.sv ../src/memory_v1.sv ../src/ram_v1.sv ../testbenches/ALU_v1_tb.sv ../testbenches/mux2_v1_tb.sv ../testbenches/ram_v1_tb.sv ../testbenches/registerFile_v1_tb.sv 
+# Start time: 18:37:41 on Jun 25,2025
+# vlog -reportprogress 300 -sv -incr ../src/muxes_v1.sv ../src/ALU_v1.sv ../src/controller_v1.sv ../src/registerFile_v1.sv ../src/register_v1.sv ../src/memory_v1.sv ../src/ram_v1.sv ../src/toplevel_v1.sv ../testbenches/ALU_v1_tb.sv ../testbenches/mux2_v1_tb.sv ../testbenches/ram_v1_tb.sv ../testbenches/registerFile_v1_tb.sv 
 # -- Skipping module mux2_v1
 # -- Skipping module mux4_v1
 # -- Skipping module mux8_v1
 # -- Skipping module ALU_v1
 # -- Skipping module controller_v1
 # -- Skipping module register_file_v1
-# -- Skipping module toplevel_v1
 # -- Skipping module register_v1
 # -- Skipping module memory_v1
 # -- Skipping module ram_v1
+# -- Skipping module toplevel_v1
 # -- Skipping module testbench_ALU_v1
 # -- Skipping module testbench_mux2
 # -- Skipping module testbench_ram_v1
@@ -38,21 +38,31 @@
 # 	testbench_mux2
 # 	testbench_ram_v1
 # 	testbench_registerFile_v1
-# End time: 20:47:29 on Jun 24,2025, Elapsed time: 0:00:00
+# End time: 18:37:41 on Jun 25,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vsim -t 1ps -L work -voptargs=""+acc"" testbench_ram_v1  
-# Start time: 20:47:29 on Jun 24,2025
+# vsim -t 1ps -L work -voptargs=""+acc"" testbench_ram_v1 
+# Start time: 18:37:41 on Jun 25,2025
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# ** Warning: ../testbenches/ram_v1_tb.sv(21): (vopt-2685) [TFMPC] - Too few port connections for 'dut'.  Expected 7, found 6.
+# ** Warning: ../testbenches/ram_v1_tb.sv(21): (vopt-2718) [TFMPC] - Missing connection for port 'ram_error_vector'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=3.
 # Loading sv_std.std
 # Loading work.testbench_ram_v1(fast)
 # Loading work.ram_v1(fast)
-# ** Error: TEST 1: FAILED!
-#    Time: 10 ns  Scope: testbench_ram_v1 File: ../testbenches/ram_v1_tb.sv Line: 49
+# TEST (1) PASSED!
+# TEST (2) PASSED!
+# TEST (3) PASSED!
+# TEST (4) PASSED!
+# TEST (5) PASSED!
+# TEST (6) PASSED!
+# TEST (7) PASSED!
+# TEST (8) PASSED!
+# TEST (9) PASSED!
+# TEST (10) PASSED!
 # 0 ps
-# 31500 ps
+# 231 ns
 # .main_pane.wave.interior.cs.body.pw.wf
 quit
-# End time: 20:48:00 on Jun 24,2025, Elapsed time: 0:00:31
-# Errors: 1, Warnings: 1
+# End time: 18:38:40 on Jun 25,2025, Elapsed time: 0:00:59
+# Errors: 0, Warnings: 3

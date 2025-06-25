@@ -17,24 +17,13 @@ module ram_v1 #(
     output logic [7:0] ram_error_vector
 );
     // ram unit
-    logic [data_width - 1:0] mem [9:0];
-    logic [data_width - 1:0] tmp_data;
+    logic [data_width - 1:0] mem [0:(1<<addr_width) - 1];
 
     // write process
     always @(posedge clk) begin
-        if (wr_en == 1'b1) begin
-            mem[actual_ram_addr] <= in_data;
-        end
+        if (wr_en) mem[actual_ram_addr] <= in_data;
     end
 
-    // read process
-    always @(posedge clk) begin
-        if (wr_en == 1'b0) begin
-            tmp_data <= mem[actual_ram_addr];
-        end
-    end
-
-    assign out_data = tmp_data;
-
+    assign out_data = mem[actual_ram_addr];
 endmodule 
 

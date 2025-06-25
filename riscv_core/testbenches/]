@@ -41,23 +41,50 @@ module testbench_ram_v1 ();
     initial begin
         // populate test vectors
         clk_en = 1'b1;
+        tb_indata = 32'h104;
+        tb_addr = 10'd5;
+        tb_wren = 1'b1;
+        #10
+
+        // run tests
+        tb_wren = 1'b0;
+        assert(tb_outdata == 32'h104)
+            $display ("TEST 1: PASSED!");
+            else
+                $error("TEST 1: FAILED!");
         #10
 
         for(i = 0; i < 10; i++) begin
             data = $urandom_range(0, (1<<32) - 1);
             tb_wren = 1;
-            tb_addr = $urandom_range(0, (1<<10) - 1);
+            tb_addr = $urandom;
             tb_indata = data;
-            #10;
+            $10;
 
             tb_wren = 0;
             assert(tb_outdata == data)
                 $display("TEST (%0d) PASSED!", i + 1);
                 else
-                    $error("TEST (%0d) FAILED!", i + 1);
-            #10;
+            
+
         end
         
+        // repeat (4) begin
+        //     @(posedge tb_clk);
+        //     tb_wren <= 1;
+        //     tb_addr <= $urandom_range(0, (1<<10) - 1);
+        //     tb_indata <= $urandom;
+        // end
+        //
+        // @(posedge tb_clk);
+        // tb_wren <= 0;
+        //
+        // repeat (1<<10) begin
+        //     @(posedge tb_clk);
+        //     tb_addr <= tb_addr + 1;
+        //     $display("Time %0t: addr=%0d, out_data=0x%08h", $time, tb_addr, tb_outdata);
+        // end
+
         clk_en = 1'b0;
         #10
         disable clk_gen;
