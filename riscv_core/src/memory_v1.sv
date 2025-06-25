@@ -7,7 +7,7 @@ module memory_v1 (
     input logic clk,
     input logic rst,
 
-    input logic [31:0] mem_addr,
+    input logic [9:0] mem_addr,
     input logic [31:0] data_in,
     output logic [31:0] data_out,
     input logic write_enable, 
@@ -30,29 +30,32 @@ module memory_v1 (
     output logic [6:0] seg7,
     output logic [7:0] memory_error_vector
 );
+    // internal signals
+    logic [9:0] ram_addr;
+    logic [31:0] ram_data_in;
+    logic [31:0] ram_data_out;
+    logic ram_wren;
+ 
     // RAM module
     ram_v1 ram1 (
         .clk(clk),
         .rst(rst),
-        .wr_en(write_enable),
-        .in_data(data_in),
-        .out_data(data_out),
+        .wr_en(ram_wren),
+        .in_data(ram_data_in),
+        .out_data(ram_data_out),
         .actual_ram_addr()
     );
 
-    // mux16
-
     integer i;
-    logic [31:0] ram_addr;
 
     always_ff @(posedge clk, posedge rst)
     begin
         if (rst) begin
             for(i = 0; i < 32; i++) begin
-
+                // rest logic here
             end
         end else begin
-            if (write_enable == 1'b1) begin // write op
+            if (write_enable) begin // write op
                 case (mem_addr)
                     32'hffff0000 : seg0 <= data_in[31:25];
                     32'hfffe0000 : seg1 <= data_in[31:25];
