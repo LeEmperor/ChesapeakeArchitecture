@@ -7,8 +7,9 @@ module controller_v1 (
 
     // input signals
     input logic [5:0] funct7,
-    input logic [14:12] funct3,
+    input logic [2:0] funct3,
     input logic [6:0] opcode,
+    input logic [31:0] ir_31_0,
 
     // select control  signals
     output logic [1:0] alu_src_a,

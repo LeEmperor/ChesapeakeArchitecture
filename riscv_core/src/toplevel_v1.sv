@@ -54,18 +54,28 @@ module toplevel_v1 (
     logic [31:0] wire_ALU_result;
 
     // wire lines
-    logic [31:0] ir_31_0;
-    logic [11:0] ir_31_20;
-    logic [4:0] ir_19_15;
-    logic [4:0] ir_24_20;
+    logic [31:0] ir_31_0; // whole instruction
+    logic [11:0] ir_31_20; // imediate
+    logic [4:0] ir_19_15; // rs1
+    logic [4:0] ir_24_20; // rs2
+    logic [6:0] ir_31_25; // funct7
+    logic [2:0] ir_14_12; // funct3
+    logic [6:0] ir_6_0; // opcode
+
+    // assigns
+    assign ir_31_25 = ir_31_0[31:25];
 
     controller_v1 controller1 (
         .clk(clk),
         .rst(rst),
 
         // source commands
-        .funct7(),
-        .opcode(),
+        .funct7(ir_31_25),
+        .funct3(ir_14_12),
+        .opcode(ir_6_0),
+        .ir_31_0(ir_31_0),
+
+        // control lines
         .alu_src_a(sel_alu_src_a),
         .alu_src_b(sel_alu_src_b),
         .ir_source(sel_ir_source),
@@ -132,7 +142,7 @@ module toplevel_v1 (
         .rst(rst),
         .wr_en(en_wr_IR),
         .data_in(wire_muxIR_to_regIR),
-        .data_out(wire_ir_31_0)
+        .data_out(ir_31_0)
     );
 
     register_v1 reg_pc (
@@ -147,7 +157,7 @@ module toplevel_v1 (
     memory_v1 memory (
         .clk(clk),
         .rst(rst),
-        .addr(wire_muxMEMADDR_to_mem),
+        .mem_addr(wire_muxMEMADDR_to_mem),
         .data_in(wire_muxMEMDATA_to_mem),
         .data_out(wire_memory_to_muxIR)
     );

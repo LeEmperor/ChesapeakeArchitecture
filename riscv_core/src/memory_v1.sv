@@ -7,7 +7,7 @@ module memory_v1 (
     input logic clk,
     input logic rst,
 
-    input logic [31:0] addr,
+    input logic [31:0] mem_addr,
     input logic [31:0] data_in,
     output logic [31:0] data_out,
     input logic write_enable, 
@@ -17,6 +17,8 @@ module memory_v1 (
     input logic button1,
     input logic button2,
     input logic button3,
+    input logic pmod_pin1,
+    input logic pmod_pin2,
 
     output logic [6:0] seg0,
     output logic [6:0] seg1,
@@ -29,13 +31,18 @@ module memory_v1 (
     output logic [7:0] memory_error_vector
 );
     // RAM module
-    // ram_module dut(
-    //
-    // );
+    ram_v1 ram1 (
+        .clk(clk),
+        .rst(rst),
+        .wr_en(write_enable),
+        .in_data(data_in),
+        .out_data(data_out),
+        .actual_ram_addr()
+    );
 
-    assign memory_error_vector = 8'd5;
+    // mux16
+
     integer i;
-
     logic [31:0] ram_addr;
 
     always_ff @(posedge clk, posedge rst)
@@ -46,7 +53,7 @@ module memory_v1 (
             end
         end else begin
             if (write_enable == 1'b1) begin // write op
-                case (addr)
+                case (mem_addr)
                     32'hffff0000 : seg0 <= data_in[31:25];
                     32'hfffe0000 : seg1 <= data_in[31:25];
                     32'hfffd0000 : seg2 <= data_in[31:25];
@@ -55,24 +62,22 @@ module memory_v1 (
                     32'hfffa0000 : seg5 <= data_in[31:25];
                     32'hfff90000 : seg6 <= data_in[31:25];
                     32'hfff80000 : seg7 <= data_in[31:25];
-                    default : ram_addr <= addr;
+                    default : ram_addr <= mem_addr;
                 endcase
 
             end else begin // read op
-                case(addr)
-                    32'heeee0000 : begin
-                        data_out[15:0] = switch_array;
-                        data_out[31:15] = '0;
-                    end
-
-                    default : memory_error_vector = 8'd254;
+                case(mem_addr)
+                    32'heeee0000 : data_out[15:0] = switch_array;
+                    32'heeed0000 : data_out[0] = button0;
+                    32'heeec0000 : data_out[0] = button1;
+                    32'heeeb0000 : data_out[0] = button2;
+                    32'heeea0000 : data_out[0] = button3;
+                    32'heee90000 : data_out[0] = pmod_pin1;
+                    32'heee80000 : data_out[0] = pmod_pin2;
+                    default : memory_error_vector = 8'd255;
                 endcase
             end
         end
-
-
-
     end
-
 endmodule
 

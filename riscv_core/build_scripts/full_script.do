@@ -7,14 +7,16 @@ vlog -sv -incr \
     ../src/toplevel_v1.sv \
     ../src/register_v1.sv \
     ../src/memory_v1.sv \
+    ../src/ram_v1.sv \
     \
     ../testbenches/ALU_v1_tb.sv \
     ../testbenches/mux2_v1_tb.sv \
+    ../testbenches/ram_v1_tb.sv \
     ../testbenches/registerFile_v1_tb.sv ;
 
 # // main sim script
 # // vsim -t 1ps -L work -voptargs="+acc" testbench_ALU_v1\ ;
-vsim -t 1ps -L work -voptargs="+acc" testbench_registerFile_v1\ ;
+vsim -t 1ps -L work -voptargs="+acc" testbench_ram_v1\ ;
 add wave * ;
 run -all ;
 wave zoom full ;
