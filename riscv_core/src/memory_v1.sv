@@ -43,43 +43,43 @@ module memory_v1 (
         .wr_en(ram_wren),
         .in_data(ram_data_in),
         .out_data(ram_data_out),
-        .actual_ram_addr()
+        .actual_ram_addr(mem_addr)
     );
+
+    // demux
+
+    // mux (select what goes to out_port)
+    // mux4_v1
+
 
     integer i;
 
-    always_ff @(posedge clk, posedge rst)
+    always_ff @(*)
     begin
-        if (rst) begin
-            for(i = 0; i < 32; i++) begin
-                // rest logic here
-            end
-        end else begin
-            if (write_enable) begin // write op
-                case (mem_addr)
-                    32'hffff0000 : seg0 <= data_in[31:25];
-                    32'hfffe0000 : seg1 <= data_in[31:25];
-                    32'hfffd0000 : seg2 <= data_in[31:25];
-                    32'hfffc0000 : seg3 <= data_in[31:25];
-                    32'hfffb0000 : seg4 <= data_in[31:25];
-                    32'hfffa0000 : seg5 <= data_in[31:25];
-                    32'hfff90000 : seg6 <= data_in[31:25];
-                    32'hfff80000 : seg7 <= data_in[31:25];
-                    default : ram_addr <= mem_addr;
-                endcase
+        memory_error_vector = 8'd0; 
+        // ram_addr = '0;
 
-            end else begin // read op
-                case(mem_addr)
-                    32'heeee0000 : data_out[15:0] = switch_array;
-                    32'heeed0000 : data_out[0] = button0;
-                    32'heeec0000 : data_out[0] = button1;
-                    32'heeeb0000 : data_out[0] = button2;
-                    32'heeea0000 : data_out[0] = button3;
-                    32'heee90000 : data_out[0] = pmod_pin1;
-                    32'heee80000 : data_out[0] = pmod_pin2;
-                    default : memory_error_vector = 8'd255;
-                endcase
-            end
+        if (write_enable) begin // write op
+            case (mem_addr)
+                10'h3ff : seg0 <= data_in[31:25];
+                10'h3fe : seg1 <= data_in[31:25];
+                10'h3fd : seg2 <= data_in[31:25];
+                10'h3fc : seg3 <= data_in[31:25];
+                10'h3fb : seg4 <= data_in[31:25];
+                10'h3fa : seg5 <= data_in[31:25];
+                10'h3f9 : seg6 <= data_in[31:25];
+                10'h3f8 : seg7 <= data_in[31:25];
+                default : ram_data_in <= data_in;
+            endcase
+        end else begin // read op
+            case(mem_addr)
+                10'h3ef : begin 
+                    data_out[19:0] <= {button3, button2, button1, button0, switch_array};
+                end
+                10'h3ea : data_out[0] <= pmod_pin1;
+                10'h3e9 : data_out[0] <= pmod_pin2;
+                default : data_out <= ram_data_out; //memory_error_vector = 8'd255;
+            endcase
         end
     end
 endmodule

@@ -12,8 +12,8 @@ vlog -sv -incr \
     ../testbenches/ALU_v1_tb.sv \
     ../testbenches/mux2_v1_tb.sv \
     ../testbenches/ram_v1_tb.sv \
-    ../testbenches/memory_v1_tb.sv \
     ../testbenches/registerFile_v1_tb.sv ;
+    # // ../testbenches/memory_v1_tb.sv
 
 # // main sim script
 # // vsim -t 1ps -L work -voptargs="+acc" testbench_ALU_v1\ ;

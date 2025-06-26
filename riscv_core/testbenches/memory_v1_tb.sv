@@ -69,11 +69,17 @@ module testbench_memory_v1 ();
         forever #5 tb_clk = ~tb_clk & clk_en;
     end
 
+
+
     integer i;
     localparam int ntests = 20;
     bit passed;
 
+
+
     initial begin
+        // populate test vectors
+        test[0] 
 
 
         clk_en = 0;

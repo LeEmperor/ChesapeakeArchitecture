@@ -159,7 +159,8 @@ module toplevel_v1 (
         .rst(rst),
         .mem_addr(wire_muxMEMADDR_to_mem),
         .data_in(wire_muxMEMDATA_to_mem),
-        .data_out(wire_memory_to_muxIR)
+        .data_out(wire_memory_to_muxIR),
+        .switch_array(switch_array)
     );
 
     mux4_v1 mux_MEMDATA (
