@@ -47,6 +47,14 @@ module memory_v2 #(
     logic [4:0] wire_sel_mux_data_in;
     logic [4:0] wire_sel_mux_data_out;
 
+    logic [31:0] wire_demux1;
+    logic [31:0] wire_demux2;
+    logic [31:0] wire_mux1; 
+
+    assign seg0 = wire_demux1[6:0];
+    assign seg1 = wire_demux2[6:0];
+    assign wire_mux1 = button_array[3:0];
+
     ram_v1 ram1 (
         .clk(clk),
         .rst(rst),
@@ -57,14 +65,23 @@ module memory_v2 #(
     );
 
     // mux data_in (push the fed data to RAM or the output ports)
-    mux4_v1 data_in_mux (
-        
+    demux4_v1 data_in_demux (
+        .in1(data_in),
+        .out1(ram_data_in), // feed ram
+        .out2(wire_demux1), // seg0 
+        .out3(wire_demux2), // seg1
+        .out4(),
+        .sel(wire_sel_mux_data_in)
     );
-
 
     //  mux data_out  (feed the outport with the RAM data or the input ports)
     mux4_v1 data_out_mux (
-
+        .in1(ram_data_out), // source ram
+        .in2(wire_mux1), // button array
+        .in3(), // switch array
+        .in4(),
+        .out1(data_out),
+        .sel(wire_sel_mux_data_out)
     );
 
     // controller

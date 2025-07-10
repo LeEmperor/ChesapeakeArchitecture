@@ -21,21 +21,23 @@ module memory_ctrl_v1 #(
         if (wr_en) // write operation
             begin
                 sel_mux_data_in  = 5'd0;
-                sel_mux_data_out = 5'd0;
 
                 if (addr >= 'h3ff)
                     begin
                         case (addr)
-                            10'h3ff : sel_mux_data_in = 5'd1;
-                            10'h3fe : sel_mux_data_in = 5'd2;
-                            default : sel_mux_data_in = 5'd0;
+                            10'h3ff : sel_mux_data_in = 5'd1; // seg0
+                            10'h3fe : sel_mux_data_in = 5'd2; // seg1
                         endcase
                     end
             end
         else        // read operation
             begin
-                sel_mux_data_in  = 5'd0;
                 sel_mux_data_out = 5'd0;
+
+                if (addr == 10'h3ef)
+                    begin
+                        sel_mux_data_out = 5'd1;
+                    end
             end
     end
 endmodule

@@ -31,7 +31,6 @@ module mux4_v1 #(
     output logic [width - 1:0] out1,
     input logic [1:0] sel
 );
-
     always_comb
     begin
         case(sel)
@@ -41,6 +40,27 @@ module mux4_v1 #(
             2'b11 : out1 = in4;
         endcase
     end
+endmodule
+
+module demux4_v1 #(
+    parameter int width = 32
+) (
+    input logic [width - 1 : 0] in1,
+    input logic [1:0] sel,
+    output logic [width - 1 : 0] out1,
+    output logic [width - 1 : 0] out2,
+    output logic [width - 1 : 0] out3,
+    output logic [width - 1 : 0] out4
+);
+    always_comb
+        begin
+            case(sel)
+                'd0 : out1 = in1;
+                'd1 : out2 = in1;
+                'd2 : out3 = in1;
+                'd3 : out4 = in1;
+            endcase
+        end
 endmodule
 
 module mux8_v1 #(
