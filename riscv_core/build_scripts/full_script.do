@@ -12,12 +12,13 @@ vlog -sv -incr \
     ../testbenches/ALU_v1_tb.sv \
     ../testbenches/mux2_v1_tb.sv \
     ../testbenches/ram_v1_tb.sv \
+    ../testbenches/param_mux_v1_tb.sv \
     ../testbenches/registerFile_v1_tb.sv ;
     # // ../testbenches/memory_v1_tb.sv
 
 # // main sim script
 # // vsim -t 1ps -L work -voptargs="+acc" testbench_ALU_v1\ ;
-vsim -t 1ps -L work -voptargs="+acc" testbench_ram_v1 ;
+vsim -t 1ps -L work -voptargs="+acc" testbench_param_mux_v1 ;
 add wave * ;
 run -all ;
 wave zoom full ;

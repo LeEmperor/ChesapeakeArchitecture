@@ -14,6 +14,7 @@ module memory_v2 #(
     input logic [data_width - 1 : 0] data_in,
     output logic [data_width - 1 : 0] data_out,
     input logic write_enable,
+    input logic read_enable,
 
     input logic [14:0] pmod_in,
     output logic [14:0] pmod_out,
@@ -27,6 +28,9 @@ module memory_v2 #(
     output logic [6:0] seg5,
     output logic [6:0] seg6,
     output logic [6:0] seg7,
+
+    // 11 outport banks in total = 4 bits
+
     output logic [7:0] memory_error_vector
         // 1A
         // 2A
@@ -40,6 +44,9 @@ module memory_v2 #(
     logic [data_width - 1 : 0] ram_data_out;
     logic [addr_width - 1 : 0] ram_addr;
 
+    logic [4:0] wire_sel_mux_data_in;
+    logic [4:0] wire_sel_mux_data_out;
+
     ram_v1 ram1 (
         .clk(clk),
         .rst(rst),
@@ -49,14 +56,25 @@ module memory_v2 #(
         .actual_ram_addr(ram_addr)
     );
 
-    // mux data_in
+    // mux data_in (push the fed data to RAM or the output ports)
+    mux4_v1 data_in_mux (
+        
+    );
 
 
-    //  mux data_out 
+    //  mux data_out  (feed the outport with the RAM data or the input ports)
+    mux4_v1 data_out_mux (
 
+    );
 
     // controller
-
+    memory_ctrl_v1 controller (
+        .wr_en(write_enable),
+        .rd_en(read_enable),
+        .addr(mem_addr),
+        .sel_mux_data_in(wire_sel_mux_data_in),
+        .sel_mux_data_out(wire_sel_mux_data_out)
+    );
 
 
 endmodule

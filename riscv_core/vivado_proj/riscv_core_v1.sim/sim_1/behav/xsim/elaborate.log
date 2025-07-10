@@ -1,0 +1,10 @@
+Vivado Simulator v2024.2.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot testbench_param_mux_v1_behav xil_defaultlib.testbench_param_mux_v1 xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 2 for port 'onehot' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/testbenches/param_mux_v1_tb.sv:19]
+ERROR: [VRFC 10-395] cannot assign a packed type to an unpacked type [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/testbenches/param_mux_v1_tb.sv:20]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.

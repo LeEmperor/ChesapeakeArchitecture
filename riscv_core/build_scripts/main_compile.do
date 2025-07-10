@@ -22,7 +22,8 @@ vlog -sv -incr \
     ../testbenches/ram_v1_tb.sv \
     ../testbenches/ALU_v1_tb.sv \
     ../testbenches/mux2_v1_tb.sv \
-    ../testbenches/registerFile_v1_tb.sv 
+    ../testbenches/registerFile_v1_tb.sv \
+    ../testbenches/param_mux_v1_tb.sv 
     # // ../testbenches/memory_v1_tb.sv \
     # // ../testbenches/register_v1_tb.sv
 

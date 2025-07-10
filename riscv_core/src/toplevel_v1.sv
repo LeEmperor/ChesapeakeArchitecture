@@ -1,6 +1,6 @@
 `timescale 1 ns / 1 ps
 
-module toplevel_v1 (
+    module toplevel_v1 (
     input logic rst,
 
     input logic [15:0] switch_array,

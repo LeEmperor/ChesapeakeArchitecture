@@ -1,5 +1,6 @@
 # executables
-linux_QUESTA_DIR="/mnt/d/questa_install"
+# linux_QUESTA_DIR="/mnt/d/questa_install"
+linux_QUESTA_DIR="/mnt/c/altera/24.1std"
 alias vlib="$linux_QUESTA_DIR/questa_fse/win64/vlib.exe"
 alias vcom="$linux_QUESTA_DIR/questa_fse/win64/vcom.exe"
 alias vlog="$linux_QUESTA_DIR/questa_fse/win64/vlog.exe"
