@@ -23,6 +23,11 @@ module controller_v1 (
     output logic reg_b_write,
     output logic pc_write,
     output logic mem_write,
+    output logic regfile_write,
+
+    output logic alu_result_reg_write,
+    output logic alu_lo_result_reg_write,
+    output logic alu_hi_result_reg_write,
 
     // diagnostic vectors
     output logic [1:0] current_state_vector,
@@ -70,15 +75,15 @@ module controller_v1 (
 
         case (current_state)
             INIT : begin
-                next_state <= IDLE;
+                next_state = IDLE;
             end
 
             IDLE : begin
-                next_state <= FETCH;
+                next_state = FETCH;
             end
 
             FETCH : begin
-                next_state <= DECODE;
+                next_state = DECODE;
             end
 
             DECODE : begin
@@ -155,14 +160,22 @@ module controller_v1 (
         // defaults
 
         // selects
-        alu_src_a = 2'b00;
-        alu_src_b = 2'b00;
-        ir_source = 2'b00;
+        alu_src_a = '0;
+        alu_src_b = '0;
+        ir_source = '0;
+        pc_source = '0;
 
         // write enables
-        ir_write = 1'b0;
-        reg_a_write = 1'b0;
-        reg_b_write = 1'b0;
+        ir_write = '0;
+        reg_a_write = '0;
+        reg_b_write = '0;
+        pc_write = '0;
+        mem_write = '0;
+        regfile_write = '0;
+
+        alu_result_reg_write = '0;
+        alu_lo_result_reg_write = '0;
+        alu_hi_result_reg_write = '0;
 
         // diagnostiqes
         moore_map_error_vector = 8'd0;
@@ -183,14 +196,40 @@ module controller_v1 (
 
             DECODE : begin
                 alu_src_a = 2'b10;
+
+                case (opcode) 
+
+                    7'b00100_11 : begin // i-types
+                        alu_src_a = '0;
+                        alu_src_b = '0; 
+                    end
+
+                    default : begin
+                        alu_src_a = '0;
+                        alu_src_b = '0;
+                        ir_source = '0;
+                        ir_write  = '0;
+                    end
+                endcase
             end
 
             EXECUTE : begin
-                alu_src_b = 2'b01;
+                alu_result_reg_write = 1;
+                alu_result_reg_write = 1;
+                alu_lo_result_reg_write = 1;
+                alu_hi_result_reg_write = 1;
             end
 
             WRITEBACK : begin
+                case (opcode)
+                    7'b00100_11 : begin // i-types
+                        regfile_write = 1;
+                    end
 
+                    default : begin
+
+                    end
+                endcase
             end
 
             default : moore_map_error_vector <= 8'd255;

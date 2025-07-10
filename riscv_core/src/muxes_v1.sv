@@ -73,14 +73,14 @@ module mux8_v1 #(
     end
 endmodule
  
-module mux_parametrisized #(
-    parameter int data_width = 32,
-    parameter int select_width = 1
-) (
-
-);
-    
-
-
-endmodule
+// module mux_parametrisized #(
+//     parameter int data_width = 32,
+//     parameter int select_width = 1
+// ) (
+//
+// );
+//
+//
+//
+// endmodule
 

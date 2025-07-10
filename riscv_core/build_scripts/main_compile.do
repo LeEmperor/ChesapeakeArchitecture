@@ -15,7 +15,8 @@ vlog -sv -incr \
     ../src/registerFile_v1.sv \
     ../src/register_v1.sv \
     ../src/ram_v1.sv \
-    ../src/memory_v1.sv \
+    ../src/memory_v2.sv \
+    ../src/memory_ctrl_v1.sv \
     ../src/toplevel_v1.sv \
     \
     ../testbenches/ram_v1_tb.sv \

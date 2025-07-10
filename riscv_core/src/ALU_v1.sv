@@ -12,6 +12,7 @@ module ALU_v1 (
     input [3:0] op_code,
 
     output logic [31:0] out,
+    output logic [31:0] out_hi,
     output logic zero_flag,
     output logic sign_flag,
 
