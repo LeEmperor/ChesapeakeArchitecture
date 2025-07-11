@@ -54,6 +54,7 @@ module memory_v2 #(
     assign seg0 = wire_demux1[6:0];
     assign seg1 = wire_demux2[6:0];
     assign wire_mux1 = button_array[3:0];
+    assign ram_wren = write_enable;
 
     ram_v1 ram1 (
         .clk(clk),

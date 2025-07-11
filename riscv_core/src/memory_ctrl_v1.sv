@@ -18,6 +18,9 @@ module memory_ctrl_v1 #(
 
     always_comb
     begin
+        sel_mux_data_in = '0;
+        sel_mux_data_out = '0;
+
         if (wr_en) // write operation
             begin
                 sel_mux_data_in  = 5'd0;
@@ -36,7 +39,7 @@ module memory_ctrl_v1 #(
 
                 if (addr == 10'h3ef)
                     begin
-                        sel_mux_data_out = 5'd1;
+                        sel_mux_data_out = 5'd1; // button array
                     end
             end
     end

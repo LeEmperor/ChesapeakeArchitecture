@@ -35,7 +35,7 @@ module testbench_memory_v2();
         .read_enable(t_read_enable),
         .button_array(t_buttons),
         .seg0(t_seg0),
-        .seg1(t_seg1),
+        .seg1(t_seg1)
     );
 
     typedef struct {
@@ -51,7 +51,7 @@ module testbench_memory_v2();
     } testVector_t;
 
 
-    localparam int n_tests = 10;
+    localparam int n_tests = 2;
     localparam int name_width = 30;
     testVector_t tests[n_tests];
 
@@ -71,27 +71,62 @@ module testbench_memory_v2();
             t_rst = 0;
             // populate test vectors
             
-            test[0] = '{
-                test_name : "",
+            tests[0] = '{
+                test_name : "ram write 1",
                 seg0 : '0,
-                seg1,: '0,
-                button_array,: '0,
-                write_enable,: 0,
-                read_enable,: 0,
-                data_in,: 32'd0,
-                data_out,: 32'd0,
-                addr,: 10'd0
+                seg1 : '0,
+                button_array : '0,
+                write_enable : 1,
+                read_enable : 0,
+                data_in : 32'd10,
+                data_out : 32'd10,
+                addr : 10'd0
             };
+
+            tests[1] = '{
+                test_name : "ram write 2",
+                seg0 : '0,
+                seg1 : '0,
+                button_array : '0,
+                write_enable : 0,
+                read_enable : 0,
+                data_in : 32'd10,
+                data_out : 32'd10,
+                addr : 10'd0
+            };
+
+            // tests[2] = '{
+            //     test_name : "",
+            //     seg0 : '0,
+            //     seg1,: '0,
+            //     button_array : '0,
+            //     write_enable : 0,
+            //     read_enable : 0,
+            //     data_in : 32'd0,
+            //     data_out : 32'd0,
+            //     addr : 10'd0
+            // };
+            //
 
             clk_en = 1;
 
             for(i = 0; i < n_tests; i++) begin
                 pass = 1;
 
-                t_mem_addr
+                t_buttons = tests[i].button_array;
+                t_mem_addr = tests[i].addr;
+                t_write_enable = tests[i].write_enable;
+                t_read_enable = tests[i].read_enable;
+                t_datain = tests[i].data_in;
+                #10
 
+                t_write_enable = ~tests[i].write_enable;
+                #10
 
-
+                if (t_dataout !== tests[i].data_out) begin
+                    $error("Test [%1d] : {%s} - expected data mismatch --- EXPECTED: {%s}", i, tests[i].test_name, tests[i].data_out);
+                    pass = 0;
+                end
 
                 // diagnostiques
                 name = tests[i].test_name;
@@ -104,7 +139,8 @@ module testbench_memory_v2();
                     "# Test [%1d] : {%s%0s} %s",
                     i + 1,
                     name, pad,
-                    pass ? "PASSED!" : "FAILED!";
+                    pass ? "PASSED!" : "FAILED!"
+                );
 
             end
 

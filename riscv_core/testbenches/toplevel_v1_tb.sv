@@ -17,7 +17,6 @@ module testbench_toplevel_v1();
     );
 
     typedef struct {
-
         string test_name;
         logic [31:0] instruction;
         logic [31:0] alu_result;
