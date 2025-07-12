@@ -123,6 +123,24 @@ R0
 R1
 R0
 R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
 !s11f vlog 2024.3 2024.09, Sep 10 2024
 13
 !s112 1.1
@@ -132,10 +150,10 @@ R1
 cModel Technology
 Z2 dC:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/build
 T_opt3
-!s110 1752195051
-VL24cQLaVl^00mUz[KlQbj1
+!s110 1752352620
+VIccAD1]YCWXA>d[Z:C4[M3
 04 24 4 work testbench_memory_ctrl_v1 fast 0
-=1-24ee9a5f9e98-68705feb-11e-9bc
+=1-24ee9a5f9e98-6872c76b-2e6-7d8
 R1
 !s12f OEM100
 !s12b OEM100
@@ -240,19 +258,19 @@ R13
 R3
 vmemory_ctrl_v1
 2../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v2.sv|../src/memory_ctrl_v1.sv|../src/toplevel_v1.sv|../testbenches/ram_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/memory_v2_tb.sv|../testbenches/memory_ctrl_v1_tb.sv|../testbenches/param_mux_v1_tb.sv
-!s10a 1752193645
+!s10a 1752352558
 R6
-!s110 1752177091
+!s110 1752352566
 !i10b 1
-!s100 T?2A=z657f:WHFIb6XkfA3
-Imna=l=Z>MCbDUWgfS4EWB0
+!s100 0iZcHdX3B=FPeonW_`3FS3
+Ie@nlQIQR]eaGV7mj9^EfT1
 S1
 R2
-w1752177089
+w1752352558
 8../src/memory_ctrl_v1.sv
 F../src/memory_ctrl_v1.sv
-!i122 137
-L0 7 37
+!i122 158
+L0 7 48
 R11
 R12
 r1
@@ -286,7 +304,7 @@ R13
 R3
 vmemory_v2
 R14
-!s10a 1752191732
+!s10a 1752196140
 R6
 !s110 1752191739
 !i10b 1
@@ -652,18 +670,19 @@ R13
 R3
 vtestbench_memory_ctrl_v1
 R14
+!s10a 1752352609
 R6
-!s110 1752195050
+!s110 1752352614
 !i10b 1
-!s100 1HS73OI^2g_Abc62cOgo12
-IJGR01=[4XKNICd_dVQW7E0
+!s100 :momabgc=:6S71cC9XNPf0
+I<ZDOj=TL[4ZJ9[aN6Ob?i0
 S1
 R2
-w1752195041
+w1752352609
 8../testbenches/memory_ctrl_v1_tb.sv
 F../testbenches/memory_ctrl_v1_tb.sv
-!i122 149
-L0 7 51
+!i122 159
+L0 7 66
 R11
 R12
 r1
@@ -673,4 +692,4 @@ r1
 R13
 R3
 vtestbench_memory_v1
-2../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v1.sv|../src/toplevel_v1.sv|../testbench
+2../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|

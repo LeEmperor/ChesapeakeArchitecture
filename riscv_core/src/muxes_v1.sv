@@ -52,13 +52,13 @@ module demux4_v1 #(
     output logic [width - 1 : 0] out3,
     output logic [width - 1 : 0] out4
 );
-    always_comb
+    always @(*)
         begin
             case(sel)
-                'd0 : out1 = in1;
-                'd1 : out2 = in1;
-                'd2 : out3 = in1;
-                'd3 : out4 = in1;
+                2'd0 : out1 = in1;
+                2'd1 : out2 = in1;
+                2'd2 : out3 = in1;
+                2'd3 : out4 = in1;
             endcase
         end
 endmodule

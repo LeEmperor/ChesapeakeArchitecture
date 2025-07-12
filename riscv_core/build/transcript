@@ -1,10 +1,10 @@
 # do ../build_scripts/main_compile.do
 # Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
-# Start time: 12:04:04 on Jul 11,2025
+# Start time: 17:20:29 on Jul 12,2025
 # vlog -sv -incr ../src/muxes_v1.sv ../src/ALU_v1.sv ../src/controller_v1.sv ../src/registerFile_v1.sv ../src/register_v1.sv ../src/ram_v1.sv ../src/memory_v2.sv ../src/memory_ctrl_v1.sv ../src/toplevel_v1.sv ../testbenches/ram_v1_tb.sv ../testbenches/ALU_v1_tb.sv ../testbenches/mux2_v1_tb.sv ../testbenches/registerFile_v1_tb.sv ../testbenches/memory_v2_tb.sv ../testbenches/memory_ctrl_v1_tb.sv ../testbenches/param_mux_v1_tb.sv 
 # -- Skipping module mux2_v1
 # -- Skipping module mux4_v1
-# -- Skipping module demux4_v1
+# -- Compiling module demux4_v1
 # -- Skipping module mux8_v1
 # -- Skipping module mux16_v1
 # -- Skipping module ALU_v1
@@ -34,5 +34,5 @@
 # 	testbench_memory_v2
 # 	testbench_memory_ctrl_v1
 # 	testbench_param_mux_v1
-# End time: 12:04:04 on Jul 11,2025, Elapsed time: 0:00:00
+# End time: 17:20:29 on Jul 12,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0

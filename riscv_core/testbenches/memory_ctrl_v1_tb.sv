@@ -1,6 +1,7 @@
 // Bohdan Purtell
 // University of Florida
 // Memory Ctrl Testbench
+//  STATUS: working for basic address decodes
 
 `timescale 1 ns / 1 ps
 
@@ -28,6 +29,8 @@ module testbench_memory_ctrl_v1();
         .wr_en(t_wr_en),
         .rd_en(t_rd_en),
         .addr(t_addr),
+        .clk(t_clk),
+        .rst(t_rst),
         .sel_mux_data_in(t_sel_mux_data_in),
         .sel_mux_data_out(t_sel_mux_data_out)
     );
@@ -52,6 +55,16 @@ module testbench_memory_ctrl_v1();
 
             t_addr = 10'h3ff; // seg0
             t_wr_en = 1;
+            #10
+
+            t_addr = 10'h3fe; // seg1
+            #10
+
+            t_wr_en = 0;
+            #10
+
+            t_wr_en = 0;
+            t_addr = 10'h3ef; // button array
             #10
 
             clk_en = 0;
