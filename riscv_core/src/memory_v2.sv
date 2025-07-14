@@ -59,6 +59,7 @@ module memory_v2 #(
     logic [31:0] wire_buttonarray_padded;
     logic [31:0] wire_switcharray_padded;
 
+    assign wire_ram_addr = mem_addr;
     assign wire_buttonarray_padded = { {28{1'b0}}, button_array[3:0] };
     assign wire_switcharray_padded = { {16{1'b0}}, switch_array[15:0] };
     assign en_ram_wren = write_enable;
@@ -110,6 +111,71 @@ module memory_v2 #(
         .sel_mux_data_in(wire_sel_mux_data_in),
         .sel_mux_data_out(wire_sel_mux_data_out)
     );
+
+    register_v1 reg_seg0 (
+        .wr_en(),
+        .rst(rst),
+        .clk(clk),
+        .data_in(),
+        .data_out()
+    );
+
+    register_v1 reg_seg1 (
+        .wr_en(),
+        .rst(rst),
+        .clk(clk),
+        .data_in(),
+        .data_out()
+    );
+
+    register_v1 reg_seg2 (
+        .wr_en(),
+        .rst(),
+        .clk(),
+        .data_in(),
+        .data_out()
+    );
+
+    register_v1 reg_seg3 (
+        .wr_en(),
+        .rst(),
+        .clk(),
+        .data_in(),
+        .data_out()
+    );
+
+    register_v1 reg_seg4 (
+        .wr_en(),
+        .rst(),
+        .clk(),
+        .data_in(),
+        .data_out()
+    );
+
+    register_v1 reg_seg5 (
+        .wr_en(),
+        .rst(),
+        .clk(),
+        .data_in(),
+        .data_out()
+    );
+
+    register_v1 reg_seg6 (
+        .wr_en(),
+        .rst(),
+        .clk(),
+        .data_in(),
+        .data_out()
+    );
+
+    register_v1 reg_seg7 (
+        .wr_en(),
+        .rst(),
+        .clk(),
+        .data_in(),
+        .data_out()
+    );
+
 
 endmodule
 

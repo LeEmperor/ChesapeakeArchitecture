@@ -20,8 +20,10 @@ vlog -sv -incr \
 
 # // main sim script
 # // vsim -t 1ps -L work -voptargs="+acc" testbench_ALU_v1\ ;
-vsim -t 1ps -L work -voptargs="+acc" testbench_memory_ctrl_v1;
-add wave * ;
+vsim -t 1ps -L work -voptargs="+acc" testbench_memory_v2;
+# // add wave * ;
+# // add wave -r *
+do wave1.do
 run -all ;
 wave zoom full ;
 view wave ;

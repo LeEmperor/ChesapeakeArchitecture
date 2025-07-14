@@ -2,7 +2,6 @@
 `timescale 1 ns / 1 ps
 
 module register_v1 (
-
     input logic wr_en,
     input logic rst,
     input logic clk,

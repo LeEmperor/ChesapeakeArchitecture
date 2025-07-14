@@ -51,7 +51,7 @@ module testbench_memory_v2();
     } testVector_t;
 
 
-    localparam int n_tests = 2;
+    localparam int n_tests = 6;
     localparam int name_width = 30;
     testVector_t tests[n_tests];
 
@@ -95,18 +95,54 @@ module testbench_memory_v2();
                 addr : 10'd0
             };
 
-            // tests[2] = '{
-            //     test_name : "",
-            //     seg0 : '0,
-            //     seg1,: '0,
-            //     button_array : '0,
-            //     write_enable : 0,
-            //     read_enable : 0,
-            //     data_in : 32'd0,
-            //     data_out : 32'd0,
-            //     addr : 10'd0
-            // };
-            //
+            tests[2] = '{
+                test_name : "ram write addr 1",
+                seg0 : '0,
+                seg1 : '0,
+                button_array : '0,
+                write_enable : 1,
+                read_enable : 0,
+                data_in : 32'd247,
+                data_out : 32'd247,
+                addr : 10'd180
+            };
+
+            tests[3] = '{
+                test_name : "write to seg0",
+                seg0 : 'd10,
+                seg1 : '0,
+                button_array : '0,
+                write_enable : 1,
+                read_enable : 0,
+                data_in : 32'd24,
+                data_out : 32'd24,
+                addr : 10'h3ff
+            };
+
+            tests[4] = '{
+                test_name : "write to seg1",
+                seg0 : '0,
+                seg1 : 'd10,
+                button_array : '0,
+                write_enable : 1,
+                read_enable : 0,
+                data_in : 32'd25,
+                data_out : 32'd25,
+                addr : 10'h3fe
+            };
+
+            tests[5] = '{
+                test_name : "read from array",
+                seg0 : '0,
+                seg1 : '0,
+                button_array : 'd35,
+                write_enable : 0,
+                read_enable : 0,
+                data_in : 32'd0,
+                data_out : 32'd35,
+                addr : 10'h3ef
+            };
+
 
             clk_en = 1;
 

@@ -141,6 +141,18 @@ R0
 R1
 R0
 R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
 !s11f vlog 2024.3 2024.09, Sep 10 2024
 13
 !s112 1.1
@@ -150,14 +162,14 @@ R1
 cModel Technology
 Z2 dC:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/build
 T_opt3
-!s110 1752352620
-VIccAD1]YCWXA>d[Z:C4[M3
-04 24 4 work testbench_memory_ctrl_v1 fast 0
-=1-24ee9a5f9e98-6872c76b-2e6-7d8
+!s110 1752471091
+VBac;6dAllbiAE90AL=V=L3
+04 19 4 work testbench_memory_v2 fast 0
+=1-24ee9a5f9e98-68749633-117-6f14
 R1
 !s12f OEM100
 !s12b OEM100
-!s124 OEM10U2 
+!s124 OEM10U14 
 !s135 nogc
 o-quiet -auto_acc_if_foreign -work work -L work +acc
 Z3 tCvgOpt 0
@@ -235,19 +247,19 @@ R13
 R3
 vdemux4_v1
 R14
-Z15 !s10a 1752185812
+Z15 !s10a 1752438721
 R6
-Z16 !s110 1752178406
+Z16 !s110 1752438725
 !i10b 1
-!s100 KGknJ?[n08P3UBl;>HGZP1
-I<]:N8:=XJ6BzSWCn=4^<O2
+!s100 ]bD^dLM:GNd<27<3MREQG2
+I6Lc8;C:1bQNmXzzOCOR?P2
 S1
 R2
-Z17 w1752178404
+Z17 w1752438721
 Z18 8../src/muxes_v1.sv
 Z19 F../src/muxes_v1.sv
-!i122 139
-L0 45 20
+!i122 167
+L0 45 25
 R11
 R12
 r1
@@ -258,18 +270,18 @@ R13
 R3
 vmemory_ctrl_v1
 2../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v2.sv|../src/memory_ctrl_v1.sv|../src/toplevel_v1.sv|../testbenches/ram_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/memory_v2_tb.sv|../testbenches/memory_ctrl_v1_tb.sv|../testbenches/param_mux_v1_tb.sv
-!s10a 1752352558
+!s10a 1752355906
 R6
-!s110 1752352566
+!s110 1752354542
 !i10b 1
-!s100 0iZcHdX3B=FPeonW_`3FS3
-Ie@nlQIQR]eaGV7mj9^EfT1
+!s100 fE_i@14mWA8_FC_U7>3ih3
+I6a^J=Re76]e2SDnf7`D7E1
 S1
 R2
-w1752352558
+w1752354540
 8../src/memory_ctrl_v1.sv
 F../src/memory_ctrl_v1.sv
-!i122 158
+!i122 164
 L0 7 48
 R11
 R12
@@ -304,19 +316,19 @@ R13
 R3
 vmemory_v2
 R14
-!s10a 1752196140
+!s10a 1752471082
 R6
-!s110 1752191739
+!s110 1752471084
 !i10b 1
-!s100 6denfoH>>O0NCjWDcXcAn3
-IkJRgWRGHf;f=KZX]io3hV3
+!s100 [BU>5O1@<]3GN56djkaSb3
+IH6EmO24PHlAVoCLTD3?G33
 S1
 R2
-w1752191732
+w1752471082
 8../src/memory_v2.sv
 F../src/memory_v2.sv
-!i122 144
-L0 6 93
+!i122 173
+L0 6 175
 R11
 R12
 r1
@@ -353,15 +365,15 @@ R15
 R6
 R16
 !i10b 1
-!s100 oFeAVVBzo0:6i]Dn]7Cah2
-I?8>PL:5>?N:K_o2`c;M?i1
+!s100 :iKfeAIfQbNiWkRFE34:l2
+I`m16UK_B`9^jAn4mkm?_B0
 S1
 R2
 R17
 R18
 R19
-!i122 139
-L0 96 46
+!i122 167
+L0 101 46
 R11
 R12
 r1
@@ -445,15 +457,15 @@ R15
 R6
 R16
 !i10b 1
-!s100 6]5jNW^3?YYT`^INSEF`V3
-IPl5lI9CC29oNlIUiX6WAD1
+!s100 [70=4=i^HK6=fnRaQB;3g1
+IbMMIZ[55jC6C627BRnD4W2
 S1
 R2
 R17
 R18
 R19
-!i122 139
-L0 66 29
+!i122 167
+L0 71 29
 R11
 R12
 r1
@@ -600,19 +612,19 @@ R13
 R3
 vregister_v1
 R14
-!s10a 1750747192
+!s10a 1752470831
 R6
-!s110 1750661770
+!s110 1752470976
 !i10b 1
-!s100 PB0mPe51OZL10CdEYfXke3
-IDa]:eghZL;TR@2mciTMg]2
+!s100 bLUic7LYCO59[[[0YHM9N1
+IUBV;bPB5`oUXo8cMYAg<F1
 S1
 R2
-w1750661768
+w1752470831
 8../src/register_v1.sv
 F../src/register_v1.sv
-!i122 8
-L0 4 30
+!i122 171
+L0 4 29
 R11
 R12
 r1
@@ -670,19 +682,19 @@ R13
 R3
 vtestbench_memory_ctrl_v1
 R14
-!s10a 1752352609
+!s10a 1752355907
 R6
-!s110 1752352614
+!s110 1752353212
 !i10b 1
-!s100 :momabgc=:6S71cC9XNPf0
-I<ZDOj=TL[4ZJ9[aN6Ob?i0
+!s100 XG4EhaC_V_OBmfUGgcKX>1
+I>]=Ybg6oM5S;AXz1bLCIh1
 S1
 R2
-w1752352609
+w1752352839
 8../testbenches/memory_ctrl_v1_tb.sv
 F../testbenches/memory_ctrl_v1_tb.sv
-!i122 159
-L0 7 66
+!i122 160
+L0 8 66
 R11
 R12
 r1
@@ -692,4 +704,4 @@ r1
 R13
 R3
 vtestbench_memory_v1
-2../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|
+2../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/regi
