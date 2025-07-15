@@ -6,28 +6,23 @@ module register_v1 (
     input logic rst,
     input logic clk,
     input logic [31:0] data_in,
-    input logic [31:0] data_out,
+    output logic [31:0] data_out,
     output logic [7:0] register_error_vector
 );
     
     // the internal register
     logic [31:0] reg_storage;
-    assign data_out = reg_storage;
 
     always_ff @(posedge clk or posedge rst)
     begin
         if (rst)
-            begin
-                reg_storage <= 32'd0;
-            end
+            reg_storage = 0;
         else
-            begin
-                if (wr_en)
-                    begin
-                        reg_storage <= data_in;
-                    end
-            end
+            if (wr_en) 
+                reg_storage <= data_in;
     end
+
+    assign data_out = reg_storage;
 
 endmodule
 

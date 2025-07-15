@@ -153,6 +153,68 @@ R0
 R1
 R0
 R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
 !s11f vlog 2024.3 2024.09, Sep 10 2024
 13
 !s112 1.1
@@ -162,14 +224,14 @@ R1
 cModel Technology
 Z2 dC:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/build
 T_opt3
-!s110 1752471091
-VBac;6dAllbiAE90AL=V=L3
-04 19 4 work testbench_memory_v2 fast 0
-=1-24ee9a5f9e98-68749633-117-6f14
+!s110 1752560525
+Vk_e2Y2VkNXPdXc2E8RmzQ1
+04 21 4 work testbench_toplevel_v1 fast 0
+=1-24ee9a5f9e98-6875f38d-132-49d0
 R1
 !s12f OEM100
 !s12b OEM100
-!s124 OEM10U14 
+!s124 OEM10U34 
 !s135 nogc
 o-quiet -auto_acc_if_foreign -work work -L work +acc
 Z3 tCvgOpt 0
@@ -202,7 +264,7 @@ Z15 !s90 -sv|-incr|../src/mux2_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|..
 Z16 o-sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R3
 vALU_v1
-Z17 2../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v2.sv|../src/toplevel_v1.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/ram_v1_tb.sv|../testbenches/param_mux_v1_tb.sv|../testbenches/memory_v2_tb.sv|../testbenches/memory_ctrl_v1_tb.sv|../testbenches/registerFile_v1_tb.sv
+Z17 2../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v2.sv|../src/zeroPadder_v1.sv|../src/toplevel_v1.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/ram_v1_tb.sv|../testbenches/param_mux_v1_tb.sv|../testbenches/memory_v2_tb.sv|../testbenches/memory_ctrl_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/zeroPadder_v1_tb.sv|../testbenches/toplevel_v1_tb.sv
 !s10a 1752120418
 R6
 !s110 1752119170
@@ -230,27 +292,27 @@ R3
 n@a@l@u_v1
 vcontroller_v1
 R17
-!s10a 1752120414
+!s10a 1752560354
 R6
-!s110 1752118590
+!s110 1752560363
 !i10b 1
-!s100 ;:RmWmUh`KWLK@mQ5i3gT0
-IePAjFeWz_NcnUPgFT6PHY3
+!s100 jGfJff=CEKh10<GfE1h5L0
+I@kgmlAIZFNb2NW=0UQA^h3
 S1
 R2
-w1752118587
+w1752560354
 8../src/controller_v1.sv
 F../src/controller_v1.sv
-!i122 116
-L0 4 235
+!i122 212
+L0 4 246
 R11
 R12
 r1
 !s85 0
 31
-!s108 1752118590.000000
-R18
-R19
+!s108 1752560363.000000
+!s107 ../testbenches/toplevel_v1_tb.sv|../testbenches/zeroPadder_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/memory_ctrl_v1_tb.sv|../testbenches/memory_v2_tb.sv|../testbenches/param_mux_v1_tb.sv|../testbenches/ram_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../src/toplevel_v1.sv|../src/zeroPadder_v1.sv|../src/memory_v2.sv|../src/ram_v1.sv|../src/register_v1.sv|../src/registerFile_v1.sv|../src/controller_v1.sv|../src/ALU_v1.sv|../src/muxes_v1.sv|
+!s90 -reportprogress|300|-sv|-incr|../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v2.sv|../src/zeroPadder_v1.sv|../src/toplevel_v1.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/ram_v1_tb.sv|../testbenches/param_mux_v1_tb.sv|../testbenches/memory_v2_tb.sv|../testbenches/memory_ctrl_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/zeroPadder_v1_tb.sv|../testbenches/toplevel_v1_tb.sv|
 !i113 0
 R16
 R3
@@ -281,28 +343,28 @@ Z27 !s90 -sv|-incr|../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|.
 R16
 R3
 vmemory_ctrl_v1
-2../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v2.sv|../src/memory_ctrl_v1.sv|../src/toplevel_v1.sv|../testbenches/ram_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/memory_v2_tb.sv|../testbenches/memory_ctrl_v1_tb.sv|../testbenches/param_mux_v1_tb.sv
-!s10a 1752355906
+Z28 2../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v2.sv|../src/memory_ctrl_v1.sv|../src/zeroPadder_v1.sv|../src/toplevel_v1.sv|../testbenches/ram_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/memory_v2_tb.sv|../testbenches/memory_ctrl_v1_tb.sv|../testbenches/param_mux_v1_tb.sv|../testbenches/register_v1_tb.sv|../testbenches/zeroPadder_v1_tb.sv|../testbenches/toplevel_v1_tb.sv
+!s10a 1752515370
 R6
-!s110 1752354542
+!s110 1752515378
 !i10b 1
-!s100 fE_i@14mWA8_FC_U7>3ih3
-I6a^J=Re76]e2SDnf7`D7E1
+!s100 elSo1SZY^W5^M?WkI6V5;1
+Ic16I9b_5m2XfGTfRAI;go2
 S1
 R2
-w1752354540
+w1752515370
 8../src/memory_ctrl_v1.sv
 F../src/memory_ctrl_v1.sv
-!i122 164
+!i122 183
 L0 7 48
 R11
 R12
 r1
 !s85 0
 31
-!s108 1752354542.000000
-R26
-R27
+!s108 1752515378.000000
+Z29 !s107 ../testbenches/toplevel_v1_tb.sv|../testbenches/param_mux_v1_tb.sv|../testbenches/memory_ctrl_v1_tb.sv|../testbenches/memory_v2_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/ram_v1_tb.sv|../src/toplevel_v1.sv|../src/memory_ctrl_v1.sv|../src/memory_v2.sv|../src/ram_v1.sv|../src/register_v1.sv|../src/registerFile_v1.sv|../src/controller_v1.sv|../src/ALU_v1.sv|../src/muxes_v1.sv|
+Z30 !s90 -sv|-incr|../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v2.sv|../src/memory_ctrl_v1.sv|../src/toplevel_v1.sv|../testbenches/ram_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/memory_v2_tb.sv|../testbenches/memory_ctrl_v1_tb.sv|../testbenches/param_mux_v1_tb.sv|../testbenches/toplevel_v1_tb.sv|
 !i113 0
 R16
 R3
@@ -327,39 +389,39 @@ r1
 !s85 0
 31
 !s108 1750932664.000000
-Z28 !s107 ../testbenches/registerFile_v1_tb.sv|../testbenches/memory_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/ram_v1_tb.sv|../src/toplevel_v1.sv|../src/memory_v1.sv|../src/ram_v1.sv|../src/register_v1.sv|../src/registerFile_v1.sv|../src/controller_v1.sv|../src/ALU_v1.sv|../src/muxes_v1.sv|
-Z29 !s90 -sv|-incr|../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v1.sv|../src/toplevel_v1.sv|../testbenches/ram_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/memory_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|
+Z31 !s107 ../testbenches/registerFile_v1_tb.sv|../testbenches/memory_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/ram_v1_tb.sv|../src/toplevel_v1.sv|../src/memory_v1.sv|../src/ram_v1.sv|../src/register_v1.sv|../src/registerFile_v1.sv|../src/controller_v1.sv|../src/ALU_v1.sv|../src/muxes_v1.sv|
+Z32 !s90 -sv|-incr|../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v1.sv|../src/toplevel_v1.sv|../testbenches/ram_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/memory_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|
 !i113 0
 R16
 R3
 vmemory_v2
 R17
-!s10a 1752471082
+!s10a 1752514719
 R6
-!s110 1752471084
+!s110 1752514750
 !i10b 1
-!s100 [BU>5O1@<]3GN56djkaSb3
-IH6EmO24PHlAVoCLTD3?G33
+!s100 ]:P4nKljL73CDRG[8CYZm3
+IkQ2imc>5cPIo>kMCX:Bf@0
 S1
 R2
-w1752471082
+w1752514719
 8../src/memory_v2.sv
 F../src/memory_v2.sv
-!i122 173
+!i122 182
 L0 6 175
 R11
 R12
 r1
 !s85 0
 31
-!s108 1752471084.000000
-R26
-R27
+!s108 1752514749.000000
+R29
+R30
 !i113 0
 R16
 R3
 vmux
-Z30 2../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v2.sv|../src/memory_ctrl_v1.sv|../src/toplevel_v1.sv|../testbenches/ram_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv
+Z33 2../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v2.sv|../src/memory_ctrl_v1.sv|../src/toplevel_v1.sv|../testbenches/ram_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv
 R6
 !s110 1752170495
 !i10b 1
@@ -371,7 +433,7 @@ w1752170493
 R23
 R24
 !i122 127
-Z31 L0 123 9
+Z34 L0 123 9
 R11
 R12
 r1
@@ -482,8 +544,8 @@ r1
 !s85 0
 31
 !s108 1752178397.000000
-Z32 !s107 ../testbenches/param_mux_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/ram_v1_tb.sv|../src/toplevel_v1.sv|../src/memory_ctrl_v1.sv|../src/memory_v2.sv|../src/ram_v1.sv|../src/register_v1.sv|../src/registerFile_v1.sv|../src/controller_v1.sv|../src/ALU_v1.sv|../src/muxes_v1.sv|
-Z33 !s90 -sv|-incr|../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v2.sv|../src/memory_ctrl_v1.sv|../src/toplevel_v1.sv|../testbenches/ram_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/param_mux_v1_tb.sv|
+Z35 !s107 ../testbenches/param_mux_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/ram_v1_tb.sv|../src/toplevel_v1.sv|../src/memory_ctrl_v1.sv|../src/memory_v2.sv|../src/ram_v1.sv|../src/register_v1.sv|../src/registerFile_v1.sv|../src/controller_v1.sv|../src/ALU_v1.sv|../src/muxes_v1.sv|
+Z36 !s90 -sv|-incr|../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v2.sv|../src/memory_ctrl_v1.sv|../src/toplevel_v1.sv|../testbenches/ram_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/param_mux_v1_tb.sv|
 !i113 0
 R16
 R3
@@ -514,7 +576,7 @@ R27
 R16
 R3
 vmux_parametrisized
-R30
+R33
 !s10a 1752169568
 R6
 !s110 1752169573
@@ -540,15 +602,15 @@ R19
 R16
 R3
 Xmytypes
-Z34 2../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v2.sv|../src/memory_ctrl_v1.sv|../src/toplevel_v1.sv|../testbenches/ram_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/param_mux_v1_tb.sv
+Z37 2../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v2.sv|../src/memory_ctrl_v1.sv|../src/toplevel_v1.sv|../testbenches/ram_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/param_mux_v1_tb.sv
 R6
-Z35 !s110 1752176031
+Z38 !s110 1752176031
 !i10b 1
 !s100 jEOm;W[3LZKUB?P0M2KB<2
 IgbF5SOdXOm]4@P0=eTDYb3
 S1
 R2
-Z36 w1752176001
+Z39 w1752176001
 R23
 R24
 !i122 134
@@ -558,14 +620,14 @@ R12
 r1
 !s85 0
 31
-Z37 !s108 1752176031.000000
-R32
-R33
+Z40 !s108 1752176031.000000
+R35
+R36
 !i113 0
 R16
 R3
 vparam_mux
-R30
+R33
 R6
 !s110 1752170530
 !i10b 1
@@ -577,7 +639,7 @@ w1752170527
 R23
 R24
 !i122 128
-R31
+R34
 R11
 R12
 r1
@@ -590,16 +652,16 @@ R19
 R16
 R3
 vparam_mux_v1
-R34
+R37
 R6
 DXx4 work 7 mytypes 0 22 gbF5SOdXOm]4@P0=eTDYb3
-R35
+R38
 !i10b 1
 !s100 jZzNz0I0kj4d<aB@lbO6M2
 Idjeaa2dY6RoZ_50RQ`=_m3
 S1
 R2
-R36
+R39
 R23
 R24
 !i122 134
@@ -609,9 +671,9 @@ R12
 r1
 !s85 0
 31
-R37
-R32
-R33
+R40
+R35
+R36
 !i113 0
 R16
 R3
@@ -619,7 +681,7 @@ vram_v1
 R17
 !s10a 1750891918
 R6
-Z38 !s110 1750892667
+Z41 !s110 1750892667
 !i10b 1
 !s100 jMd9fdhVUD8c19DjADPnl0
 I5Z9iaGOkfUD:9@jzN2bf?3
@@ -635,9 +697,9 @@ R12
 r1
 !s85 0
 31
-Z39 !s108 1750892667.000000
-Z40 !s107 ../testbenches/registerFile_v1_tb.sv|../testbenches/memory_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/ram_v1_tb.sv|../src/toplevel_v1.sv|../src/ram_v1.sv|../src/memory_v1.sv|../src/register_v1.sv|../src/registerFile_v1.sv|../src/controller_v1.sv|../src/ALU_v1.sv|../src/muxes_v1.sv|
-Z41 !s90 -sv|-incr|../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/memory_v1.sv|../src/ram_v1.sv|../src/toplevel_v1.sv|../testbenches/ram_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/memory_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|
+Z42 !s108 1750892667.000000
+Z43 !s107 ../testbenches/registerFile_v1_tb.sv|../testbenches/memory_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/ram_v1_tb.sv|../src/toplevel_v1.sv|../src/ram_v1.sv|../src/memory_v1.sv|../src/register_v1.sv|../src/registerFile_v1.sv|../src/controller_v1.sv|../src/ALU_v1.sv|../src/muxes_v1.sv|
+Z44 !s90 -sv|-incr|../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/memory_v1.sv|../src/ram_v1.sv|../src/toplevel_v1.sv|../testbenches/ram_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/memory_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|
 !i113 0
 R16
 R3
@@ -662,34 +724,34 @@ r1
 !s85 0
 31
 !s108 1750690338.000000
-Z42 !s107 ../testbenches/registerFile_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../src/register_v1.sv|../src/toplevel_v1.sv|../src/registerFile_v1.sv|../src/controller_v1.sv|../src/ALU_v1.sv|../src/mux2_v1.sv|
+Z45 !s107 ../testbenches/registerFile_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../src/register_v1.sv|../src/toplevel_v1.sv|../src/registerFile_v1.sv|../src/controller_v1.sv|../src/ALU_v1.sv|../src/mux2_v1.sv|
 !s90 -reportprogress|300|-sv|-incr|../src/mux2_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/toplevel_v1.sv|../src/register_v1.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|
 !i113 0
 R16
 R3
 vregister_v1
 R17
-!s10a 1752470831
+!s10a 1752551633
 R6
-!s110 1752470976
+!s110 1752551637
 !i10b 1
-!s100 bLUic7LYCO59[[[0YHM9N1
-IUBV;bPB5`oUXo8cMYAg<F1
+!s100 oUHXU>BNz:`Z;A6gQVFJn1
+I<iJ9ZPaDJ6QS^RDM1hKKG3
 S1
 R2
-w1752470831
+w1752551633
 8../src/register_v1.sv
 F../src/register_v1.sv
-!i122 171
-L0 4 29
+!i122 201
+L0 4 24
 R11
 R12
 r1
 !s85 0
 31
-!s108 1752470975.000000
-R26
-R27
+!s108 1752551637.000000
+Z46 !s107 ../testbenches/toplevel_v1_tb.sv|../testbenches/register_v1_tb.sv|../testbenches/param_mux_v1_tb.sv|../testbenches/memory_ctrl_v1_tb.sv|../testbenches/memory_v2_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/ram_v1_tb.sv|../src/toplevel_v1.sv|../src/memory_ctrl_v1.sv|../src/memory_v2.sv|../src/ram_v1.sv|../src/register_v1.sv|../src/registerFile_v1.sv|../src/controller_v1.sv|../src/ALU_v1.sv|../src/muxes_v1.sv|
+Z47 !s90 -sv|-incr|../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v2.sv|../src/memory_ctrl_v1.sv|../src/toplevel_v1.sv|../testbenches/ram_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/memory_v2_tb.sv|../testbenches/memory_ctrl_v1_tb.sv|../testbenches/param_mux_v1_tb.sv|../testbenches/register_v1_tb.sv|../testbenches/toplevel_v1_tb.sv|
 !i113 0
 R16
 R3
@@ -704,10 +766,10 @@ I81c`009oEF1R0c3<ehY991
 S1
 R2
 w1750625004
-Z43 8../testbenches/ALU_v1_tb.sv
-Z44 F../testbenches/ALU_v1_tb.sv
+Z48 8../testbenches/ALU_v1_tb.sv
+Z49 F../testbenches/ALU_v1_tb.sv
 !i122 3
-Z45 L0 9 177
+Z50 L0 9 177
 R11
 R12
 r1
@@ -731,10 +793,10 @@ Ia=S4kcWLNDMPM?:nlE?dj1
 S1
 R2
 R8
-R43
-R44
+R48
+R49
 !i122 0
-R45
+R50
 R11
 R12
 r1
@@ -793,14 +855,14 @@ r1
 !s85 0
 31
 !s108 1750893024.000000
-R28
-R29
+R31
+R32
 !i113 0
 R16
 R3
 vtestbench_memory_v2
 R17
-!s10a 1752449069
+!s10a 1752521933
 R6
 !s110 1752449071
 !i10b 1
@@ -852,7 +914,7 @@ R16
 R3
 vtestbench_param_mux_v1
 R17
-Z46 !s10a 1752185812
+!s10a 1752185812
 R6
 !s110 1752177080
 !i10b 1
@@ -871,8 +933,8 @@ r1
 !s85 0
 31
 !s108 1752177080.000000
-R32
-R33
+R35
+R36
 !i113 0
 R16
 R3
@@ -880,7 +942,7 @@ vtestbench_ram_v1
 R17
 !s10a 1750932762
 R6
-R38
+R41
 !i10b 1
 !s100 XO1PddfNz]IC:6JaL^Rd[0
 I7`3JjQZR2^ck:UJQV_9310
@@ -896,9 +958,35 @@ R12
 r1
 !s85 0
 31
-R39
-R40
-R41
+R42
+R43
+R44
+!i113 0
+R16
+R3
+vtestbench_register_v1
+R28
+!s10a 1752540619
+R6
+!s110 1752540623
+!i10b 1
+!s100 iaB]i`R_H9nX2Ez0ecFE]0
+I5HH27h:AS=01^dPefJ_Km2
+S1
+R2
+w1752540619
+8../testbenches/register_v1_tb.sv
+F../testbenches/register_v1_tb.sv
+!i122 198
+L0 7 68
+R11
+R12
+r1
+!s85 0
+31
+!s108 1752540623.000000
+R46
+R47
 !i113 0
 R16
 R3
@@ -923,35 +1011,115 @@ r1
 !s85 0
 31
 !s108 1750693940.000000
-R42
+R45
 !s90 -sv|-incr|../src/mux2_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/toplevel_v1.sv|../src/register_v1.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|
 !i113 0
 R16
 R3
 ntestbench_register@file_v1
-vtoplevel_v1
+vtestbench_toplevel_v1
 R17
-R46
+!s10a 1752557801
 R6
-!s110 1752159198
+!s110 1752557803
 !i10b 1
-!s100 :a<l8j8EEV1F1a;3W2R3F1
-I`V]J]e3G8TYJNLUh;k?^H3
+!s100 19ofMJ4_9cE8MFXNRHMQc2
+Iio3PTKb@e^a^a_j4FncDa1
 S1
 R2
-w1752158884
-8../src/toplevel_v1.sv
-F../src/toplevel_v1.sv
-!i122 123
-L0 3 277
+w1752557801
+8../testbenches/toplevel_v1_tb.sv
+F../testbenches/toplevel_v1_tb.sv
+!i122 209
+L0 7 80
 R11
 R12
 r1
 !s85 0
 31
-!s108 1752159198.000000
-R18
-R19
+!s108 1752557803.000000
+Z51 !s107 ../testbenches/toplevel_v1_tb.sv|../testbenches/zeroPadder_v1_tb.sv|../testbenches/register_v1_tb.sv|../testbenches/param_mux_v1_tb.sv|../testbenches/memory_ctrl_v1_tb.sv|../testbenches/memory_v2_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/ram_v1_tb.sv|../src/toplevel_v1.sv|../src/zeroPadder_v1.sv|../src/memory_ctrl_v1.sv|../src/memory_v2.sv|../src/ram_v1.sv|../src/register_v1.sv|../src/registerFile_v1.sv|../src/controller_v1.sv|../src/ALU_v1.sv|../src/muxes_v1.sv|
+Z52 !s90 -sv|-incr|../src/muxes_v1.sv|../src/ALU_v1.sv|../src/controller_v1.sv|../src/registerFile_v1.sv|../src/register_v1.sv|../src/ram_v1.sv|../src/memory_v2.sv|../src/memory_ctrl_v1.sv|../src/zeroPadder_v1.sv|../src/toplevel_v1.sv|../testbenches/ram_v1_tb.sv|../testbenches/ALU_v1_tb.sv|../testbenches/mux2_v1_tb.sv|../testbenches/registerFile_v1_tb.sv|../testbenches/memory_v2_tb.sv|../testbenches/memory_ctrl_v1_tb.sv|../testbenches/param_mux_v1_tb.sv|../testbenches/register_v1_tb.sv|../testbenches/zeroPadder_v1_tb.sv|../testbenches/toplevel_v1_tb.sv|
 !i113 0
 R16
 R3
+vtestbench_zeroPadder_v1
+R17
+!s10a 1752556133
+R6
+!s110 1752556135
+!i10b 1
+!s100 [XmPhW:hB>5H=4G`g2Y193
+IAN0Z09SE7QX5m[F7Z5RYN2
+S1
+R2
+w1752556133
+8../testbenches/zeroPadder_v1_tb.sv
+F../testbenches/zeroPadder_v1_tb.sv
+!i122 204
+L0 7 42
+R11
+R12
+r1
+!s85 0
+31
+!s108 1752556135.000000
+R51
+R52
+!i113 0
+R16
+R3
+ntestbench_zero@padder_v1
+vtoplevel_v1
+R17
+!s10a 1752560514
+R6
+!s110 1752560519
+!i10b 1
+!s100 fn_3<e]fRNPF9E1S[1`^G3
+IB]>Bo67Y]XIgV>kL3i:EB2
+S1
+R2
+w1752560514
+8../src/toplevel_v1.sv
+F../src/toplevel_v1.sv
+!i122 213
+L0 3 328
+R11
+R12
+r1
+!s85 0
+31
+!s108 1752560519.000000
+R51
+R52
+!i113 0
+R16
+R3
+vzeroPadder_v1
+R17
+!s10a 1752560345
+R6
+!s110 1752556882
+!i10b 1
+!s100 :7MSF3o7h60PfTi3Ab8422
+I5nJzba3bR8]i0mLTS2Bg=1
+S1
+R2
+w1752556212
+8../src/zeroPadder_v1.sv
+F../src/zeroPadder_v1.sv
+!i122 205
+L0 7 7
+R11
+R12
+r1
+!s85 0
+31
+!s108 1752556882.000000
+R51
+R52
+!i113 0
+R16
+R3
+nzero@padder_v1

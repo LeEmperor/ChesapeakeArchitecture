@@ -6,14 +6,14 @@ module controller_v1 (
     input logic clk, rst, 
 
     // input signals
-    input logic [5:0] funct7,
+    input logic [6:0] funct7,
     input logic [2:0] funct3,
     input logic [6:0] opcode,
     input logic [31:0] ir_31_0,
 
     // select control  signals
     output logic [1:0] alu_src_a,
-    output logic [1:0] alu_src_b,
+    output logic [2:0] alu_src_b,
     output logic [1:0] ir_source,
     output logic [1:0] pc_source,
 
@@ -54,7 +54,7 @@ module controller_v1 (
     state next_state = INIT;
     
     // clk proc
-    always_ff @(posedge clk or posedge rst)
+    always_ff @(posedge clk)
     begin
         if (rst)
             begin
@@ -70,8 +70,8 @@ module controller_v1 (
     always_comb
     begin
         // default
-        next_state <= current_state;
-        next_state_error_vector <= 8'd0;
+        next_state = current_state;
+        next_state_error_vector = 8'd0;
 
         case (current_state)
             INIT : begin
@@ -181,7 +181,7 @@ module controller_v1 (
         moore_map_error_vector = 8'd0;
 
         case (current_state)
-            INIT : begin 
+            INIT : begin
 
             end
 
@@ -191,17 +191,28 @@ module controller_v1 (
 
             FETCH : begin
                 ir_source = 2'b00;
-                ir_write = 1'b0;
+                ir_write = 1;
             end
 
             DECODE : begin
-                alu_src_a = 2'b10;
+                // alu_src_a = 2'b10;
 
                 case (opcode) 
 
                     7'b00100_11 : begin // i-types
-                        alu_src_a = '0;
-                        alu_src_b = '0; 
+                        // alu_src_a = '0;
+                        // alu_src_b = '0; 
+                        // ir_write = 1;
+                        case(funct3)
+                            3'b000 : begin // i-type addi
+                                alu_src_b = 1;
+                                reg_a_write = 1;
+                                reg_b_write = 1;
+                            end
+
+                            default
+                                moore_map_error_vector = 'd54;
+                        endcase
                     end
 
                     default : begin

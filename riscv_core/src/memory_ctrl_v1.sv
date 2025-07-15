@@ -15,8 +15,8 @@ module memory_ctrl_v1 #(
     input logic clk,
     input logic rst,
 
-    output logic [4:0] sel_mux_data_in, // mux to memory or to physical outputs
-    output logic [4:0] sel_mux_data_out // select from memory or physical inputs
+    output logic [1:0] sel_mux_data_in, // mux to memory or to physical outputs
+    output logic [1:0] sel_mux_data_out // select from memory or physical inputs
 );
     always_ff @(posedge clk)
     begin
@@ -37,8 +37,8 @@ module memory_ctrl_v1 #(
                         if (addr >= 10'h3f0)
                             begin
                                 case(addr)
-                                    10'h3ff : sel_mux_data_in <= 5'd1; // seg0
-                                    10'h3fe : sel_mux_data_in <= 5'd2; // seg1
+                                    10'h3ff : sel_mux_data_in <= 'd1; // seg0
+                                    10'h3fe : sel_mux_data_in <= 'd2; // seg1
                                 endcase
                             end
                     end
@@ -46,7 +46,7 @@ module memory_ctrl_v1 #(
                     begin
                         sel_mux_data_out <= 0;
                         if (addr == 'h3ef) begin
-                            sel_mux_data_out <= 5'd1; // button array
+                            sel_mux_data_out <= 'd1; // button array
                         end
                     end
             end

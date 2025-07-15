@@ -1,59 +1,75 @@
 // Bohdan Purtell
 // University of Florida
-// Register Testbench
+// Testbench Template v1
+
 `timescale 1 ns / 1 ps
 
 module testbench_register_v1();
-    // writeables
-    logic [31:0] tb_write_data;
-    logic tb_wr_en;
 
-    // readables
-    wire [31:0] tb_read_data;
+    // control 
+    logic t_clk;
+    logic t_rst;
+    logic clk_en;
 
-    // control
-    logic tb_clk, tb_rst;
+    // monitor
+    wire [31:0] t_dataout;
 
-    register_v1 dut(
-        .wr_en(tb_wr_en),
-        .rst(tb_rst),
-        .clk(tb_clk),
-        .data_in(tb_write_data),
-        .data_out(tb_read_data),
-        .register_error_vector()
+    // probe
+    logic [31:0] t_datain;
+    logic t_en;
+    logic t_wren;
+
+    // dut
+    register_v1 dut (
+        .wr_en(t_wren),
+        .rst(t_rst),
+        .clk(t_clk),
+        .data_in(t_datain),
+        .data_out(t_dataout)
     );
 
     typedef struct {
         string test_name;
+        logic [31:0] data_in;
+        logic [31:0] expected_dataout;
     } testVector_t;
 
-    localparam int n_tests = 2;
+    localparam int n_tests = 1;
+    localparam int name_width = 30;
     testVector_t tests[n_tests];
+
     integer i;
-    initial 
-    begin
-        // populate test_vectors
+    string name;
+    string pad;
+    int len;
+    bit pass;
 
-        // read to verify that nothing
-        tests[0] = '{
-            test_name : "read nil from default",
-
-
-        };
-
-        // write to the reg
-        tests[1] = '{
-
-        };
-
-        // read the result
-        tests[2] = '{
-
-        };
-
-        // reset the reg
-
+    initial begin : CLK_GEN
+        t_clk = 0;
+        forever #5 t_clk = ~t_clk & clk_en;
     end
 
+    initial
+        begin
+            // populate test vectors
+            t_rst = 0;
+            clk_en = 1;
+            t_datain = 32'h528;
+            t_wren = 0;
+            #10
+
+            t_wren = 1;
+            #10
+
+            t_datain = 32'h120;
+            t_wren = 0;
+            #10
+
+            t_wren = 1;
+            #10
+
+            clk_en = 0;
+            disable CLK_GEN;
+        end
 endmodule
 

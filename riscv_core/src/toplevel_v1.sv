@@ -1,7 +1,8 @@
 `timescale 1 ns / 1 ps
 
-    module toplevel_v1 (
+module toplevel_v1 (
     input logic rst,
+    input logic clk,
 
     input logic [15:0] switch_array,
     input logic button0,
@@ -16,6 +17,7 @@
     output logic [6:0] seg5,
     output logic [6:0] seg6,
     output logic [6:0] seg7,
+    input logic ir_config,
 
     // diagnostiques
     input logic [31:0] diagnostique_instruction,
@@ -53,6 +55,9 @@
 
     logic [31:0] wire_regA_to_ALU;
     logic [31:0] wire_regB_to_ALU;
+    logic [11:0] wire_immediate_to_padder;
+    logic [31:0] wire_unsignedpadder_to_muxB;
+    logic [31:0] wire_signedpadder_to_muxB;
 
     logic [31:0] wire_muxIR_to_regIR;
     logic [31:0] wire_muxPC_to_regPC;
@@ -70,9 +75,11 @@
     logic [31:0] wire_ALU_result_hi_to_result_sel;
     logic [31:0] wire_ALU_result_selected;
 
+    logic [31:0] wire_memory_to_muxIR;
+
     // wire lines
     logic [31:0] ir_31_0; // whole instruction
-    logic [11:0] ir_31_20; // imediate
+    logic [11:0] ir_31_20; // immediate
     logic [4:0] ir_19_15; // rs1
     logic [4:0] ir_24_20; // rs2
     logic [6:0] ir_31_25; // funct7
@@ -81,7 +88,13 @@
 
     // assigns
     assign ir_31_25 = ir_31_0[31:25];
+    assign ir_31_20 = ir_31_0[31:20];
+    assign ir_19_15 = ir_31_0[19:15];
+    assign ir_24_20 = ir_31_0[24:20];
+    assign ir_14_12 = ir_31_0[14:12];
+    assign ir_6_0 = ir_31_0[6:0];
     assign wire_ALU_result_lo = wire_ALU_result;
+    assign wire_immediate_to_padder = ir_31_20;
 
     controller_v1 controller1 (
         .clk(clk),
@@ -102,7 +115,7 @@
         // write enables
         .ir_write(en_wr_IR),
         .reg_a_write(en_wr_regA),
-        .reg_b_write(en_wr_regA),
+        .reg_b_write(en_wr_regB),
         .pc_write(en_wr_PC),
         .mem_write(en_wr_MEM),
 
@@ -176,7 +189,7 @@
         .clk(clk),
         .rst(rst),
         .wr_en(en_wr_regB),
-        .data_in(wire_muxA_to_regB),
+        .data_in(wire_muxB_to_regB),
         .data_out(wire_regB_to_ALU)
     );
 
@@ -205,6 +218,28 @@
 //        .data_out(wire_memory_to_muxIR),
 //        .switch_array(switch_array)
 //    );
+    
+    memory_v2 memory (
+        .clk(clk),
+        .rst(rst),
+        .mem_addr(),
+        .data_in(),
+        .data_out(wire_memory_to_muxIR),
+        .write_enable(),
+        .read_enable(),
+        .pmod_in(),
+        .pmod_out(),
+        .button_array(),
+        .switch_array(),
+        .seg0(),
+        .seg1(),
+        .seg2(),
+        .seg3(),
+        .seg4(),
+        .seg5(),
+        .seg6(),
+        .seg7()
+    );
 
     mux4_v1 mux_MEMDATA (
         .in1(wire_ALU_result),
@@ -228,9 +263,9 @@
     );
 
     mux8_v1 mux_regB (
-        .in1(wire_regdata2_to_muxB),
-        .in2(),
-        .in3(),
+        .in1(wire_regdata2_to_muxB), // regfile
+        .in2(wire_unsignedpadder_to_muxB), // unsigned padded immediate
+        .in3(wire_signedpadder_to_muxB), // signed   padded immediate
         .in4(),
         .in5(),
         .in6(),
@@ -249,13 +284,14 @@
         .sel(sel_pc_source)
     );
 
-    mux4_v1 mux_ir (
+    mux2_v1 mux_ir (
         .in1(wire_memory_to_muxIR),
-        .in2(),
-        .in3(),
-        .in4(),
+        .in2(diagnostique_instruction),
+        // .in3(),
+        // .in4(),
         .out1(wire_muxIR_to_regIR),
-        .sel(sel_ir_source)
+        // .sel(sel_ir_source)
+        .sel(ir_config)
     );
 
     mux4_v1 mux_alu_result (
@@ -267,13 +303,28 @@
         .sel(sel_alu_result)
     );
 
-    mux4_v1 mux_regfile (
+    mux4_v1 mux_regfileData (
         .in1(wire_ALU_result_selected),
         .in2(),
         .in3(),
         .in4(),
         .out1(wire_muxRegfile_to_regfile),
         .sel(sel_regfile_in)
+    );
+
+    // mux4_v1 mux_regFileAddr1 (
+    //     .in1(wire_ALU_result_selected),
+    //     .in2(),
+    //     .in3(),
+    //     .in4(),
+    //     .out1(wire_muxRegfile_to_regfile),
+    //     .sel(sel_regfile_in)
+    // );
+
+    zeroPadder_v1 padder (
+        .immediate(wire_immediate_to_padder),
+        .unsigned_zero_padded(wire_unsignedpadder_to_muxB),
+        .signed_zero_padded(wire_signedpadder_to_muxB)
     );
 
 endmodule

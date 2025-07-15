@@ -45,8 +45,8 @@ module memory_v2 #(
     logic [data_width - 1 : 0] wire_ram_data_out;
     logic [addr_width - 1 : 0] wire_ram_addr;
 
-    logic [4:0] wire_sel_mux_data_in;
-    logic [4:0] wire_sel_mux_data_out;
+    logic [1:0] wire_sel_mux_data_in;
+    logic [1:0] wire_sel_mux_data_out;
 
     logic [31:0] wire_demux_to_seg0;
     logic [31:0] wire_demux_to_seg1;
