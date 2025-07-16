@@ -18,6 +18,7 @@ vlog -sv -incr \
     ../src/memory_v2.sv \
     ../src/memory_ctrl_v1.sv \
     ../src/zeroPadder_v1.sv \
+    ../src/ALU_controller_v1.sv \
     ../src/toplevel_v1.sv \
     \
     ../testbenches/ram_v1_tb.sv \

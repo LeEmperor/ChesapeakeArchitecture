@@ -8,6 +8,7 @@ vlog -sv -incr \
     ../src/ram_v1.sv \
     ../src/memory_v2.sv \
     ../src/zeroPadder_v1.sv \
+    ../src/ALU_controller_v1.sv \
     ../src/toplevel_v1.sv \
     \
     ../testbenches/ALU_v1_tb.sv \

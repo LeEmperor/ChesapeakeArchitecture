@@ -16,6 +16,10 @@ module controller_v1 (
     output logic [2:0] alu_src_b,
     output logic [1:0] ir_source,
     output logic [1:0] pc_source,
+    output logic [1:0] regFile_rdwr_config,
+    output logic regFile_wrdata1,
+    output logic regFile_wrdata2,
+    output logic [1:0] alu_result,
 
     // write enable control signals
     output logic ir_write,
@@ -23,7 +27,7 @@ module controller_v1 (
     output logic reg_b_write,
     output logic pc_write,
     output logic mem_write,
-    output logic regfile_write,
+    output logic regfile_write, // breh
 
     output logic alu_result_reg_write,
     output logic alu_lo_result_reg_write,
@@ -164,6 +168,7 @@ module controller_v1 (
         alu_src_b = '0;
         ir_source = '0;
         pc_source = '0;
+        alu_result = 0;
 
         // write enables
         ir_write = '0;
@@ -172,10 +177,14 @@ module controller_v1 (
         pc_write = '0;
         mem_write = '0;
         regfile_write = '0;
+        regFile_rdwr_config = '0;
 
         alu_result_reg_write = '0;
         alu_lo_result_reg_write = '0;
         alu_hi_result_reg_write = '0;
+
+        regFile_wrdata1 = '0;
+        regFile_wrdata2 = '0;
 
         // diagnostiqes
         moore_map_error_vector = 8'd0;
@@ -234,7 +243,8 @@ module controller_v1 (
             WRITEBACK : begin
                 case (opcode)
                     7'b00100_11 : begin // i-types
-                        regfile_write = 1;
+                        // regfile_write = 1;
+                        regFile_rdwr_config = 2'b01;
                     end
 
                     default : begin
