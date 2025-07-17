@@ -15,8 +15,8 @@ vlog -sv -incr \
     ../testbenches/mux2_v1_tb.sv \
     ../testbenches/ram_v1_tb.sv \
     ../testbenches/param_mux_v1_tb.sv \
-    ../testbenches/memory_v2_tb.sv \
     ../testbenches/memory_ctrl_v1_tb.sv \
+    ../testbenches/memory_v2_tb.sv \
     ../testbenches/registerFile_v1_tb.sv \
     ../testbenches/zeroPadder_v1_tb.sv \
     ../testbenches/toplevel_v1_tb.sv
@@ -24,12 +24,14 @@ vlog -sv -incr \
 
 # // main sim script
 # // vsim -t 1ps -L work -voptargs="+acc" testbench_ALU_v1\ ;
-vsim -t 1ps -L work -voptargs="+acc" testbench_toplevel_v1 ;
+# // vsim -t 1ps -L work -voptargs="+acc" testbench_toplevel_v1 ;
 # // vsim -t 1ps -L work -voptargs="+acc" testbench_register_v1;
 # // vsim -t 1ps -L work -voptargs="+acc" testbench_registerFile_v1;
+vsim -t 1ps -L work -voptargs="+acc" testbench_memory_v2;
 # // add wave * ;
 # // add wave -r *
-do toplevel_wavelayout1.do
+# // do toplevel_wavelayout1.do
+do wave.do
 run -all ;
 wave zoom full ;
 view wave ;

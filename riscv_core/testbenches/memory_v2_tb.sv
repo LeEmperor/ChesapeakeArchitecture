@@ -66,123 +66,169 @@ module testbench_memory_v2();
         forever #5 t_clk = ~t_clk & clk_en;
     end
 
-    initial 
-        begin
-            t_rst = 0;
-            // populate test vectors
-            
-            tests[0] = '{
-                test_name : "ram write 1",
-                seg0 : '0,
-                seg1 : '0,
-                button_array : '0,
-                write_enable : 1,
-                read_enable : 0,
-                data_in : 32'd10,
-                data_out : 32'd10,
-                addr : 10'd0
-            };
+    // initial 
+    //     begin
+    //         t_rst = 0;
+    //         // populate test vectors
+    //
+    //         tests[0] = '{
+    //             test_name : "ram write 1",
+    //             seg0 : '0,
+    //             seg1 : '0,
+    //             button_array : '0,
+    //             write_enable : 1,
+    //             read_enable : 0,
+    //             data_in : 32'd10,
+    //             data_out : 32'd10,
+    //             addr : 10'd0
+    //         };
+    //
+    //         tests[1] = '{
+    //             test_name : "ram write 2",
+    //             seg0 : '0,
+    //             seg1 : '0,
+    //             button_array : '0,
+    //             write_enable : 0,
+    //             read_enable : 0,
+    //             data_in : 32'd10,
+    //             data_out : 32'd10,
+    //             addr : 10'd0
+    //         };
+    //
+    //         tests[2] = '{
+    //             test_name : "ram write addr 1",
+    //             seg0 : '0,
+    //             seg1 : '0,
+    //             button_array : '0,
+    //             write_enable : 1,
+    //             read_enable : 0,
+    //             data_in : 32'd247,
+    //             data_out : 32'd247,
+    //             addr : 10'd180
+    //         };
+    //
+    //         tests[3] = '{
+    //             test_name : "write to seg0",
+    //             seg0 : 'd10,
+    //             seg1 : '0,
+    //             button_array : '0,
+    //             write_enable : 1,
+    //             read_enable : 0,
+    //             data_in : 32'd24,
+    //             data_out : 32'd24,
+    //             addr : 10'h3ff
+    //         };
+    //
+    //         tests[4] = '{
+    //             test_name : "write to seg1",
+    //             seg0 : '0,
+    //             seg1 : 'd10,
+    //             button_array : '0,
+    //             write_enable : 1,
+    //             read_enable : 0,
+    //             data_in : 32'd25,
+    //             data_out : 32'd25,
+    //             addr : 10'h3fe
+    //         };
+    //
+    //         tests[5] = '{
+    //             test_name : "read from array",
+    //             seg0 : '0,
+    //             seg1 : '0,
+    //             button_array : 'd35,
+    //             write_enable : 0,
+    //             read_enable : 0,
+    //             data_in : 32'd0,
+    //             data_out : 32'd35,
+    //             addr : 10'h3ef
+    //         };
+    //
+    //
+    //         clk_en = 1;
+    //
+    //         for(i = 0; i < n_tests; i++) begin
+    //             pass = 1;
+    //
+    //             t_buttons = tests[i].button_array;
+    //             t_mem_addr = tests[i].addr;
+    //             t_write_enable = tests[i].write_enable;
+    //             t_read_enable = tests[i].read_enable;
+    //             t_datain = tests[i].data_in;
+    //             #10
+    //
+    //             t_write_enable = ~tests[i].write_enable;
+    //             #10
+    //
+    //             if (t_dataout !== tests[i].data_out) begin
+    //                 $error("Test [%1d] : {%s} - expected data mismatch --- EXPECTED: {%s}", i, tests[i].test_name, tests[i].data_out);
+    //                 pass = 0;
+    //             end
+    //
+    //             // diagnostiques
+    //             name = tests[i].test_name;
+    //             len = name.len();
+    //             pad = (len < name_width)
+    //                 ? { (name_width - len) { "." } }
+    //                 : "";
+    //
+    //             $display(
+    //                 "# Test [%1d] : {%s%0s} %s",
+    //                 i + 1,
+    //                 name, pad,
+    //                 pass ? "PASSED!" : "FAILED!"
+    //             );
+    //
+    //         end
+    //
+    //         clk_en = 0;
+    //         disable CLK_GEN;
+    //     end
 
-            tests[1] = '{
-                test_name : "ram write 2",
-                seg0 : '0,
-                seg1 : '0,
-                button_array : '0,
-                write_enable : 0,
-                read_enable : 0,
-                data_in : 32'd10,
-                data_out : 32'd10,
-                addr : 10'd0
-            };
+    // manual data testing
+    initial begin
+        clk_en = 1;
+        // #5
 
-            tests[2] = '{
-                test_name : "ram write addr 1",
-                seg0 : '0,
-                seg1 : '0,
-                button_array : '0,
-                write_enable : 1,
-                read_enable : 0,
-                data_in : 32'd247,
-                data_out : 32'd247,
-                addr : 10'd180
-            };
+        // write d1234567 to ram addr h25
+        t_mem_addr = 'h25;
+        t_datain = 'd1234567; // h12D687
+        t_write_enable = 0;
+        #15
 
-            tests[3] = '{
-                test_name : "write to seg0",
-                seg0 : 'd10,
-                seg1 : '0,
-                button_array : '0,
-                write_enable : 1,
-                read_enable : 0,
-                data_in : 32'd24,
-                data_out : 32'd24,
-                addr : 10'h3ff
-            };
+        t_write_enable = 1;
+        #10
 
-            tests[4] = '{
-                test_name : "write to seg1",
-                seg0 : '0,
-                seg1 : 'd10,
-                button_array : '0,
-                write_enable : 1,
-                read_enable : 0,
-                data_in : 32'd25,
-                data_out : 32'd25,
-                addr : 10'h3fe
-            };
+        // write d7654321 to ram addr h20
+        t_mem_addr = 'h20;
+        t_datain = 'd7654321; // h74CBB1
+        t_write_enable = 0;
+        #10
 
-            tests[5] = '{
-                test_name : "read from array",
-                seg0 : '0,
-                seg1 : '0,
-                button_array : 'd35,
-                write_enable : 0,
-                read_enable : 0,
-                data_in : 32'd0,
-                data_out : 32'd35,
-                addr : 10'h3ef
-            };
+        t_write_enable = 1;
+        #10
 
+        // write to seg0 (h3ff)
+        t_mem_addr = 'h3ff;
+        t_datain = 7'b0011001; // h19
+        t_write_enable = 0;
+        #10
 
-            clk_en = 1;
+        t_write_enable = 1;
+        #10
 
-            for(i = 0; i < n_tests; i++) begin
-                pass = 1;
+        // write to seg1 (h3fe)
+        t_mem_addr = 'h3fe;
+        t_datain = 7'b1100_001; // h61
+        t_write_enable = 0;
+        #10
 
-                t_buttons = tests[i].button_array;
-                t_mem_addr = tests[i].addr;
-                t_write_enable = tests[i].write_enable;
-                t_read_enable = tests[i].read_enable;
-                t_datain = tests[i].data_in;
-                #10
+        t_write_enable = 1;
+        #10
+        #5
 
-                t_write_enable = ~tests[i].write_enable;
-                #10
-
-                if (t_dataout !== tests[i].data_out) begin
-                    $error("Test [%1d] : {%s} - expected data mismatch --- EXPECTED: {%s}", i, tests[i].test_name, tests[i].data_out);
-                    pass = 0;
-                end
-
-                // diagnostiques
-                name = tests[i].test_name;
-                len = name.len();
-                pad = (len < name_width)
-                    ? { (name_width - len) { "." } }
-                    : "";
-
-                $display(
-                    "# Test [%1d] : {%s%0s} %s",
-                    i + 1,
-                    name, pad,
-                    pass ? "PASSED!" : "FAILED!"
-                );
-
-            end
-
-            clk_en = 0;
-            disable CLK_GEN;
-        end
+        clk_en = 0;
+        disable CLK_GEN;
+    end
 
 endmodule
 

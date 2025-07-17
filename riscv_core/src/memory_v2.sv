@@ -1,6 +1,17 @@
 // Bohdan Purtell
 // University of Florida
 // Memory Unit Toplevel Structural
+// STATUS: INCOMPLETE, need to rework with a combinational controller
+// (basically a decoder)
+//      AMENDED: this works when the clk fram eis high to low (aka 1 cycle is
+//      H for 5 ns, then L for 5 ns)
+//      wtf does this even mean?
+//
+//      the final output also needs an additional 5ns to complete???
+//      this appears to be some sort of 5 ns offset that is required?
+//          this is a clcok edge mismatch then no?
+//          if the controller is deciding on LH clocks and this needs HL
+//          clocks then we have a big issue in synchronization?
 `timescale 1 ns / 1 ps
 
 module memory_v2 #(
@@ -48,6 +59,7 @@ module memory_v2 #(
     logic [1:0] wire_sel_mux_data_in;
     logic [1:0] wire_sel_mux_data_out;
 
+    logic [31:0] wire_demux_to_ram;
     logic [31:0] wire_demux_to_seg0;
     logic [31:0] wire_demux_to_seg1;
     logic [31:0] wire_demux_to_seg2;
@@ -59,24 +71,33 @@ module memory_v2 #(
     logic [31:0] wire_buttonarray_padded;
     logic [31:0] wire_switcharray_padded;
 
+    logic WE_seg0;
+    logic WE_seg1;
+    logic WE_seg2;
+    logic WE_seg3;
+    logic WE_seg4;
+    logic WE_seg5;
+    logic WE_seg6;
+    logic WE_seg7;
+
     assign wire_ram_addr = mem_addr;
     assign wire_buttonarray_padded = { {28{1'b0}}, button_array[3:0] };
     assign wire_switcharray_padded = { {16{1'b0}}, switch_array[15:0] };
     assign en_ram_wren = write_enable;
-    assign seg0 = wire_demux_to_seg0;
-    assign seg1 = wire_demux_to_seg1;
-    assign seg2 = wire_demux_to_seg2;
-    assign seg3 = wire_demux_to_seg3;
-    assign seg4 = wire_demux_to_seg4;
-    assign seg5 = wire_demux_to_seg5;
-    assign seg6 = wire_demux_to_seg6;
-    assign seg7 = wire_demux_to_seg7;
+    // assign seg0 = wire_demux_to_seg0;
+    // assign seg1 = wire_demux_to_seg1;
+    // assign seg2 = wire_demux_to_seg2;
+    // assign seg3 = wire_demux_to_seg3;
+    // assign seg4 = wire_demux_to_seg4;
+    // assign seg5 = wire_demux_to_seg5;
+    // assign seg6 = wire_demux_to_seg6;
+    // assign seg7 = wire_demux_to_seg7;
 
     ram_v1 ram1 (
         .clk(clk),
         .rst(rst),
         .wr_en(en_ram_wren),
-        .in_data(wire_ram_data_in),
+        .in_data(wire_demux_to_ram),
         .out_data(wire_ram_data_out),
         .actual_ram_addr(wire_ram_addr)
     );
@@ -84,7 +105,7 @@ module memory_v2 #(
     // mux data_in (push the fed data to RAM or the output ports)
     demux4_v1 data_in_demux (
         .in1(data_in),
-        .out1(wire_ram_data_in), // feed ram
+        .out1(wire_demux_to_ram), // feed ram
         .out2(wire_demux_to_seg0), // seg0 
         .out3(wire_demux_to_seg1), // seg1
         .out4(wire_demux_to_seg2),
@@ -108,24 +129,32 @@ module memory_v2 #(
         .clk(clk),
         .rst(rst),
         .addr(mem_addr),
+        .seg0_wren(WE_seg0),
+        .seg1_wren(WE_seg1),
+        .seg2_wren(WE_seg2),
+        .seg3_wren(WE_seg3),
+        .seg4_wren(WE_seg4),
+        .seg5_wren(WE_seg5),
+        .seg6_wren(WE_seg6),
+        .seg7_wren(WE_seg7),
         .sel_mux_data_in(wire_sel_mux_data_in),
         .sel_mux_data_out(wire_sel_mux_data_out)
     );
 
     register_v1 reg_seg0 (
-        .wr_en(),
+        .wr_en(WE_seg0),
         .rst(rst),
         .clk(clk),
-        .data_in(),
-        .data_out()
+        .data_in(wire_demux_to_seg0),
+        .data_out(seg0)
     );
 
     register_v1 reg_seg1 (
-        .wr_en(),
+        .wr_en(WE_seg1),
         .rst(rst),
         .clk(clk),
-        .data_in(),
-        .data_out()
+        .data_in(wire_demux_to_seg1),
+        .data_out(seg1)
     );
 
     register_v1 reg_seg2 (

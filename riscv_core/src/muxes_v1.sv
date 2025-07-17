@@ -52,7 +52,8 @@ module demux4_v1 #(
     output logic [width - 1 : 0] out3,
     output logic [width - 1 : 0] out4
 );
-    always @(sel)
+
+    always @(sel, in1)
         begin
             out1 = '0;
             out2 = '0;
