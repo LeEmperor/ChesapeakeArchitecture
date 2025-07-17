@@ -8,8 +8,8 @@ vlog -sv -incr \
     ../src/ram_v1.sv \
     ../src/memory_v2.sv \
     ../src/zeroPadder_v1.sv \
-    ../src/ALU_controller_v1.sv \
     ../src/toplevel_v1.sv \
+    ../src/ALU_controller_v1.sv \
     \
     ../testbenches/ALU_v1_tb.sv \
     ../testbenches/mux2_v1_tb.sv \
@@ -26,6 +26,7 @@ vlog -sv -incr \
 # // vsim -t 1ps -L work -voptargs="+acc" testbench_ALU_v1\ ;
 vsim -t 1ps -L work -voptargs="+acc" testbench_toplevel_v1 ;
 # // vsim -t 1ps -L work -voptargs="+acc" testbench_register_v1;
+# // vsim -t 1ps -L work -voptargs="+acc" testbench_registerFile_v1;
 # // add wave * ;
 # // add wave -r *
 do toplevel_wavelayout1.do

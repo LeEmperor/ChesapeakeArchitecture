@@ -1,7 +1,21 @@
-# do ../build_scripts/main_compile.do
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2024.3 win64 Sep 10 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# do ../build_scripts/full_script.do
 # Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
-# Start time: 20:03:59 on Jul 15,2025
-# vlog -sv -incr ../src/muxes_v1.sv ../src/ALU_v1.sv ../src/controller_v1.sv ../src/registerFile_v1.sv ../src/register_v1.sv ../src/ram_v1.sv ../src/memory_v2.sv ../src/memory_ctrl_v1.sv ../src/zeroPadder_v1.sv ../src/ALU_controller_v1.sv ../src/toplevel_v1.sv ../testbenches/ram_v1_tb.sv ../testbenches/ALU_v1_tb.sv ../testbenches/mux2_v1_tb.sv ../testbenches/registerFile_v1_tb.sv ../testbenches/memory_v2_tb.sv ../testbenches/memory_ctrl_v1_tb.sv ../testbenches/param_mux_v1_tb.sv ../testbenches/register_v1_tb.sv ../testbenches/zeroPadder_v1_tb.sv ../testbenches/toplevel_v1_tb.sv 
+# Start time: 22:28:32 on Jul 16,2025
+# vlog -reportprogress 300 -sv -incr ../src/muxes_v1.sv ../src/ALU_v1.sv ../src/controller_v1.sv ../src/registerFile_v1.sv ../src/register_v1.sv ../src/ram_v1.sv ../src/memory_v2.sv ../src/zeroPadder_v1.sv ../src/toplevel_v1.sv ../src/ALU_controller_v1.sv ../testbenches/ALU_v1_tb.sv ../testbenches/mux2_v1_tb.sv ../testbenches/ram_v1_tb.sv ../testbenches/param_mux_v1_tb.sv ../testbenches/memory_v2_tb.sv ../testbenches/memory_ctrl_v1_tb.sv ../testbenches/registerFile_v1_tb.sv ../testbenches/zeroPadder_v1_tb.sv ../testbenches/toplevel_v1_tb.sv 
 # -- Skipping module mux2_v1
 # -- Skipping module mux4_v1
 # -- Skipping module demux4_v1
@@ -13,32 +27,91 @@
 # -- Skipping module register_v1
 # -- Skipping module ram_v1
 # -- Skipping module memory_v2
-# -- Skipping module memory_ctrl_v1
 # -- Skipping module zeroPadder_v1
-# -- Skipping module ALU_controller_v1
 # -- Skipping module toplevel_v1
-# -- Skipping module testbench_ram_v1
+# -- Skipping module ALU_controller_v1
 # -- Skipping module testbench_ALU_v1
 # -- Skipping module testbench_mux2
-# -- Skipping module testbench_registerFile_v1
+# -- Skipping module testbench_ram_v1
+# -- Skipping module testbench_param_mux_v1
 # -- Skipping module testbench_memory_v2
 # -- Skipping module testbench_memory_ctrl_v1
-# -- Skipping module testbench_param_mux_v1
-# -- Skipping module testbench_register_v1
+# -- Skipping module testbench_registerFile_v1
 # -- Skipping module testbench_zeroPadder_v1
 # -- Skipping module testbench_toplevel_v1
 # 
 # Top level modules:
 # 	mux16_v1
-# 	testbench_ram_v1
 # 	testbench_ALU_v1
 # 	testbench_mux2
-# 	testbench_registerFile_v1
+# 	testbench_ram_v1
+# 	testbench_param_mux_v1
 # 	testbench_memory_v2
 # 	testbench_memory_ctrl_v1
-# 	testbench_param_mux_v1
-# 	testbench_register_v1
+# 	testbench_registerFile_v1
 # 	testbench_zeroPadder_v1
 # 	testbench_toplevel_v1
-# End time: 20:03:59 on Jul 15,2025, Elapsed time: 0:00:00
+# End time: 22:28:32 on Jul 16,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
+# vsim -t 1ps -L work -voptargs=""+acc"" testbench_toplevel_v1 
+# Start time: 22:28:33 on Jul 16,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# ** Warning: ../src/toplevel_v1.sv(108): (vopt-2685) [TFMPC] - Too few port connections for 'controller1'.  Expected 28, found 27.
+# ** Warning: ../src/toplevel_v1.sv(108): (vopt-2718) [TFMPC] - Missing connection for port 'regfile_write'.
+# ** Warning: ../src/toplevel_v1.sv(180): (vopt-2685) [TFMPC] - Too few port connections for 'alu_result'.  Expected 6, found 5.
+# ** Warning: ../src/toplevel_v1.sv(180): (vopt-2718) [TFMPC] - Missing connection for port 'register_error_vector'.
+# ** Warning: ../src/toplevel_v1.sv(188): (vopt-2685) [TFMPC] - Too few port connections for 'alu_result_lo'.  Expected 6, found 5.
+# ** Warning: ../src/toplevel_v1.sv(188): (vopt-2718) [TFMPC] - Missing connection for port 'register_error_vector'.
+# ** Warning: ../src/toplevel_v1.sv(196): (vopt-2685) [TFMPC] - Too few port connections for 'alu_result_hi'.  Expected 6, found 5.
+# ** Warning: ../src/toplevel_v1.sv(196): (vopt-2718) [TFMPC] - Missing connection for port 'register_error_vector'.
+# ** Warning: ../src/toplevel_v1.sv(204): (vopt-2685) [TFMPC] - Too few port connections for 'reg_a'.  Expected 6, found 5.
+# ** Warning: ../src/toplevel_v1.sv(204): (vopt-2718) [TFMPC] - Missing connection for port 'register_error_vector'.
+# ** Warning: ../src/toplevel_v1.sv(212): (vopt-2685) [TFMPC] - Too few port connections for 'reg_b'.  Expected 6, found 5.
+# ** Warning: ../src/toplevel_v1.sv(212): (vopt-2718) [TFMPC] - Missing connection for port 'register_error_vector'.
+# ** Warning: ../src/toplevel_v1.sv(220): (vopt-2685) [TFMPC] - Too few port connections for 'reg_ir'.  Expected 6, found 5.
+# ** Warning: ../src/toplevel_v1.sv(220): (vopt-2718) [TFMPC] - Missing connection for port 'register_error_vector'.
+# ** Warning: ../src/toplevel_v1.sv(228): (vopt-2685) [TFMPC] - Too few port connections for 'reg_pc'.  Expected 6, found 5.
+# ** Warning: ../src/toplevel_v1.sv(228): (vopt-2718) [TFMPC] - Missing connection for port 'register_error_vector'.
+# ** Warning: ../src/toplevel_v1.sv(246): (vopt-2685) [TFMPC] - Too few port connections for 'memory'.  Expected 20, found 19.
+# ** Warning: ../src/toplevel_v1.sv(246): (vopt-2718) [TFMPC] - Missing connection for port 'memory_error_vector'.
+# ** Warning: ../src/toplevel_v1.sv(268): (vopt-2685) [TFMPC] - Too few port connections for 'mux_MEMDATA'.  Expected 6, found 3.
+# ** Warning: ../src/toplevel_v1.sv(268): (vopt-2718) [TFMPC] - Missing connection for port 'in4'.
+# ** Warning: ../src/toplevel_v1.sv(268): (vopt-2718) [TFMPC] - Missing connection for port 'in3'.
+# ** Warning: ../src/toplevel_v1.sv(268): (vopt-2718) [TFMPC] - Missing connection for port 'in2'.
+# ** Warning: ../src/toplevel_v1.sv(274): (vopt-2685) [TFMPC] - Too few port connections for 'mux_MEMADDR'.  Expected 6, found 3.
+# ** Warning: ../src/toplevel_v1.sv(274): (vopt-2718) [TFMPC] - Missing connection for port 'in4'.
+# ** Warning: ../src/toplevel_v1.sv(274): (vopt-2718) [TFMPC] - Missing connection for port 'in3'.
+# ** Warning: ../src/toplevel_v1.sv(274): (vopt-2718) [TFMPC] - Missing connection for port 'in2'.
+# ** Warning: ../src/toplevel_v1.sv(369): (vopt-2685) [TFMPC] - Too few port connections for 'alu_control'.  Expected 5, found 4.
+# ** Warning: ../src/toplevel_v1.sv(369): (vopt-2718) [TFMPC] - Missing connection for port 'alu_controller_error_vector'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=29.
+# Loading sv_std.std
+# Loading work.testbench_toplevel_v1(fast)
+# Loading work.toplevel_v1(fast)
+# Loading work.controller_v1(fast)
+# Loading work.register_file_v1(fast)
+# Loading work.mux2_v1(fast)
+# Loading work.ALU_v1(fast)
+# Loading work.register_v1(fast)
+# Loading work.memory_v2(fast)
+# Loading work.ram_v1(fast)
+# Loading work.demux4_v1(fast)
+# Loading work.mux4_v1(fast)
+# Loading work.memory_ctrl_v1(fast)
+# Loading work.mux8_v1(fast)
+# Loading work.zeroPadder_v1(fast)
+# Loading work.ALU_controller_v1(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (5) for port 'in1'. The port definition is at: ../src/muxes_v1.sv(10).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_toplevel_v1/dut/muxRegFileAddr2 File: ../src/toplevel_v1.sv Line: 162
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (5) for port 'in2'. The port definition is at: ../src/muxes_v1.sv(11).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_toplevel_v1/dut/muxRegFileAddr2 File: ../src/toplevel_v1.sv Line: 162
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (5) for port 'out1'. The port definition is at: ../src/muxes_v1.sv(12).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_toplevel_v1/dut/muxRegFileAddr2 File: ../src/toplevel_v1.sv Line: 162
+# t_instruction is 73200313
+# 0 ps
+# 73500 ps
+# .main_pane.wave.interior.cs.body.pw.wf
+quit
+# End time: 22:36:52 on Jul 16,2025, Elapsed time: 0:08:19
+# Errors: 0, Warnings: 32

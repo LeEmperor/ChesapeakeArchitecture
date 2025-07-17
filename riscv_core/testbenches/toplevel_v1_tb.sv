@@ -71,10 +71,10 @@ module testbench_toplevel_v1();
         // funct3 = 3'b000
         // rd = reg6 = 5'd6
         // funct7 = 0010011 = 7'b0010011
+        // STATUS: VERIFIED FUNCTIONAL
+        #70
 
-        #10
-
-        #50
+        // t_instruction = { 12'h, 5'd0, 3'b000, 5'd7}
 
         // tests a 
 

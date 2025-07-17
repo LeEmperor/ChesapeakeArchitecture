@@ -36,6 +36,7 @@ module toplevel_v1 (
     logic [1:0] sel_rdwr_config;
     logic sel_regfiledata1;
     logic sel_regfiledata2;
+    logic sel_regfileaddr2;
 
     logic en_wr_regA;
     logic en_wr_regB;
@@ -69,6 +70,7 @@ module toplevel_v1 (
     // logic [31:0] wire_muxRegfile_to_regfile;
     logic [31:0] wire_muxRegFileData1_toRegFile;
     logic [31:0] wire_muxRegFileData2_toRegFile;
+    logic [4:0] wire_muxRegFileAddr2_to_RegFileAddr2;
 
     logic [3:0] wire_ALU_opcode;
     logic [31:0] wire_ALU_result;
@@ -89,14 +91,16 @@ module toplevel_v1 (
     logic [4:0] ir_24_20; // rs2
     logic [6:0] ir_31_25; // funct7
     logic [2:0] ir_14_12; // funct3
+    logic [4:0] ir_11_7; // rd de i-type
     logic [6:0] ir_6_0; // opcode
 
     // assigns
     assign ir_31_25 = ir_31_0[31:25]; // funct7
-    assign ir_31_20 = ir_31_0[31:20];
-    assign ir_19_15 = ir_31_0[19:15];
-    assign ir_24_20 = ir_31_0[24:20];
+    assign ir_31_20 = ir_31_0[31:20]; // imm
+    assign ir_24_20 = ir_31_0[24:20]; // rs2
+    assign ir_19_15 = ir_31_0[19:15]; // rs1
     assign ir_14_12 = ir_31_0[14:12]; // funct3
+    assign ir_11_7 = ir_31_0[11:7]; // rd
     assign ir_6_0 = ir_31_0[6:0];
     assign wire_ALU_result_lo = wire_ALU_result;
     assign wire_immediate_to_padder = ir_31_20;
@@ -123,6 +127,7 @@ module toplevel_v1 (
         .regFile_wrdata1(sel_regfiledata1),
         .regFile_wrdata2(sel_regfiledata2),
         .alu_result(sel_alu_result),
+        .regFile_addr2(sel_regfileaddr2),
 
         // write enables
         .ir_write(en_wr_IR),
@@ -138,12 +143,12 @@ module toplevel_v1 (
         .moore_map_error_vector()
     );
 
-    register_file_v1 register_file1 (
+    register_file_v1 registerfile1 (
         .clk(clk),
         .rst(rst),
 
         .reg_addr1(ir_19_15),
-        .reg_addr2(ir_24_20),
+        .reg_addr2(wire_muxRegFileAddr2_to_RegFileAddr2),
         .wr_data1(wire_muxRegFileData1_toRegFile),
         .wr_data2(wire_muxRegFileData2_toRegFile),
         .rdwr_config(sel_rdwr_config),
@@ -152,6 +157,13 @@ module toplevel_v1 (
         .outdata1(wire_regdata1_to_muxA),
         .outdata2(wire_regdata2_to_muxB),
         .reg_file_error_vector()
+    );
+
+    mux2_v1 muxRegFileAddr2 (
+        .in1(ir_24_20), // rs2
+        .in2(ir_11_7), // rd
+        .out1(wire_muxRegFileAddr2_to_RegFileAddr2),
+        .sel(sel_regfileaddr2)
     );
 
     ALU_v1 alu1 (
@@ -328,7 +340,8 @@ module toplevel_v1 (
         .in1(wire_ALU_result_selected),
         .in2(),
         .out1(wire_muxRegFileData1_toRegFile),
-        .sel(sel_regfiledata1)
+        .sel(sel_regfiledata1) 
+                               
     );
 
     mux2_v1 muxRegFileData2 (

@@ -19,6 +19,7 @@ module controller_v1 (
     output logic [1:0] regFile_rdwr_config,
     output logic regFile_wrdata1,
     output logic regFile_wrdata2,
+    output logic regFile_addr2,
     output logic [1:0] alu_result,
 
     // write enable control signals
@@ -185,6 +186,7 @@ module controller_v1 (
 
         regFile_wrdata1 = '0;
         regFile_wrdata2 = '0;
+        regFile_addr2 = 0;
 
         // diagnostiqes
         moore_map_error_vector = 8'd0;
@@ -244,7 +246,9 @@ module controller_v1 (
                 case (opcode)
                     7'b00100_11 : begin // i-types
                         // regfile_write = 1;
-                        regFile_rdwr_config = 2'b01;
+                        regFile_rdwr_config = 2'b11;
+                        regFile_wrdata1 = 2'b00;
+                        regFile_addr2 = 1;
                     end
 
                     default : begin

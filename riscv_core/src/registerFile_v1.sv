@@ -25,7 +25,7 @@ module register_file_v1(
     assign outdata2 = (reg_addr2 == 5'd0) ? 32'd0 : reg_file_data[reg_addr2];
 
     integer i;
-    always_ff @(posedge clk, posedge rst) begin
+    always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
             for(i = 0; i < 32; i = i + 1) begin
                 reg_file_data[i] <= 32'd0;
