@@ -25,28 +25,31 @@ module toplevel_v1 (
 );
 
     // control lines
-    logic [1:0] sel_alu_src_a;
-    logic [2:0] sel_alu_src_b;
-    logic [1:0] sel_pc_source;
-    logic [1:0] sel_ir_source;
-    logic [1:0] sel_memdata;
-    logic [1:0] sel_memaddr;
-    logic [1:0] sel_alu_result;
-    logic [1:0] sel_regfile_in;
-    logic [1:0] sel_rdwr_config;
-    logic sel_regfiledata1;
-    logic sel_regfiledata2;
-    logic sel_regfileaddr2;
+    logic [1:0] SEL_alu_src_a;
+    logic [2:0] SEL_alu_src_b;
+    logic [1:0] SEL_pc_source;
+    logic [1:0] SEL_ir_source;
+    logic [1:0] SEL_memdata;
+    logic [1:0] SEL_memaddr;
+    logic [1:0] SEL_alu_result;
+    logic [1:0] SEL_regfile_in;
+    logic [1:0] SEL_rdwr_config;
+    logic SEL_regfiledata1;
+    logic SEL_regfiledata2;
+    logic SEL_regfileaddr2;
 
-    logic en_wr_regA;
-    logic en_wr_regB;
-    logic en_wr_PC;
-    logic en_wr_IR;
-    logic en_wr_MEM;
-    logic en_wr_alu_result;
-    logic en_wr_alu_result_lo;
-    logic en_wr_alu_result_hi;
-    logic en_wr_link_reg;
+    logic WE_regA;
+    logic WE_regB;
+    logic WE_regPC;
+    logic WE_regIR;
+    logic WE_memWrite;
+    // logic en_wr_alu_result;
+    logic WE_aluResult;
+    // logic en_wr_alu_result_lo;
+    logic WE_aluResult_Lo;
+    // logic en_wr_alu_result_hi;
+    logic WE_aluResult_Hi;
+    logic link_reg;
 
     // data lines
     logic [31:0] wire_regdata1_to_muxA;
@@ -116,25 +119,26 @@ module toplevel_v1 (
         .ir_31_0(ir_31_0),
 
         // control lines
-        .alu_src_a(sel_alu_src_a),
-        .alu_src_b(sel_alu_src_b),
-        .ir_source(sel_ir_source),
-        .pc_source(sel_pc_source),
-        .alu_result_reg_write(en_wr_alu_result),
-        .alu_lo_result_reg_write(en_wr_alu_result_lo),
-        .alu_hi_result_reg_write(en_wr_alu_result_hi),
-        .regFile_rdwr_config(sel_rdwr_config),
-        .regFile_wrdata1(sel_regfiledata1),
-        .regFile_wrdata2(sel_regfiledata2),
-        .alu_result(sel_alu_result),
-        .regFile_addr2(sel_regfileaddr2),
+        .alu_src_a(SEL_alu_src_a),
+        .alu_src_b(SEL_alu_src_b),
+        .ir_source(SEL_ir_source),
+        .pc_source(SEL_pc_source),
+        .alu_result_reg_write(WE_aluResult),
+        .alu_lo_result_reg_write(WE_aluResult_Lo),
+        .alu_hi_result_reg_write(WE_aluResult_Hi),
+        .regFile_rdwr_config(SEL_rdwr_config),
+        .regFile_wrdata1(SEL_regfiledata1),
+        .regFile_wrdata2(SEL_regfiledata2),
+        .alu_result(SEL_alu_result),
+        .regFile_addr2(SEL_regfileaddr2),
+        .link_reg(link_reg),
 
         // write enables
-        .ir_write(en_wr_IR),
-        .reg_a_write(en_wr_regA),
-        .reg_b_write(en_wr_regB),
-        .pc_write(en_wr_PC),
-        .mem_write(en_wr_MEM),
+        .ir_write(WE_regIR),
+        .reg_a_write(WE_regA),
+        .reg_b_write(WE_regB),
+        .pc_write(WE_regPC),
+        .mem_write(WE_memWrite),
 
         .current_state_vector(),
         .next_state_vector(),
@@ -151,8 +155,8 @@ module toplevel_v1 (
         .reg_addr2(wire_muxRegFileAddr2_to_RegFileAddr2),
         .wr_data1(wire_muxRegFileData1_toRegFile),
         .wr_data2(wire_muxRegFileData2_toRegFile),
-        .rdwr_config(sel_rdwr_config),
-        .link_reg(en_wr_link_reg),
+        .rdwr_config(SEL_rdwr_config),
+        .link_reg(link_reg),
 
         .outdata1(wire_regdata1_to_muxA),
         .outdata2(wire_regdata2_to_muxB),
@@ -163,7 +167,7 @@ module toplevel_v1 (
         .in1(ir_24_20), // rs2
         .in2(ir_11_7), // rd
         .out1(wire_muxRegFileAddr2_to_RegFileAddr2),
-        .sel(sel_regfileaddr2)
+        .sel(SEL_regfileaddr2)
     );
 
     ALU_v1 alu1 (
@@ -177,58 +181,58 @@ module toplevel_v1 (
         .alu_error_vector()
     );
 
-    register_v1 alu_result (
+    register_v2 alu_result (
         .clk(clk),
         .rst(rst),
-        .wr_en(en_wr_alu_result),
+        .WE(WE_aluResult),
         .data_in(wire_ALU_result),
         .data_out(wire_ALU_result_to_result_sel)
     );
 
-    register_v1 alu_result_lo (
+    register_v2 alu_result_lo (
         .clk(clk),
         .rst(rst),
-        .wr_en(en_wr_alu_result_lo),
+        .WE(WE_aluResult_Lo),
         .data_in(wire_ALU_result_lo),
         .data_out(wire_ALU_result_lo_to_result_sel)
     );
 
-    register_v1 alu_result_hi (
+    register_v2 alu_result_hi (
         .clk(clk),
         .rst(rst),
-        .wr_en(en_wr_alu_result_hi),
+        .WE(WE_aluResult_Hi),
         .data_in(wire_ALU_result_hi),
         .data_out(wire_ALU_result_hi_to_result_sel)
     );
 
-    register_v1 reg_a (
+    register_v2 regA (
         .clk(clk),
         .rst(rst),
-        .wr_en(en_wr_regA),
+        .WE(WE_regA),
         .data_in(wire_muxA_to_regA),
         .data_out(wire_regA_to_ALU)
     );
 
-    register_v1 reg_b (
+    register_v2 regB (
         .clk(clk),
         .rst(rst),
-        .wr_en(en_wr_regB),
+        .WE(WE_regB),
         .data_in(wire_muxB_to_regB),
         .data_out(wire_regB_to_ALU)
     );
 
-    register_v1 reg_ir (
+    register_v2 regIR (
         .clk(clk),
         .rst(rst),
-        .wr_en(en_wr_IR),
+        .WE(WE_regIR),
         .data_in(wire_muxIR_to_regIR),
         .data_out(ir_31_0)
     );
 
-    register_v1 reg_pc (
+    register_v2 regPC (
         .clk(clk),
         .rst(rst),
-        .wr_en(en_wr_PC),
+        .WE(WE_regPC),
         .data_in(wire_muxPC_to_regPC),
         .data_out(wire_regPC_to_muxMEM_ADDR)
     );
@@ -243,47 +247,46 @@ module toplevel_v1 (
 //        .switch_array(switch_array)
 //    );
     
-    memory_v2 memory (
+    memory_v3 memory (
         .clk(clk),
         .rst(rst),
-        .mem_addr(),
+        .addr(),
+        .WE(),
         .data_in(),
         .data_out(wire_memory_to_muxIR),
-        .write_enable(),
-        .read_enable(),
         .pmod_in(),
         .pmod_out(),
         .button_array(),
         .switch_array(),
-        .seg0(),
-        .seg1(),
-        .seg2(),
-        .seg3(),
-        .seg4(),
-        .seg5(),
-        .seg6(),
-        .seg7()
+        .seg0(seg0),
+        .seg1(seg1),
+        .seg2(seg2),
+        .seg3(seg3),
+        .seg4(seg4),
+        .seg5(seg5),
+        .seg6(seg6),
+        .seg7(seg7)
     );
 
-    mux4_v1 mux_MEMDATA (
+    mux4_v1 muxMemData (
         .in1(wire_ALU_result),
         .out1(wire_muxMEMDATA_to_mem),
-        .sel(sel_memdata)
+        .sel(SEL_memdata)
     );
 
-    mux4_v1 mux_MEMADDR (
+    mux4_v1 muxMemAddr (
         .in1(wire_regPC_to_muxMEM_ADDR),
         .out1(wire_muxMEMADDR_to_mem),
-        .sel(sel_memaddr)
+        .sel(SEL_memaddr)
     );
 
-    mux4_v1 mux_regA (
+    mux4_v1 muxRegA (
         .in1(wire_regdata1_to_muxA),
         .in2(),
         .in3(),
         .in4(),
         .out1(wire_muxA_to_regA),
-        .sel(sel_alu_src_a)
+        .sel(SEL_alu_src_a)
     );
 
     mux8_v1 mux_regB (
@@ -296,7 +299,7 @@ module toplevel_v1 (
         .in7(),
         .in8(),
         .out1(wire_muxB_to_regB),
-        .sel(sel_alu_src_b)
+        .sel(SEL_alu_src_b)
     );
     
     mux4_v1 mux_pc (
@@ -305,16 +308,13 @@ module toplevel_v1 (
         .in3(),
         .in4(),
         .out1(wire_muxPC_to_regPC),
-        .sel(sel_pc_source)
+        .sel(SEL_pc_source)
     );
 
     mux2_v1 mux_ir (
         .in1(wire_memory_to_muxIR),
         .in2(diagnostique_instruction),
-        // .in3(),
-        // .in4(),
         .out1(wire_muxIR_to_regIR),
-        // .sel(sel_ir_source)
         .sel(ir_config)
     );
 
@@ -324,23 +324,14 @@ module toplevel_v1 (
         .in3(wire_ALU_result_hi_to_result_sel),
         .in4(),
         .out1(wire_ALU_result_selected),
-        .sel(sel_alu_result)
+        .sel(SEL_alu_result)
     );
-
-    // mux4_v1 mux_regfileData (
-    //     .in1(wire_ALU_result_selected),
-    //     .in2(),
-    //     .in3(),
-    //     .in4(),
-    //     .out1(wire_muxRegfile_to_regfile),
-    //     .sel(sel_regfiledata1)
-    // );
 
     mux2_v1 muxRegFileData1 (
         .in1(wire_ALU_result_selected),
         .in2(),
         .out1(wire_muxRegFileData1_toRegFile),
-        .sel(sel_regfiledata1) 
+        .sel(SEL_regfiledata1) 
                                
     );
 
@@ -348,17 +339,8 @@ module toplevel_v1 (
         .in1(wire_ALU_result_selected),
         .in2(),
         .out1(wire_muxRegFileData2_toRegFile),
-        .sel(sel_regfiledata2)
+        .sel(SEL_regfiledata2)
     );
-
-    // mux4_v1 mux_regFileAddr1 (
-    //     .in1(wire_ALU_result_selected),
-    //     .in2(),
-    //     .in3(),
-    //     .in4(),
-    //     .out1(wire_muxRegfile_to_regfile),
-    //     .sel(sel_regfile_in)
-    // );
 
     zeroPadder_v1 padder (
         .immediate(wire_immediate_to_padder),

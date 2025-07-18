@@ -29,6 +29,7 @@ module controller_v1 (
     output logic pc_write,
     output logic mem_write,
     output logic regfile_write, // breh
+    output logic link_reg,
 
     output logic alu_result_reg_write,
     output logic alu_lo_result_reg_write,

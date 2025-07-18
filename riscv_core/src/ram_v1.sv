@@ -10,10 +10,10 @@ module ram_v1 #(
 ) (
     input logic clk,
     input logic rst,
-    input logic wr_en,
-    input logic [data_width - 1:0] in_data,
-    output logic [data_width - 1:0] out_data,
-    input logic [addr_width - 1:0] actual_ram_addr,
+    input logic WE,
+    input logic [data_width - 1:0] data_in,
+    output logic [data_width - 1:0] data_out,
+    input logic [addr_width - 1:0] addr,
     output logic [7:0] ram_error_vector
 );
     // ram unit

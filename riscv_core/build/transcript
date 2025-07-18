@@ -1,21 +1,7 @@
-# //  Questa Intel Starter FPGA Edition-64
-# //  Version 2024.3 win64 Sep 10 2024
-# //
-# // Unpublished work. Copyright 2024 Siemens
-# //
-# // This material contains trade secrets or otherwise confidential information
-# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
-# // "SISW"), or its licensors. Access to and use of this information is strictly
-# // limited as set forth in the Customer's applicable agreements with SISW.
-# //
-# // This material may not be copied, distributed, or otherwise disclosed outside
-# // of the Customer's facilities without the express written permission of SISW,
-# // and may not be used in any way not expressly authorized by SISW.
-# //
-# do ../build_scripts/full_script.do
+# do ../build_scripts/main_compile.do
 # Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
-# Start time: 01:46:40 on Jul 17,2025
-# vlog -reportprogress 300 -sv -incr ../src/muxes_v1.sv ../src/ALU_v1.sv ../src/controller_v1.sv ../src/registerFile_v1.sv ../src/register_v1.sv ../src/ram_v1.sv ../src/memory_v2.sv ../src/zeroPadder_v1.sv ../src/toplevel_v1.sv ../src/ALU_controller_v1.sv ../testbenches/ALU_v1_tb.sv ../testbenches/mux2_v1_tb.sv ../testbenches/ram_v1_tb.sv ../testbenches/param_mux_v1_tb.sv ../testbenches/memory_ctrl_v1_tb.sv ../testbenches/memory_v2_tb.sv ../testbenches/registerFile_v1_tb.sv ../testbenches/zeroPadder_v1_tb.sv ../testbenches/toplevel_v1_tb.sv 
+# Start time: 16:26:37 on Jul 17,2025
+# vlog -sv -incr ../src/muxes_v1.sv ../src/ALU_v1.sv ../src/controller_v1.sv ../src/registerFile_v1.sv ../src/register_v1.sv ../src/ram_v1.sv ../src/memory_v3.sv ../src/memory_ctrl_v2.sv ../src/zeroPadder_v1.sv ../src/ALU_controller_v1.sv ../src/register_v2.sv ../src/toplevel_v1.sv ../testbenches/ram_v1_tb.sv ../testbenches/ALU_v1_tb.sv ../testbenches/mux2_v1_tb.sv ../testbenches/registerFile_v1_tb.sv ../testbenches/memory_v2_tb.sv ../testbenches/param_mux_v1_tb.sv ../testbenches/register_v1_tb.sv ../testbenches/zeroPadder_v1_tb.sv ../testbenches/toplevel_v1_tb.sv 
 # -- Skipping module mux2_v1
 # -- Skipping module mux4_v1
 # -- Skipping module demux4_v1
@@ -26,63 +12,34 @@
 # -- Skipping module register_file_v1
 # -- Skipping module register_v1
 # -- Skipping module ram_v1
-# -- Skipping module memory_v2
+# -- Compiling module memory_v3
+# -- Skipping module memory_ctrl_v2
 # -- Skipping module zeroPadder_v1
-# -- Skipping module toplevel_v1
 # -- Skipping module ALU_controller_v1
+# -- Skipping module register_v2
+# -- Skipping module toplevel_v1
+# -- Skipping module testbench_ram_v1
 # -- Skipping module testbench_ALU_v1
 # -- Skipping module testbench_mux2
-# -- Skipping module testbench_ram_v1
-# -- Skipping module testbench_param_mux_v1
-# -- Skipping module testbench_memory_ctrl_v1
-# -- Compiling module testbench_memory_v2
 # -- Skipping module testbench_registerFile_v1
+# -- Skipping module testbench_memory_v2
+# -- Skipping module testbench_param_mux_v1
+# -- Skipping module testbench_register_v1
 # -- Skipping module testbench_zeroPadder_v1
 # -- Skipping module testbench_toplevel_v1
 # 
 # Top level modules:
+# 	demux4_v1
 # 	mux16_v1
+# 	memory_ctrl_v2
+# 	testbench_ram_v1
 # 	testbench_ALU_v1
 # 	testbench_mux2
-# 	testbench_ram_v1
-# 	testbench_param_mux_v1
-# 	testbench_memory_ctrl_v1
-# 	testbench_memory_v2
 # 	testbench_registerFile_v1
+# 	testbench_memory_v2
+# 	testbench_param_mux_v1
+# 	testbench_register_v1
 # 	testbench_zeroPadder_v1
 # 	testbench_toplevel_v1
-# End time: 01:46:40 on Jul 17,2025, Elapsed time: 0:00:00
+# End time: 16:26:37 on Jul 17,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vsim -t 1ps -L work -voptargs=""+acc"" testbench_memory_v2 
-# Start time: 01:46:40 on Jul 17,2025
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
-# ** Warning: ../testbenches/memory_v2_tb.sv(28): (vopt-2685) [TFMPC] - Too few port connections for 'dut'.  Expected 20, found 10.
-# ** Warning: ../testbenches/memory_v2_tb.sv(28): (vopt-2718) [TFMPC] - Missing connection for port 'memory_error_vector'.
-# ** Warning: ../testbenches/memory_v2_tb.sv(28): (vopt-2718) [TFMPC] - Missing connection for port 'seg7'.
-# ** Warning: ../testbenches/memory_v2_tb.sv(28): (vopt-2718) [TFMPC] - Missing connection for port 'seg6'.
-# ** Warning: ../testbenches/memory_v2_tb.sv(28): (vopt-2718) [TFMPC] - Missing connection for port 'seg5'.
-# ** Warning: ../testbenches/memory_v2_tb.sv(28): (vopt-2718) [TFMPC] - Missing connection for port 'seg4'.
-# ** Warning: ../testbenches/memory_v2_tb.sv(28): (vopt-2718) [TFMPC] - Missing connection for port 'seg3'.
-# ** Warning: ../testbenches/memory_v2_tb.sv(28): (vopt-2718) [TFMPC] - Missing connection for port 'seg2'.
-# ** Warning: ../testbenches/memory_v2_tb.sv(28): (vopt-2718) [TFMPC] - Missing connection for port 'switch_array'.
-# ** Warning: ../testbenches/memory_v2_tb.sv(28): (vopt-2718) [TFMPC] - Missing connection for port 'pmod_out'.
-# ** Warning: ../testbenches/memory_v2_tb.sv(28): (vopt-2718) [TFMPC] - Missing connection for port 'pmod_in'.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=12.
-# Loading sv_std.std
-# Loading work.testbench_memory_v2(fast)
-# Loading work.memory_v2(fast)
-# Loading work.ram_v1(fast)
-# Loading work.demux4_v1(fast)
-# Loading work.mux4_v1(fast)
-# Loading work.memory_ctrl_v1(fast)
-# Loading work.register_v1(fast)
-# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (7) for port 'data_out'. The port definition is at: ../src/register_v1.sv(9).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_memory_v2/dut/reg_seg0 File: ../src/memory_v2.sv Line: 140
-# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (7) for port 'data_out'. The port definition is at: ../src/register_v1.sv(9).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_memory_v2/dut/reg_seg1 File: ../src/memory_v2.sv Line: 148
-# 0 ps
-# 94500 ps
-# .main_pane.wave.interior.cs.body.pw.wf
-# End time: 01:47:03 on Jul 17,2025, Elapsed time: 0:00:23
-# Errors: 0, Warnings: 14
