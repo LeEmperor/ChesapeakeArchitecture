@@ -21,9 +21,9 @@ module ram_v1 #(
 
     // write process
     always @(posedge clk) begin
-        if (wr_en) mem[actual_ram_addr] <= in_data;
+        if (WE) mem[addr] <= data_in;
     end
 
-    assign out_data = mem[actual_ram_addr];
+    assign data_out = mem[addr];
 endmodule 
 

@@ -15,8 +15,8 @@ vlog -sv -incr \
     ../src/registerFile_v1.sv \
     ../src/register_v1.sv \
     ../src/ram_v1.sv \
-    ../src/memory_v3.sv \
     ../src/memory_ctrl_v2.sv \
+    ../src/memory_v3.sv \
     ../src/zeroPadder_v1.sv \
     ../src/ALU_controller_v1.sv \
     ../src/register_v2.sv \
@@ -26,7 +26,7 @@ vlog -sv -incr \
     ../testbenches/ALU_v1_tb.sv \
     ../testbenches/mux2_v1_tb.sv \
     ../testbenches/registerFile_v1_tb.sv \
-    ../testbenches/memory_v2_tb.sv \
+    ../testbenches/memory_v3_tb.sv \
     ../testbenches/param_mux_v1_tb.sv \
     ../testbenches/register_v1_tb.sv \
     ../testbenches/zeroPadder_v1_tb.sv \

@@ -58,9 +58,9 @@ module ALU_controller_v1 (
                 alu_code = 0;
             7'b11_00011 : // b-type
                 alu_code = 0;
-            7'b01_00011 : // sw instructions
+            7'b01_00011 : // s-instructions (store-type)
                 alu_code = 0;
-            7'b00000_11 : // lw instructions
+            7'b00000_11 : // l-instructions (load-type)
                 alu_code = 0;
             7'b011_0111 : // lui
                 alu_code = 0;

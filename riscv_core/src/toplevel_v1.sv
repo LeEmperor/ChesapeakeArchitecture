@@ -4,19 +4,16 @@ module toplevel_v1 (
     input logic rst,
     input logic clk,
 
-    input logic [15:0] switch_array,
-    input logic button0,
-    input logic button1,
-    input logic button2,
-    input logic button3,
-    output logic [6:0] seg0,
-    output logic [6:0] seg1,
-    output logic [6:0] seg2,
-    output logic [6:0] seg3,
-    output logic [6:0] seg4,
-    output logic [6:0] seg5,
-    output logic [6:0] seg6,
-    output logic [6:0] seg7,
+    input logic[15:0] switch_array,
+    input logic[3:0] button_array,
+    output logic[6:0] seg0,
+    output logic[6:0] seg1,
+    output logic[6:0] seg2,
+    output logic[6:0] seg3,
+    output logic[6:0] seg4,
+    output logic[6:0] seg5,
+    output logic[6:0] seg6,
+    output logic[6:0] seg7,
     input logic ir_config,
 
     // diagnostiques
@@ -86,6 +83,7 @@ module toplevel_v1 (
     logic [31:0] wire_ALU_result_selected;
 
     logic [31:0] wire_memory_to_muxIR;
+    logic [31:0] wire_MemoryOut;
 
     // wire lines
     logic [31:0] ir_31_0; // whole instruction
@@ -132,6 +130,8 @@ module toplevel_v1 (
         .alu_result(SEL_alu_result),
         .regFile_addr2(SEL_regfileaddr2),
         .link_reg(link_reg),
+        .memdata_source(SEL_memdata),
+        .memaddr_source(SEL_memaddr),
 
         // write enables
         .ir_write(WE_regIR),
@@ -237,27 +237,15 @@ module toplevel_v1 (
         .data_out(wire_regPC_to_muxMEM_ADDR)
     );
 
-    // mem unit
-//    memory_v1 memory (
-//        .clk(clk),
-//        .rst(rst),
-//        .mem_addr(wire_muxMEMADDR_to_mem),
-//        .data_in(wire_muxMEMDATA_to_mem),
-//        .data_out(wire_memory_to_muxIR),
-//        .switch_array(switch_array)
-//    );
-    
     memory_v3 memory (
         .clk(clk),
         .rst(rst),
-        .addr(),
-        .WE(),
-        .data_in(),
+        .addr(wire_muxMEMADDR_to_mem),
+        .WE(WE_memWrite),
+        .data_in(wire_muxMEMDATA_to_mem),
         .data_out(wire_memory_to_muxIR),
-        .pmod_in(),
-        .pmod_out(),
-        .button_array(),
-        .switch_array(),
+        .button_array(button_array),
+        .switch_array(switch_array),
         .seg0(seg0),
         .seg1(seg1),
         .seg2(seg2),
@@ -276,6 +264,7 @@ module toplevel_v1 (
 
     mux4_v1 muxMemAddr (
         .in1(wire_regPC_to_muxMEM_ADDR),
+        .in2(wire_ALU_result),
         .out1(wire_muxMEMADDR_to_mem),
         .sel(SEL_memaddr)
     );
@@ -332,12 +321,11 @@ module toplevel_v1 (
         .in2(),
         .out1(wire_muxRegFileData1_toRegFile),
         .sel(SEL_regfiledata1) 
-                               
     );
 
     mux2_v1 muxRegFileData2 (
         .in1(wire_ALU_result_selected),
-        .in2(),
+        .in2(wire_memory_to_muxIR),
         .out1(wire_muxRegFileData2_toRegFile),
         .sel(SEL_regfiledata2)
     );

@@ -41,7 +41,7 @@ module register_file_v1(
                 end
 
                 2'b10 : begin // r1 w2
-                    reg_file_data[reg_addr1] <= (reg_addr2 == 5'd0) ? 32'b0 : wr_data2;
+                    reg_file_data[reg_addr2] <= (reg_addr2 == 5'd0) ? 32'b0 : wr_data2;
                 end
 
                 2'b11 : begin // w1 w2

@@ -1,6 +1,7 @@
 // Bohdan Purtell
 // University of Florida
 // Memory Unit Controller (2) - en base des designes combinatinelle
+// STATUS: Completé et functionnelle pour memory_v3
 
 `timescale 1 ns / 1 ps
 
@@ -46,7 +47,7 @@ module memory_ctrl_v2 (
                 end
 
                 10'h3fe : begin // seg1
-                    SEL_data_in_demux = 'd1;
+                    SEL_data_in_demux = 'd2;
                     WE_seg1 = 1;
                 end
 

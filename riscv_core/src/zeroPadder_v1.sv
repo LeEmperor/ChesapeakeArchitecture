@@ -10,5 +10,14 @@ module zeroPadder_v1 (
     output logic [31:0] signed_zero_padded
 );
     assign unsigned_zero_padded = {20'b0, immediate};
+    // assign signed_zero_padded = {};
+
+    always @(*)
+    begin
+        if(immediate[11] == 1)
+            signed_zero_padded = { {1'b1}, {19'b0}, immediate };
+        else
+            signed_zero_padded = { {20'b0}, immediate };
+    end
 endmodule
 

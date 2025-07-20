@@ -10,6 +10,7 @@ module ALU_v1 (
     input [31:0] a,
     input [31:0] b,
     input [3:0] op_code,
+    input logic shamt,
 
     output logic [31:0] out,
     output logic [31:0] out_hi,
