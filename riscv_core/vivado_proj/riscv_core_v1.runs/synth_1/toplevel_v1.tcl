@@ -56,7 +56,7 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param synth.incrementalSynthesisCache C:/Users/kingp/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-98204-GIGA_LAPTOP/incrSyn
+set_param synth.incrementalSynthesisCache C:/Users/kingp/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-7064-DESKTOP-LNRINGF/incrSyn
 set_param checkpoint.writeSynthRtdsInDcp 1
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
@@ -75,18 +75,17 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
+  C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/register_v2.sv
+  C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_ctrl_v2.sv
+  C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/ram_v1.sv
+  C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv
+  C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/muxes_v1.sv
   C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/ALU_controller_v1.sv
+  C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv
+  C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/registerFile_v1.sv
+  C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/zeroPadder_v1.sv
   C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/ALU_v1.sv
   C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv
-  C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_ctrl_v1.sv
-  C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv
-  C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/muxes_v1.sv
-  C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/ram_v1.sv
-  C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/registerFile_v1.sv
-  C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/register_v1.sv
-  C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/register_v2.sv
-  C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/zeroPadder_v1.sv
-  C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -98,6 +97,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/vivado_proj/riscv_core_v1.srcs/utils_1/imports/synth_1/toplevel_v1.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

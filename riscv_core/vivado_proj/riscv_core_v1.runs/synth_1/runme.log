@@ -8,112 +8,98 @@
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Thu Jul 17 15:44:19 2025
+  **** Start of session at: Sun Jul 20 11:54:17 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source toplevel_v1.tcl -notrace
-create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 387.195 ; gain = 86.738
+Command: read_checkpoint -auto_incremental -incremental C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/vivado_proj/riscv_core_v1.srcs/utils_1/imports/synth_1/toplevel_v1.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/vivado_proj/riscv_core_v1.srcs/utils_1/imports/synth_1/toplevel_v1.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top toplevel_v1 -part xc7s50csga324-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 99760
+INFO: [Synth 8-7075] Helper process launched with PID 25736
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 867.172 ; gain = 477.012
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 869.555 ; gain = 472.914
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-11241] undeclared symbol 'en_wr_IR', assumed default net type 'wire' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:133]
-INFO: [Synth 8-11241] undeclared symbol 'en_wr_regA', assumed default net type 'wire' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:134]
-INFO: [Synth 8-11241] undeclared symbol 'en_wr_regB', assumed default net type 'wire' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:135]
-INFO: [Synth 8-11241] undeclared symbol 'en_wr_PC', assumed default net type 'wire' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:136]
 INFO: [Synth 8-6157] synthesizing module 'toplevel_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'controller_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:4]
-WARNING: [Synth 8-6090] variable 'next_state_error_vector' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:141]
-WARNING: [Synth 8-6090] variable 'next_state' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:145]
+WARNING: [Synth 8-6090] variable 'next_state_error_vector' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:145]
 WARNING: [Synth 8-6090] variable 'next_state' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:149]
 WARNING: [Synth 8-6090] variable 'next_state' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:153]
-WARNING: [Synth 8-6090] variable 'next_state_error_vector' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:157]
-WARNING: [Synth 8-6090] variable 'moore_map_error_vector' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:260]
+WARNING: [Synth 8-6090] variable 'next_state' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:166]
+WARNING: [Synth 8-6090] variable 'next_state' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:170]
+WARNING: [Synth 8-6090] variable 'next_state_error_vector' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:174]
+WARNING: [Synth 8-6090] variable 'moore_map_error_vector' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:303]
 INFO: [Synth 8-6155] done synthesizing module 'controller_v1' (0#1) [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:4]
-WARNING: [Synth 8-7071] port 'regfile_write' of module 'controller_v1' is unconnected for instance 'controller1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:108]
-WARNING: [Synth 8-7023] instance 'controller1' of module 'controller_v1' has 28 connections declared, but only 27 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:108]
+WARNING: [Synth 8-7071] port 'regfile_write' of module 'controller_v1' is unconnected for instance 'controller1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:109]
+WARNING: [Synth 8-7023] instance 'controller1' of module 'controller_v1' has 31 connections declared, but only 30 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:109]
 INFO: [Synth 8-6157] synthesizing module 'register_file_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/registerFile_v1.sv:6]
 INFO: [Synth 8-226] default block is never used [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/registerFile_v1.sv:34]
 INFO: [Synth 8-6155] done synthesizing module 'register_file_v1' (0#1) [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/registerFile_v1.sv:6]
 INFO: [Synth 8-6157] synthesizing module 'mux2_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/muxes_v1.sv:7]
 INFO: [Synth 8-6155] done synthesizing module 'mux2_v1' (0#1) [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/muxes_v1.sv:7]
-WARNING: [Synth 8-689] width (5) of port connection 'in1' does not match port width (32) of module 'mux2_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:163]
-WARNING: [Synth 8-689] width (5) of port connection 'in2' does not match port width (32) of module 'mux2_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:164]
-WARNING: [Synth 8-689] width (5) of port connection 'out1' does not match port width (32) of module 'mux2_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:165]
+WARNING: [Synth 8-689] width (5) of port connection 'in1' does not match port width (32) of module 'mux2_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:167]
+WARNING: [Synth 8-689] width (5) of port connection 'in2' does not match port width (32) of module 'mux2_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:168]
+WARNING: [Synth 8-689] width (5) of port connection 'out1' does not match port width (32) of module 'mux2_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:169]
 INFO: [Synth 8-6157] synthesizing module 'ALU_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/ALU_v1.sv:9]
 INFO: [Synth 8-6155] done synthesizing module 'ALU_v1' (0#1) [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/ALU_v1.sv:9]
-INFO: [Synth 8-6157] synthesizing module 'register_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/register_v1.sv:4]
-INFO: [Synth 8-6155] done synthesizing module 'register_v1' (0#1) [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/register_v1.sv:4]
-WARNING: [Synth 8-7071] port 'register_error_vector' of module 'register_v1' is unconnected for instance 'alu_result' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:180]
-WARNING: [Synth 8-7023] instance 'alu_result' of module 'register_v1' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:180]
-WARNING: [Synth 8-7071] port 'register_error_vector' of module 'register_v1' is unconnected for instance 'alu_result_lo' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:188]
-WARNING: [Synth 8-7023] instance 'alu_result_lo' of module 'register_v1' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:188]
-WARNING: [Synth 8-7071] port 'register_error_vector' of module 'register_v1' is unconnected for instance 'alu_result_hi' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:196]
-WARNING: [Synth 8-7023] instance 'alu_result_hi' of module 'register_v1' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:196]
 INFO: [Synth 8-6157] synthesizing module 'register_v2' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/register_v2.sv:7]
 INFO: [Synth 8-6155] done synthesizing module 'register_v2' (0#1) [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/register_v2.sv:7]
-WARNING: [Synth 8-7071] port 'RE' of module 'register_v2' is unconnected for instance 'regA' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:204]
-WARNING: [Synth 8-7023] instance 'regA' of module 'register_v2' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:204]
-WARNING: [Synth 8-7071] port 'RE' of module 'register_v2' is unconnected for instance 'regB' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:212]
-WARNING: [Synth 8-7023] instance 'regB' of module 'register_v2' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:212]
-WARNING: [Synth 8-7071] port 'RE' of module 'register_v2' is unconnected for instance 'regIR' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:220]
-WARNING: [Synth 8-7023] instance 'regIR' of module 'register_v2' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:220]
-WARNING: [Synth 8-7071] port 'RE' of module 'register_v2' is unconnected for instance 'regPC' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:228]
-WARNING: [Synth 8-7023] instance 'regPC' of module 'register_v2' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:228]
-INFO: [Synth 8-6157] synthesizing module 'memory_v2' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:17]
+WARNING: [Synth 8-7071] port 'RE' of module 'register_v2' is unconnected for instance 'alu_result' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:185]
+WARNING: [Synth 8-7023] instance 'alu_result' of module 'register_v2' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:185]
+WARNING: [Synth 8-7071] port 'RE' of module 'register_v2' is unconnected for instance 'alu_result_lo' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:193]
+WARNING: [Synth 8-7023] instance 'alu_result_lo' of module 'register_v2' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:193]
+WARNING: [Synth 8-7071] port 'RE' of module 'register_v2' is unconnected for instance 'alu_result_hi' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:201]
+WARNING: [Synth 8-7023] instance 'alu_result_hi' of module 'register_v2' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:201]
+WARNING: [Synth 8-7071] port 'RE' of module 'register_v2' is unconnected for instance 'regA' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:209]
+WARNING: [Synth 8-7023] instance 'regA' of module 'register_v2' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:209]
+WARNING: [Synth 8-7071] port 'RE' of module 'register_v2' is unconnected for instance 'regB' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:217]
+WARNING: [Synth 8-7023] instance 'regB' of module 'register_v2' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:217]
+WARNING: [Synth 8-7071] port 'RE' of module 'register_v2' is unconnected for instance 'regIR' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:225]
+WARNING: [Synth 8-7023] instance 'regIR' of module 'register_v2' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:225]
+WARNING: [Synth 8-7071] port 'RE' of module 'register_v2' is unconnected for instance 'regPC' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:233]
+WARNING: [Synth 8-7023] instance 'regPC' of module 'register_v2' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:233]
+INFO: [Synth 8-6157] synthesizing module 'memory_v3' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:6]
 INFO: [Synth 8-6157] synthesizing module 'ram_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/ram_v1.sv:6]
 INFO: [Synth 8-6155] done synthesizing module 'ram_v1' (0#1) [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/ram_v1.sv:6]
-WARNING: [Synth 8-7071] port 'ram_error_vector' of module 'ram_v1' is unconnected for instance 'ram1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:96]
-WARNING: [Synth 8-7023] instance 'ram1' of module 'ram_v1' has 7 connections declared, but only 6 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:96]
-INFO: [Synth 8-6157] synthesizing module 'demux4_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/muxes_v1.sv:45]
-INFO: [Synth 8-6155] done synthesizing module 'demux4_v1' (0#1) [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/muxes_v1.sv:45]
+WARNING: [Synth 8-7071] port 'ram_error_vector' of module 'ram_v1' is unconnected for instance 'RAM' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:55]
+WARNING: [Synth 8-7023] instance 'RAM' of module 'ram_v1' has 7 connections declared, but only 6 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:55]
+INFO: [Synth 8-6157] synthesizing module 'memory_ctrl_v2' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_ctrl_v2.sv:9]
+INFO: [Synth 8-6155] done synthesizing module 'memory_ctrl_v2' (0#1) [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_ctrl_v2.sv:9]
+WARNING: [Synth 8-7071] port 'memory_ctrl_error_vector' of module 'memory_ctrl_v2' is unconnected for instance 'Ctrl_Memory' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:64]
+WARNING: [Synth 8-7023] instance 'Ctrl_Memory' of module 'memory_ctrl_v2' has 13 connections declared, but only 12 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:64]
+WARNING: [Synth 8-689] width (7) of port connection 'data_in' does not match port width (32) of module 'register_v2' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:82]
+WARNING: [Synth 8-689] width (7) of port connection 'data_out' does not match port width (32) of module 'register_v2' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:83]
+WARNING: [Synth 8-7071] port 'RE' of module 'register_v2' is unconnected for instance 'Reg_Seg0' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:79]
+WARNING: [Synth 8-7023] instance 'Reg_Seg0' of module 'register_v2' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:79]
+WARNING: [Synth 8-689] width (7) of port connection 'data_in' does not match port width (32) of module 'register_v2' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:90]
+WARNING: [Synth 8-689] width (7) of port connection 'data_out' does not match port width (32) of module 'register_v2' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:91]
+WARNING: [Synth 8-7071] port 'RE' of module 'register_v2' is unconnected for instance 'Reg_Seg1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:87]
+WARNING: [Synth 8-7023] instance 'Reg_Seg1' of module 'register_v2' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:87]
 INFO: [Synth 8-6157] synthesizing module 'mux4_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/muxes_v1.sv:24]
 INFO: [Synth 8-6155] done synthesizing module 'mux4_v1' (0#1) [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/muxes_v1.sv:24]
-INFO: [Synth 8-6157] synthesizing module 'memory_ctrl_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_ctrl_v1.sv:7]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_ctrl_v1.sv:54]
-INFO: [Synth 8-6155] done synthesizing module 'memory_ctrl_v1' (0#1) [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_ctrl_v1.sv:7]
-WARNING: [Synth 8-689] width (7) of port connection 'data_out' does not match port width (32) of module 'register_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:149]
-WARNING: [Synth 8-7071] port 'register_error_vector' of module 'register_v1' is unconnected for instance 'reg_seg0' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:144]
-WARNING: [Synth 8-7023] instance 'reg_seg0' of module 'register_v1' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:144]
-WARNING: [Synth 8-689] width (7) of port connection 'data_out' does not match port width (32) of module 'register_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:157]
-WARNING: [Synth 8-7071] port 'register_error_vector' of module 'register_v1' is unconnected for instance 'reg_seg1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:152]
-WARNING: [Synth 8-7023] instance 'reg_seg1' of module 'register_v1' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:152]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:160]
-WARNING: [Synth 8-7071] port 'register_error_vector' of module 'register_v1' is unconnected for instance 'reg_seg2' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:160]
-WARNING: [Synth 8-7023] instance 'reg_seg2' of module 'register_v1' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:160]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:168]
-WARNING: [Synth 8-7071] port 'register_error_vector' of module 'register_v1' is unconnected for instance 'reg_seg3' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:168]
-WARNING: [Synth 8-7023] instance 'reg_seg3' of module 'register_v1' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:168]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:176]
-WARNING: [Synth 8-7071] port 'register_error_vector' of module 'register_v1' is unconnected for instance 'reg_seg4' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:176]
-WARNING: [Synth 8-7023] instance 'reg_seg4' of module 'register_v1' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:176]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:184]
-WARNING: [Synth 8-7071] port 'register_error_vector' of module 'register_v1' is unconnected for instance 'reg_seg5' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:184]
-WARNING: [Synth 8-7023] instance 'reg_seg5' of module 'register_v1' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:184]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:192]
-WARNING: [Synth 8-7071] port 'register_error_vector' of module 'register_v1' is unconnected for instance 'reg_seg6' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:192]
-WARNING: [Synth 8-7023] instance 'reg_seg6' of module 'register_v1' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:192]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:200]
-WARNING: [Synth 8-7071] port 'register_error_vector' of module 'register_v1' is unconnected for instance 'reg_seg7' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:200]
-WARNING: [Synth 8-7023] instance 'reg_seg7' of module 'register_v1' has 6 connections declared, but only 5 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:200]
-INFO: [Synth 8-6155] done synthesizing module 'memory_v2' (0#1) [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:17]
-WARNING: [Synth 8-7071] port 'memory_error_vector' of module 'memory_v2' is unconnected for instance 'memory' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:246]
-WARNING: [Synth 8-7023] instance 'memory' of module 'memory_v2' has 20 connections declared, but only 19 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:246]
-WARNING: [Synth 8-7071] port 'in2' of module 'mux4_v1' is unconnected for instance 'mux_MEMDATA' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:268]
-WARNING: [Synth 8-7071] port 'in3' of module 'mux4_v1' is unconnected for instance 'mux_MEMDATA' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:268]
-WARNING: [Synth 8-7071] port 'in4' of module 'mux4_v1' is unconnected for instance 'mux_MEMDATA' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:268]
-WARNING: [Synth 8-7023] instance 'mux_MEMDATA' of module 'mux4_v1' has 6 connections declared, but only 3 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:268]
-WARNING: [Synth 8-7071] port 'in2' of module 'mux4_v1' is unconnected for instance 'mux_MEMADDR' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:274]
-WARNING: [Synth 8-7071] port 'in3' of module 'mux4_v1' is unconnected for instance 'mux_MEMADDR' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:274]
-WARNING: [Synth 8-7071] port 'in4' of module 'mux4_v1' is unconnected for instance 'mux_MEMADDR' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:274]
-WARNING: [Synth 8-7023] instance 'mux_MEMADDR' of module 'mux4_v1' has 6 connections declared, but only 3 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:274]
+INFO: [Synth 8-6157] synthesizing module 'demux4_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/muxes_v1.sv:45]
+INFO: [Synth 8-6155] done synthesizing module 'demux4_v1' (0#1) [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/muxes_v1.sv:45]
+WARNING: [Synth 8-689] width (7) of port connection 'out2' does not match port width (32) of module 'demux4_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:107]
+WARNING: [Synth 8-689] width (7) of port connection 'out3' does not match port width (32) of module 'demux4_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:108]
+INFO: [Synth 8-6155] done synthesizing module 'memory_v3' (0#1) [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:6]
+WARNING: [Synth 8-689] width (32) of port connection 'addr' does not match port width (10) of module 'memory_v3' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:244]
+WARNING: [Synth 8-7071] port 'memory_error_vector' of module 'memory_v3' is unconnected for instance 'memory' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:241]
+WARNING: [Synth 8-7023] instance 'memory' of module 'memory_v3' has 17 connections declared, but only 16 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:241]
+WARNING: [Synth 8-7071] port 'in2' of module 'mux4_v1' is unconnected for instance 'muxMemData' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:260]
+WARNING: [Synth 8-7071] port 'in3' of module 'mux4_v1' is unconnected for instance 'muxMemData' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:260]
+WARNING: [Synth 8-7071] port 'in4' of module 'mux4_v1' is unconnected for instance 'muxMemData' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:260]
+WARNING: [Synth 8-7023] instance 'muxMemData' of module 'mux4_v1' has 6 connections declared, but only 3 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:260]
+WARNING: [Synth 8-7071] port 'in3' of module 'mux4_v1' is unconnected for instance 'muxMemAddr' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:266]
+WARNING: [Synth 8-7071] port 'in4' of module 'mux4_v1' is unconnected for instance 'muxMemAddr' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:266]
+WARNING: [Synth 8-7023] instance 'muxMemAddr' of module 'mux4_v1' has 6 connections declared, but only 4 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:266]
 INFO: [Synth 8-6157] synthesizing module 'mux8_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/muxes_v1.sv:72]
 INFO: [Synth 8-6155] done synthesizing module 'mux8_v1' (0#1) [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/muxes_v1.sv:72]
 INFO: [Synth 8-6157] synthesizing module 'zeroPadder_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/zeroPadder_v1.sv:7]
@@ -121,91 +107,34 @@ INFO: [Synth 8-6155] done synthesizing module 'zeroPadder_v1' (0#1) [C:/FPGA_stu
 INFO: [Synth 8-6157] synthesizing module 'ALU_controller_v1' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/ALU_controller_v1.sv:5]
 INFO: [Synth 8-226] default block is never used [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/ALU_controller_v1.sv:22]
 INFO: [Synth 8-6155] done synthesizing module 'ALU_controller_v1' (0#1) [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/ALU_controller_v1.sv:5]
-WARNING: [Synth 8-7071] port 'alu_controller_error_vector' of module 'ALU_controller_v1' is unconnected for instance 'alu_control' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:369]
-WARNING: [Synth 8-7023] instance 'alu_control' of module 'ALU_controller_v1' has 5 connections declared, but only 4 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:369]
+WARNING: [Synth 8-7071] port 'alu_controller_error_vector' of module 'ALU_controller_v1' is unconnected for instance 'alu_control' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:340]
+WARNING: [Synth 8-7023] instance 'alu_control' of module 'ALU_controller_v1' has 5 connections declared, but only 4 given [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:340]
 INFO: [Synth 8-6155] done synthesizing module 'toplevel_v1' (0#1) [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:3]
-WARNING: [Synth 8-3848] Net current_state_vector in module/entity controller_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:38]
-WARNING: [Synth 8-3848] Net next_state_vector in module/entity controller_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:39]
+WARNING: [Synth 8-3848] Net link_reg in module/entity controller_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:34]
+WARNING: [Synth 8-3848] Net current_state_vector in module/entity controller_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:41]
+WARNING: [Synth 8-3848] Net next_state_vector in module/entity controller_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/controller_v1.sv:42]
 WARNING: [Synth 8-3848] Net reg_file_error_vector in module/entity register_file_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/registerFile_v1.sv:17]
-WARNING: [Synth 8-3848] Net out_hi in module/entity ALU_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/ALU_v1.sv:15]
-WARNING: [Synth 8-7137] Register reg_storage_reg in module register_v1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/register_v1.sv:19]
-WARNING: [Synth 8-3848] Net register_error_vector in module/entity register_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/register_v1.sv:10]
+WARNING: [Synth 8-3848] Net out_hi in module/entity ALU_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/ALU_v1.sv:16]
 WARNING: [Synth 8-3848] Net ram_error_vector in module/entity ram_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/ram_v1.sv:17]
-WARNING: [Synth 8-7137] Register seg0_wren_reg in module memory_ctrl_v1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_ctrl_v1.sv:41]
-WARNING: [Synth 8-7137] Register seg1_wren_reg in module memory_ctrl_v1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_ctrl_v1.sv:42]
-WARNING: [Synth 8-7137] Register seg2_wren_reg in module memory_ctrl_v1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_ctrl_v1.sv:43]
-WARNING: [Synth 8-7137] Register seg3_wren_reg in module memory_ctrl_v1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_ctrl_v1.sv:44]
-WARNING: [Synth 8-7137] Register seg4_wren_reg in module memory_ctrl_v1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_ctrl_v1.sv:45]
-WARNING: [Synth 8-7137] Register seg5_wren_reg in module memory_ctrl_v1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_ctrl_v1.sv:46]
-WARNING: [Synth 8-7137] Register seg6_wren_reg in module memory_ctrl_v1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_ctrl_v1.sv:47]
-WARNING: [Synth 8-7137] Register seg7_wren_reg in module memory_ctrl_v1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_ctrl_v1.sv:48]
-WARNING: [Synth 8-3848] Net pmod_out in module/entity memory_v2 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:31]
-WARNING: [Synth 8-3848] Net seg2 in module/entity memory_v2 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:37]
-WARNING: [Synth 8-3848] Net seg3 in module/entity memory_v2 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:38]
-WARNING: [Synth 8-3848] Net seg4 in module/entity memory_v2 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:39]
-WARNING: [Synth 8-3848] Net seg5 in module/entity memory_v2 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:40]
-WARNING: [Synth 8-3848] Net seg6 in module/entity memory_v2 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:41]
-WARNING: [Synth 8-3848] Net seg7 in module/entity memory_v2 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:42]
-WARNING: [Synth 8-3848] Net memory_error_vector in module/entity memory_v2 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v2.sv:46]
-WARNING: [Synth 8-3848] Net signed_zero_padded in module/entity zeroPadder_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/zeroPadder_v1.sv:10]
+WARNING: [Synth 8-3848] Net memory_ctrl_error_vector in module/entity memory_ctrl_v2 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_ctrl_v2.sv:25]
+WARNING: [Synth 8-3848] Net seg2 in module/entity memory_v3 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:16]
+WARNING: [Synth 8-3848] Net seg3 in module/entity memory_v3 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:17]
+WARNING: [Synth 8-3848] Net seg4 in module/entity memory_v3 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:18]
+WARNING: [Synth 8-3848] Net seg5 in module/entity memory_v3 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:19]
+WARNING: [Synth 8-3848] Net seg6 in module/entity memory_v3 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:20]
+WARNING: [Synth 8-3848] Net seg7 in module/entity memory_v3 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:21]
+WARNING: [Synth 8-3848] Net memory_error_vector in module/entity memory_v3 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/memory_v3.sv:26]
 WARNING: [Synth 8-87] always_comb on 'alu_controller_error_vector_reg' did not result in combinational logic [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/ALU_controller_v1.sv:43]
-WARNING: [Synth 8-3848] Net seg0 in module/entity toplevel_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:12]
-WARNING: [Synth 8-3848] Net seg1 in module/entity toplevel_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:13]
-WARNING: [Synth 8-3848] Net seg2 in module/entity toplevel_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:14]
-WARNING: [Synth 8-3848] Net seg3 in module/entity toplevel_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:15]
-WARNING: [Synth 8-3848] Net seg4 in module/entity toplevel_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:16]
-WARNING: [Synth 8-3848] Net seg5 in module/entity toplevel_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:17]
-WARNING: [Synth 8-3848] Net seg6 in module/entity toplevel_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:18]
-WARNING: [Synth 8-3848] Net seg7 in module/entity toplevel_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:19]
-WARNING: [Synth 8-3848] Net toplevel_error_vector in module/entity toplevel_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:24]
-WARNING: [Synth 8-3848] Net sel_memdata in module/entity toplevel_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:32]
-WARNING: [Synth 8-3848] Net sel_memaddr in module/entity toplevel_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:33]
-WARNING: [Synth 8-3848] Net WE_regA in module/entity toplevel_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:41]
-WARNING: [Synth 8-3848] Net WE_regB in module/entity toplevel_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:42]
-WARNING: [Synth 8-3848] Net WE_regPC in module/entity toplevel_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:43]
-WARNING: [Synth 8-3848] Net WE_regIR in module/entity toplevel_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:44]
-WARNING: [Synth 8-3848] Net en_wr_link_reg in module/entity toplevel_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:49]
-WARNING: [Synth 8-7129] Port signed_zero_padded[31] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[30] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[29] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[28] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[27] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[26] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[25] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[24] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[23] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[22] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[21] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[20] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[19] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[18] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[17] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[16] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[15] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[14] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[13] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[12] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[11] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[10] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[9] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[8] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[7] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[6] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[5] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[4] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[3] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[2] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[1] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port signed_zero_padded[0] in module zeroPadder_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port register_error_vector[7] in module register_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port register_error_vector[6] in module register_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port register_error_vector[5] in module register_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port register_error_vector[4] in module register_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port register_error_vector[3] in module register_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port register_error_vector[2] in module register_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port register_error_vector[1] in module register_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port register_error_vector[0] in module register_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port rd_en in module memory_ctrl_v1 is either unconnected or has no load
+WARNING: [Synth 8-3848] Net toplevel_error_vector in module/entity toplevel_v1 does not have driver. [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/toplevel_v1.sv:21]
+WARNING: [Synth 8-7129] Port RE in module register_v2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port memory_ctrl_error_vector[7] in module memory_ctrl_v2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port memory_ctrl_error_vector[6] in module memory_ctrl_v2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port memory_ctrl_error_vector[5] in module memory_ctrl_v2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port memory_ctrl_error_vector[4] in module memory_ctrl_v2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port memory_ctrl_error_vector[3] in module memory_ctrl_v2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port memory_ctrl_error_vector[2] in module memory_ctrl_v2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port memory_ctrl_error_vector[1] in module memory_ctrl_v2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port memory_ctrl_error_vector[0] in module memory_ctrl_v2 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ram_error_vector[7] in module ram_v1 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ram_error_vector[6] in module ram_v1 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ram_error_vector[5] in module ram_v1 is either unconnected or has no load
@@ -215,92 +144,119 @@ WARNING: [Synth 8-7129] Port ram_error_vector[2] in module ram_v1 is either unco
 WARNING: [Synth 8-7129] Port ram_error_vector[1] in module ram_v1 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ram_error_vector[0] in module ram_v1 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port rst in module ram_v1 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port pmod_out[14] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port pmod_out[13] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port pmod_out[12] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port pmod_out[11] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port pmod_out[10] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port pmod_out[9] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port pmod_out[8] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port pmod_out[7] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port pmod_out[6] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port pmod_out[5] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port pmod_out[4] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port pmod_out[3] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port pmod_out[2] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port pmod_out[1] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port pmod_out[0] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg2[6] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg2[5] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg2[4] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg2[3] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg2[2] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg2[1] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg2[0] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg3[6] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg3[5] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg3[4] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg3[3] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg3[2] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg3[1] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg3[0] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg4[6] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg4[5] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg4[4] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg4[3] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg4[2] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg4[1] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg4[0] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg5[6] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg5[5] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg5[4] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg5[3] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg5[2] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg5[1] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg5[0] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg6[6] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg6[5] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg6[4] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg6[3] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg6[2] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg6[1] in module memory_v2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port seg6[0] in module memory_v2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg2[6] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg2[5] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg2[4] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg2[3] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg2[2] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg2[1] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg2[0] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg3[6] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg3[5] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg3[4] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg3[3] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg3[2] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg3[1] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg3[0] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg4[6] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg4[5] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg4[4] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg4[3] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg4[2] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg4[1] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg4[0] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg5[6] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg5[5] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg5[4] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg5[3] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg5[2] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg5[1] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg5[0] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg6[6] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg6[5] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg6[4] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg6[3] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg6[2] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg6[1] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg6[0] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg7[6] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg7[5] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg7[4] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg7[3] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg7[2] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg7[1] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seg7[0] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port memory_error_vector[7] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port memory_error_vector[6] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port memory_error_vector[5] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port memory_error_vector[4] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port memory_error_vector[3] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port memory_error_vector[2] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port memory_error_vector[1] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port memory_error_vector[0] in module memory_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[31] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[30] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[29] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[28] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[27] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[26] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[25] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[24] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[23] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[22] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[21] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[20] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[19] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[18] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[17] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[16] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[15] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[14] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[13] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[12] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[11] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[10] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[9] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[8] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[7] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[6] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[5] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[4] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[3] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[2] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[1] in module ALU_v1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port out_hi[0] in module ALU_v1 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 981.465 ; gain = 591.305
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 984.160 ; gain = 587.520
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 981.465 ; gain = 591.305
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 984.160 ; gain = 587.520
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
----------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7s50csga324-1
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 981.465 ; gain = 591.305
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 984.160 ; gain = 587.520
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'controller_v1'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-                    INIT |                           000001 |                            00000
-                    IDLE |                           000010 |                            00001
-                   FETCH |                           000100 |                            00010
-                  DECODE |                           001000 |                            00100
-                 EXECUTE |                           010000 |                            01000
-               WRITEBACK |                           100000 |                            10000
+                    INIT |                           000001 |                           000000
+                    IDLE |                           000010 |                           000001
+                   FETCH |                           000100 |                           000010
+                  DECODE |                           001000 |                           000100
+                 EXECUTE |                           010000 |                           001000
+               WRITEBACK |                           100000 |                           010000
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'controller_v1'
 WARNING: [Synth 8-327] inferring latch for variable 'alu_controller_error_vector_reg' [C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/src/ALU_controller_v1.sv:43]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 981.465 ; gain = 591.305
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 984.160 ; gain = 587.520
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-223] decloning instance 'memory/reg_seg2' (register_v1) to 'memory/reg_seg3'
-INFO: [Synth 8-223] decloning instance 'memory/reg_seg2' (register_v1) to 'memory/reg_seg4'
-INFO: [Synth 8-223] decloning instance 'memory/reg_seg2' (register_v1) to 'memory/reg_seg5'
-INFO: [Synth 8-223] decloning instance 'memory/reg_seg2' (register_v1) to 'memory/reg_seg6'
-INFO: [Synth 8-223] decloning instance 'memory/reg_seg2' (register_v1) to 'memory/reg_seg7'
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -312,23 +268,23 @@ Detailed RTL Component Info :
 +---XORs : 
 	   2 Input     32 Bit         XORs := 1     
 +---Registers : 
-	               32 Bit    Registers := 42    
-	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 3     
+	               32 Bit    Registers := 41    
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 20    
+	   2 Input   32 Bit        Muxes := 9     
 	   4 Input   32 Bit        Muxes := 42    
 	   6 Input    8 Bit        Muxes := 2     
 	  12 Input    8 Bit        Muxes := 1     
-	   2 Input    6 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 2     
 	   6 Input    6 Bit        Muxes := 1     
 	   8 Input    4 Bit        Muxes := 1     
 	   2 Input    3 Bit        Muxes := 1     
 	   3 Input    3 Bit        Muxes := 1     
-	   6 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 75    
-	   6 Input    1 Bit        Muxes := 3     
-	   4 Input    1 Bit        Muxes := 32    
+	   2 Input    2 Bit        Muxes := 3     
+	   4 Input    2 Bit        Muxes := 1     
+	   6 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 72    
+	   4 Input    1 Bit        Muxes := 2     
+	   6 Input    1 Bit        Muxes := 4     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -346,6 +302,8 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7257] Removed RAM (memory/RAM/mem_reg) due to inactive write enable.
+WARNING: [Synth 8-6014] Unused sequential element memory/RAM/mem_reg was removed. 
 WARNING: [Synth 8-3332] Sequential element (controller1/FSM_onehot_current_state_reg[5]) is unused and will be removed from module toplevel_v1.
 WARNING: [Synth 8-3332] Sequential element (controller1/FSM_onehot_current_state_reg[4]) is unused and will be removed from module toplevel_v1.
 WARNING: [Synth 8-3332] Sequential element (controller1/FSM_onehot_current_state_reg[3]) is unused and will be removed from module toplevel_v1.
@@ -361,20 +319,20 @@ WARNING: [Synth 8-3332] Sequential element (alu_control/alu_controller_error_vec
 WARNING: [Synth 8-3332] Sequential element (alu_control/alu_controller_error_vector_reg[1]) is unused and will be removed from module toplevel_v1.
 WARNING: [Synth 8-3332] Sequential element (alu_control/alu_controller_error_vector_reg[0]) is unused and will be removed from module toplevel_v1.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:32 . Memory (MB): peak = 1128.969 ; gain = 738.809
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1133.406 ; gain = 736.766
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:32 . Memory (MB): peak = 1144.770 ; gain = 754.609
+Finished Timing Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1149.707 ; gain = 753.066
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:32 . Memory (MB): peak = 1144.770 ; gain = 754.609
+Finished Technology Mapping : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1149.707 ; gain = 753.066
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -392,37 +350,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 1338.270 ; gain = 948.109
+Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1341.953 ; gain = 945.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 1338.270 ; gain = 948.109
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1341.953 ; gain = 945.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 1338.270 ; gain = 948.109
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1341.953 ; gain = 945.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 1338.270 ; gain = 948.109
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1341.953 ; gain = 945.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 1338.270 ; gain = 948.109
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1341.953 ; gain = 945.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 1338.270 ; gain = 948.109
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1341.953 ; gain = 945.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -438,7 +396,8 @@ Report Cell Usage:
 +------+------+------+
 |      |Cell  |Count |
 +------+------+------+
-|1     |OBUFT |    64|
+|1     |OBUF  |    14|
+|2     |OBUFT |    50|
 +------+------+------+
 
 Report Instance Areas: 
@@ -448,25 +407,25 @@ Report Instance Areas:
 |1     |top      |       |    64|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 1338.270 ; gain = 948.109
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1341.953 ; gain = 945.312
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 676 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 1338.270 ; gain = 948.109
-Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 1338.270 ; gain = 948.109
+Synthesis finished with 0 errors, 0 critical warnings and 390 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1341.953 ; gain = 945.312
+Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1341.953 ; gain = 945.312
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1353.281 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1355.121 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1459.047 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1461.117 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 84d6745
+Synth Design complete | Checksum: 1f565b0a
 INFO: [Common 17-83] Releasing license: Synthesis
-55 Infos, 220 Warnings, 0 Critical Warnings and 0 Errors encountered.
+47 Infos, 186 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:45 . Memory (MB): peak = 1459.047 ; gain = 1071.852
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1459.047 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1461.117 ; gain = 1069.695
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1461.117 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/FPGA_stuff/ChesapeakeArchitecture/riscv_core/vivado_proj/riscv_core_v1.runs/synth_1/toplevel_v1.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file toplevel_v1_utilization_synth.rpt -pb toplevel_v1_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Jul 17 15:45:20 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun Jul 20 11:54:38 2025...

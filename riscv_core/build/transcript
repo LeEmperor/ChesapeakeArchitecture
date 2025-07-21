@@ -14,7 +14,7 @@
 # //
 # do ../build_scripts/full_script.do
 # Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
-# Start time: 22:51:11 on Jul 19,2025
+# Start time: 19:59:59 on Jul 20,2025
 # vlog -reportprogress 300 -sv -incr ../src/muxes_v1.sv ../src/ALU_v1.sv ../src/controller_v1.sv ../src/registerFile_v1.sv ../src/register_v1.sv ../src/ram_v1.sv ../src/memory_ctrl_v2.sv ../src/memory_v3.sv ../src/zeroPadder_v1.sv ../src/register_v2.sv ../src/ALU_controller_v1.sv ../src/toplevel_v1.sv ../testbenches/ALU_v1_tb.sv ../testbenches/mux2_v1_tb.sv ../testbenches/ram_v1_tb.sv ../testbenches/param_mux_v1_tb.sv ../testbenches/memory_v3_tb.sv ../testbenches/registerFile_v1_tb.sv ../testbenches/zeroPadder_v1_tb.sv ../testbenches/register_v2_tb.sv ../testbenches/toplevel_v1_tb.sv 
 # -- Skipping module mux2_v1
 # -- Skipping module mux4_v1
@@ -40,7 +40,7 @@
 # -- Skipping module testbench_registerFile_v1
 # -- Skipping module testbench_zeroPadder_v1
 # -- Skipping module testbench_register_v2
-# -- Compiling module testbench_toplevel_v1
+# -- Skipping module testbench_toplevel_v1
 # 
 # Top level modules:
 # 	mux16_v1
@@ -54,10 +54,10 @@
 # 	testbench_zeroPadder_v1
 # 	testbench_register_v2
 # 	testbench_toplevel_v1
-# End time: 22:51:11 on Jul 19,2025, Elapsed time: 0:00:00
+# End time: 19:59:59 on Jul 20,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -t 1ps -L work -voptargs=""+acc"" testbench_toplevel_v1 
-# Start time: 22:51:11 on Jul 19,2025
+# Start time: 19:59:59 on Jul 20,2025
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
 # ** Warning: ../testbenches/toplevel_v1_tb.sv(25): (vopt-2685) [TFMPC] - Too few port connections for 'dut'.  Expected 15, found 8.
@@ -86,13 +86,13 @@
 # Loading work.zeroPadder_v1(fast)
 # Loading work.ALU_controller_v1(fast)
 # ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (5) for port 'in1'. The port definition is at: ../src/muxes_v1.sv(10).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_toplevel_v1/dut/muxRegFileAddr2 File: ../src/toplevel_v1.sv Line: 166
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_toplevel_v1/dut/muxRegFileAddr2 File: ../src/toplevel_v1.sv Line: 167
 # ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (5) for port 'in2'. The port definition is at: ../src/muxes_v1.sv(11).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_toplevel_v1/dut/muxRegFileAddr2 File: ../src/toplevel_v1.sv Line: 166
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_toplevel_v1/dut/muxRegFileAddr2 File: ../src/toplevel_v1.sv Line: 167
 # ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (5) for port 'out1'. The port definition is at: ../src/muxes_v1.sv(12).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_toplevel_v1/dut/muxRegFileAddr2 File: ../src/toplevel_v1.sv Line: 166
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_toplevel_v1/dut/muxRegFileAddr2 File: ../src/toplevel_v1.sv Line: 167
 # ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (32) for port 'addr'. The port definition is at: ../src/memory_v3.sv(7).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_toplevel_v1/dut/memory File: ../src/toplevel_v1.sv Line: 240
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_toplevel_v1/dut/memory File: ../src/toplevel_v1.sv Line: 242
 # ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (7) for port 'data_in'. The port definition is at: ../src/register_v2.sv(12).
 #    Time: 0 ps  Iteration: 0  Instance: /testbench_toplevel_v1/dut/memory/Reg_Seg0 File: ../src/memory_v3.sv Line: 79
 # ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (7) for port 'data_out'. The port definition is at: ../src/register_v2.sv(13).
@@ -105,9 +105,11 @@
 #    Time: 0 ps  Iteration: 0  Instance: /testbench_toplevel_v1/dut/memory/Demux_DataIn File: ../src/memory_v3.sv Line: 104
 # ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (7) for port 'out3'. The port definition is at: ../src/muxes_v1.sv(52).
 #    Time: 0 ps  Iteration: 0  Instance: /testbench_toplevel_v1/dut/memory/Demux_DataIn File: ../src/memory_v3.sv Line: 104
+# ** Warning: (vsim-3015) [PCDPC] - Port size (12) does not match connection size (32) for port 'offset_padded'. The port definition is at: ../src/zeroPadder_v1.sv(12).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_toplevel_v1/dut/padder File: ../src/toplevel_v1.sv Line: 336
 # 0 ps
-# 199500 ps
+# 309750 ps
 # .main_pane.wave.interior.cs.body.pw.wf
 quit
-# End time: 22:52:41 on Jul 19,2025, Elapsed time: 0:01:30
-# Errors: 0, Warnings: 19
+# End time: 20:08:59 on Jul 20,2025, Elapsed time: 0:09:00
+# Errors: 0, Warnings: 20

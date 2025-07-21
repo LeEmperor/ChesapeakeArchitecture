@@ -125,6 +125,7 @@ add wave -noupdate /testbench_toplevel_v1/dut/registerfile1/i
 add wave -noupdate /testbench_toplevel_v1/dut/muxRegFileAddr2/in1
 add wave -noupdate /testbench_toplevel_v1/dut/muxRegFileAddr2/in2
 add wave -noupdate /testbench_toplevel_v1/dut/muxRegFileAddr2/out1
+add wave -noupdate /testbench_toplevel_v1/dut/alu1/shamt
 add wave -noupdate /testbench_toplevel_v1/dut/muxRegFileAddr2/sel
 add wave -noupdate /testbench_toplevel_v1/dut/alu1/a
 add wave -noupdate /testbench_toplevel_v1/dut/alu1/b
@@ -315,7 +316,7 @@ add wave -noupdate /testbench_toplevel_v1/dut/alu_control/funct_3
 add wave -noupdate /testbench_toplevel_v1/dut/alu_control/alu_code
 add wave -noupdate /testbench_toplevel_v1/dut/alu_control/alu_controller_error_vector
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {25183 ps} 0}
+WaveRestoreCursors {{Cursor 1} {47865 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 229
 configure wave -valuecolwidth 100
@@ -331,4 +332,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ps} {66194 ps}
+WaveRestoreZoom {0 ps} {183750 ps}

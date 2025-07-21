@@ -238,9 +238,15 @@ module controller_v1 (
                             alu_src_b = 2;
                     end
 
-                    7'b00000_11 : begin // load-types
+                    7'b0110011 : begin // r-types
+                        alu_src_b = 0;
+                        reg_a_write = 1;
+                        reg_b_write = 1;
+                    end
+
+                    7'b00000_11 : begin // l-types
                         case(funct3)
-                            3'b010 : begin // LW
+                            3'b010 : begin // lw
                                 alu_src_b = 1; // unsigned padded immediate
                                 reg_a_write = 1; // *rs1
                                 reg_b_write = 1; // immediate
@@ -248,6 +254,27 @@ module controller_v1 (
 
                             default
                                 moore_map_error_vector = 'd55;
+                        endcase
+                    end
+
+                    7'b0100011 : begin // s-types
+                        case(funct3)
+                            3'b000 : begin // sb
+
+                            end
+
+                            3'b001 : begin // sh
+
+                            end
+
+                            3'b010 : begin // sw
+                                alu_src_b = 'd3;
+                                reg_a_write = 1;
+                                reg_b_write = 1;
+                            end
+
+                            default
+                                moore_map_error_vector = 'd56;
                         endcase
                     end
 
@@ -278,9 +305,20 @@ module controller_v1 (
 
                     7'b00000_11 : begin // load-types
                         regFile_rdwr_config = 'b10;
-                        regFile_addr2 = 1;
+                        regFile_addr2 = 1; // écrire à rd
                         memaddr_source = 1;
                         regFile_wrdata2 = 1;
+                    end
+
+                    7'b0110011 : begin // r-type
+                        regFile_rdwr_config = 'b10;
+                        regFile_addr2 = 1;
+                    end
+
+                    7'b0100011 : begin // s-type
+                        memaddr_source = 1;
+                        memdata_source = 1;
+                        mem_write = 1;
                     end
 
                     default : begin

@@ -61,6 +61,7 @@ module toplevel_v1 (
     logic [11:0] wire_immediate_to_padder;
     logic [31:0] wire_unsignedpadder_to_muxB;
     logic [31:0] wire_signedpadder_to_muxB;
+    logic [31:0] wire_sw_offset_padded;
 
     logic [31:0] wire_muxIR_to_regIR;
     logic [31:0] wire_muxPC_to_regPC;
@@ -89,7 +90,7 @@ module toplevel_v1 (
     logic [31:0] ir_31_0; // whole instruction
     logic [11:0] ir_31_20; // immediate
     logic [4:0] ir_19_15; // rs1
-    logic [4:0] ir_24_20; // rs2
+    logic [4:0] ir_24_20; // rs2 (ou shamt)
     logic [6:0] ir_31_25; // funct7
     logic [2:0] ir_14_12; // funct3
     logic [4:0] ir_11_7; // rd de i-type
@@ -178,6 +179,7 @@ module toplevel_v1 (
         .op_code(wire_ALU_opcode),
         .zero_flag(),
         .sign_flag(),
+        .shamt(ir_24_20),
         .alu_error_vector()
     );
 
@@ -258,6 +260,7 @@ module toplevel_v1 (
 
     mux4_v1 muxMemData (
         .in1(wire_ALU_result),
+        .in2(wire_regdata2_to_muxB),
         .out1(wire_muxMEMDATA_to_mem),
         .sel(SEL_memdata)
     );
@@ -282,7 +285,7 @@ module toplevel_v1 (
         .in1(wire_regdata2_to_muxB), // regfile
         .in2(wire_unsignedpadder_to_muxB), // unsigned padded immediate
         .in3(wire_signedpadder_to_muxB), // signed   padded immediate
-        .in4(),
+        .in4(wire_sw_offset_padded),
         .in5(),
         .in6(),
         .in7(),
@@ -333,6 +336,9 @@ module toplevel_v1 (
     zeroPadder_v1 padder (
         .immediate(wire_immediate_to_padder),
         .unsigned_zero_padded(wire_unsignedpadder_to_muxB),
+        .immediate_11_5(ir_31_25),
+        .immediate_4_0(ir_11_7),
+        .offset_padded(wire_sw_offset_padded),
         .signed_zero_padded(wire_signedpadder_to_muxB)
     );
 

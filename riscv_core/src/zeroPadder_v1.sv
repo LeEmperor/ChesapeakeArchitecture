@@ -6,10 +6,14 @@
 
 module zeroPadder_v1 (
     input logic [11:0] immediate,
+    input logic [6:0] immediate_11_5,
+    input logic [4:0] immediate_4_0,
     output logic [31:0] unsigned_zero_padded,
+    output logic [11:0] offset_padded,
     output logic [31:0] signed_zero_padded
 );
     assign unsigned_zero_padded = {20'b0, immediate};
+    assign offset_padded = { 20'b0, immediate_11_5, immediate_4_0 };
     // assign signed_zero_padded = {};
 
     always @(*)

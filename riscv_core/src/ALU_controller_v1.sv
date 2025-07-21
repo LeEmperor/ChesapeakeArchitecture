@@ -15,7 +15,7 @@ module ALU_controller_v1 (
     always_comb
     begin
 
-        alu_code = 1;
+        alu_code = 0;
 
         case (op_code)
             7'b001_0011 : // i-type
@@ -54,8 +54,51 @@ module ALU_controller_v1 (
                         alu_controller_error_vector = 'd1;
                 endcase
 
-            7'b011_0011 : // r-type
+            7'b011_0011 : begin // r-type
                 alu_code = 0;
+
+                case(funct_3)
+                    'b000 : begin // add/sub
+                        alu_code = 0;
+                        if (funct_7 == 7'b01_00000)
+                            alu_code = 1;
+                    end
+
+                    'b001 : begin // sll
+                        alu_code = 'd10;
+                    end
+
+                    'b010 : begin // slt
+                        alu_code = 'd8;
+                    end
+
+                    'b011 : begin // sltu
+                        alu_code = 'd9;
+                    end
+
+                    'b100 : begin // xor
+                        alu_code = 'd4;
+                    end
+
+                    'b101 : begin // srl/sra
+                        alu_code = 'd6;
+                        if (funct_7 == 7'b01_00000)
+                            alu_code = 'd12;
+                    end
+
+                    'b110 : begin // or
+                        alu_code = 'd3;
+                    end
+
+                    'b111 : begin // and
+                        alu_code = 'd2;
+                    end
+
+                    default:
+                        alu_controller_error_vector = 'd4;
+                endcase
+            end
+
             7'b11_00011 : // b-type
                 alu_code = 0;
             7'b01_00011 : // s-instructions (store-type)
