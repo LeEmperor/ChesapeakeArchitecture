@@ -78,8 +78,8 @@ module ALU_v1 (
 
             4'd8 : begin // 8 slt
                 // result = ($signed(a) < $signed(b)) ? 32'd1 : 32'd0;
-                a_signed = $signed(a);
-                b_signed = $signed(b);
+                // a_signed = $signed(a);
+                // b_signed = $signed(b);
                 result = ($signed(a_signed) < $signed(b_signed)) ? 32'd1 : 32'd0;
                 // ????
                 // FUCNTIONELLE
